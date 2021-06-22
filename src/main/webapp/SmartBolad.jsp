@@ -4,11 +4,14 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<%@page import="com.Model.BoladDAO"%>
+<%@page import="com.Model.BoladDTO"%>
+<%@page import="java.util.ArrayList"%>
 <html>
 
 <head>
     <title>Dimension by HTML5 UP</title>
-    <meta charset="utf-8" />
+	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript>
@@ -26,6 +29,12 @@
 </style>
 
 <body class="is-preload">
+	<%
+
+	ArrayList<BoladDTO> list = new ArrayList<BoladDTO>();
+	BoladDAO dao = new BoladDAO();
+	
+	%>
 
     <!-- Wrapper -->
     <div id="wrapper">
@@ -213,31 +222,15 @@
                             <td>상태표시</td>
                             <!-- bstatus -->
                         </tr>
+                        <!-- 반복문으로 반복시킬예정 -->
+                        <% for(int i = 0 ; i < list.size() ; i++) { %>
                         <tr align="center">
-                            <!-- 반복문으로 반복시킬예정 -->
-                            <td>B00001</td>
-                            <td>풍암로</td>
-                            <td>광주산업</td>
-                            <td>정상</td>
+                            <td><%= list.get(i).getBolno() %></td>
+                            <td><%= list.get(i).getStreet() %></td>
+                            <td><%= list.get(i).getProduct() %></td>
+                            <td><%= list.get(i).getBstatus() %></td>
                         </tr>
-                        <tr align="center">
-                            <td>B00001</td>
-                            <td>송암로</td>
-                            <td>광주산업</td>
-                            <td>정상</td>
-                        </tr>
-                        <tr align="center">
-                            <td>B00001</td>
-                            <td>풍암로</td>
-                            <td>광주산업</td>
-                            <td>정상</td>
-                        </tr>
-                        <tr align="center">
-                            <td>B00001</td>
-                            <td>풍암로</td>
-                            <td>광주산업</td>
-                            <td>정상</td>
-                        </tr>
+                        <% } %>
                     </table>
                 </form>
 
