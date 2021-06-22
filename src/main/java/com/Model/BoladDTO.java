@@ -2,23 +2,32 @@ package com.Model;
 
 public class BoladDTO {
 	
-	String bolno;
+	int bolno;
 	String street;
 	String product;
 	String bstatus;
+	String heartbeat;
 	
-	public BoladDTO(String bolno, String street, String product, String bstatus) {
+	public BoladDTO(int bolno, String street, String product, String bstatus, String heartbeat) {
 		this.bolno = bolno;
 		this.street = street;
 		this.product = product;
 		this.bstatus = bstatus;
+		this.heartbeat = heartbeat;
 	}
 
-	public String getBolno() {
+	public BoladDTO(String street, String product) {
+		this.street = street;
+		this.product = product;
+	}
+
+	
+
+	public int getBolno() {
 		return bolno;
 	}
 
-	public void setBolno(String bolno) {
+	public void setBolno(int bolno) {
 		this.bolno = bolno;
 	}
 
@@ -45,7 +54,15 @@ public class BoladDTO {
 	public void setBstatus(String bstatus) {
 		this.bstatus = bstatus;
 	}
-	
+	public String getHeartbeat() {
+		return heartbeat;
+	}
+
+
+
+	public void setHeartbeat(String heartbeat) {
+		this.heartbeat = heartbeat;
+	}
 	
 	
 }
