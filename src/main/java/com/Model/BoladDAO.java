@@ -20,7 +20,7 @@ public class BoladDAO {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String db_url = "jdbc:oracle:thin:@192.168.0.234:1521:xe";
 			String db_id = "second";
 			String db_pw = "second";
 			conn = DriverManager.getConnection(db_url, db_id, db_pw);
@@ -80,6 +80,8 @@ public class BoladDAO {
 		try {
 			String sql = "insert into bolad values(bolno_sequence.nextval, ?, ?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
+			
+			System.out.println(dto.getStreet());
 			psmt.setString(1, dto.getStreet());
 			psmt.setString(2, dto.getProduct());
 			psmt.setString(3, dto.getBstatus());
@@ -94,4 +96,12 @@ public class BoladDAO {
 		
 	}
 	
+//	public void boladUpdate() {
+//		
+//		conn();
+//		
+//		String sql = "update bolad set street = ?, product = ?, bstatus = ?"
+//		
+//	}
+//	
 }
