@@ -23,6 +23,13 @@ public class BoladDTO {
 
 	
 
+	public BoladDTO(String street, String product, String bstatus, String heartbeat) {
+		this.street = street;
+		this.product = product;
+		this.bstatus = bstatus;
+		this.heartbeat = heartbeat;
+	}
+
 	public int getBolno() {
 		return bolno;
 	}

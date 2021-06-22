@@ -22,7 +22,7 @@ public class eventDAO {
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				
-				String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
+				String db_url = "jdbc:oracle:thin:@192.168.0.234:1521:xe";
 				String db_id = "second";
 				String db_pw = "second";
 
