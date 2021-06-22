@@ -32,15 +32,10 @@
 
 <body class="is-preload">
 	<%
-<<<<<<< HEAD
 
 		ArrayList<BoladDTO> list = new ArrayList<BoladDTO>();
 		BoladDAO dao = new BoladDAO();
 	
-=======
-	ArrayList<BoladDTO> list = new ArrayList<BoladDTO>();
-	BoladDAO dao = new BoladDAO();
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
 	%>
 
 	<!-- Wrapper -->
