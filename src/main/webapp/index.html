@@ -7,22 +7,23 @@
 <html>
 
 <head>
-	<title>Dimension by HTML5 UP</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<noscript>
-		<link rel="stylesheet" href="assets/css/noscript.css" />
-	</noscript>
+<title>Dimension by HTML5 UP</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="assets/css/main.css" />
+<noscript>
+	<link rel="stylesheet" href="assets/css/noscript.css" />
+</noscript>
 </head>
 <style>
-	#event {
-		background-color: red;
-	}
+#event {
+	background-color: red;
+}
 
-	.button {
-		background-color: black;
-	}
+.button {
+	background-color: black;
+}
 </style>
 
 <body class="is-preload">
@@ -66,16 +67,17 @@
 				<form action="AdminLogin" method="post">
 					<table>
 						<tr>
-							<td align="right">아이디 : </td>
+							<td align="right">아이디 :</td>
 							<td><input type="text" name="id"></td>
 						</tr>
 						<tr>
-							<td align="right">비밀번호 : </td>
+							<td align="right">비밀번호 :</td>
 							<td><input type="password" name="pw"></td>
 						</tr>
 
 						<tr>
-							<td align="center" colspan="2"><input type="submit" value="로그인"></td>
+							<td align="center" colspan="2"><input type="submit"
+								value="로그인"></td>
 						</tr>
 					</table>
 
@@ -86,39 +88,42 @@
 			<article id="intro">
 				<h2 class="major">제품개요</h2>
 				<span class="image main"><img src="images/Info.gif" alt="" /></span>
-				<p>이 제품은 볼라드에 IoT를 접목한 스마트 볼라드 시스템으로 주기능은 볼라드의 신호표시 및 적신호시 무단횡단을 방지하기위한 시스템으로서 주변 정지선 카메라와 차량/보행자 신호등과의
-					연계로 크게는 교차로 전체를 제어할수있는 획기적인 시스템입니다.</p>
-				<p>또한 이 시스템은 주변 경찰서와의 웹을통한 연계시스템을 통해 볼라드 및 카메라, 신호등 등의 교차로 제어 기기들의 상태파악 및 해당 기기들의 수리부서와의 연락을 통해 고장발견시 즉시
-					수리가 가능토록 조치가 가능합니다.</p>
+				<p>이 제품은 볼라드에 IoT를 접목한 스마트 볼라드 시스템으로 주기능은 볼라드의 신호표시 및 적신호시 무단횡단을
+					방지하기위한 시스템으로서 주변 정지선 카메라와 차량/보행자 신호등과의 연계로 크게는 교차로 전체를 제어할수있는 획기적인
+					시스템입니다.</p>
+				<p>또한 이 시스템은 주변 경찰서와의 웹을통한 연계시스템을 통해 볼라드 및 카메라, 신호등 등의 교차로 제어
+					기기들의 상태파악 및 해당 기기들의 수리부서와의 연락을 통해 고장발견시 즉시 수리가 가능토록 조치가 가능합니다.</p>
 			</article>
 
 			<!-- Admin -->
 			<article id="admin">
-				<h2 class="major"><i class="fas fa-users-cog"></i>관리자등록<i class="fas fa-users-cog"></i></h2>
+				<h2 class="major">
+					<i class="fas fa-users-cog"></i>관리자등록<i class="fas fa-users-cog"></i>
+				</h2>
 				<form action="AdminAdd" method="post">
 					<table>
 						<tr>
-							<td align="right">아이디 : </td>
+							<td align="right">아이디 :</td>
 							<td><input type="text" name="id"></td>
 						</tr>
 						<tr>
-							<td align="right">비밀번호 : </td>
+							<td align="right">비밀번호 :</td>
 							<td><input type="password" name="pw"></td>
 						</tr>
 						<tr>
-							<td align="right">비밀번호확인 : </td>
+							<td align="right">비밀번호확인 :</td>
 							<td><input type="password" name="pwck"></td>
 						</tr>
 						<tr>
-							<td align="right">경관이름 : </td>
+							<td align="right">경관이름 :</td>
 							<td><input type="text" name="admin"></td>
 						</tr>
 						<tr>
-							<td align="right">관할구역 : </td>
+							<td align="right">관할구역 :</td>
 							<td><input type="text" name="zone"></td>
 						</tr>
 						<tr>
-							<td align="right">경찰서명 : </td>
+							<td align="right">경찰서명 :</td>
 							<td><input type="text" name="office"></td>
 						</tr>
 						<tr>
@@ -131,7 +136,9 @@
 
 			<!-- Bolad -->
 			<article id="bolad">
-				<h2 class="major"><i class="fas fa-chess-pawn"></i>볼라드관리<i class="fas fa-chess-pawn"></i></i></h2>
+				<h2 class="major">
+					<i class="fas fa-chess-pawn"></i>볼라드관리<i class="fas fa-chess-pawn"></i></i>
+				</h2>
 				<form>
 					<table>
 						<tr>
@@ -142,64 +149,73 @@
 						</tr>
 					</table>
 					<br>
-					<div id="map" style="width:100%;height:350px;"></div>
+					<div id="map" style="width: 100%; height: 350px;"></div>
 					<script type="text/javascript"
-						src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7c446da1687d0de0e844b9fcd6f01d56"></script>
+						src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4cd120e494a61065de839a6b3498e5cd"></script>
 					<script>
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-							mapOption = {
-								center: new kakao.maps.LatLng(35.123256, 126.862632), // 지도의 중심좌표
-								level: 1 // 지도의 확대 레벨
-							};
+						mapOption = {
+							center : new kakao.maps.LatLng(35.123256,
+									126.862632), // 지도의 중심좌표
+							level : 1
+						// 지도의 확대 레벨
+						};
 
 						var map = new kakao.maps.Map(mapContainer, mapOption);
 
 						var imageSrc = '../../images/fix_bolad.png', // 마커이미지의 주소입니다    
-							imageSize = new kakao.maps.Size(30, 40), // 마커이미지의 크기입니다
-							imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+						imageSize = new kakao.maps.Size(30, 40), // 마커이미지의 크기입니다
+						imageOption = {
+							offset : new kakao.maps.Point(27, 69)
+						}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
 						// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-						var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-							markerPosition = new kakao.maps.LatLng(35.123159, 126.862957); // 마커가 표시될 위치입니다
+						var markerImage = new kakao.maps.MarkerImage(imageSrc,
+								imageSize, imageOption), markerPosition = new kakao.maps.LatLng(
+								35.123159, 126.862957); // 마커가 표시될 위치입니다
 
 						// 마커를 생성합니다
 						var marker = new kakao.maps.Marker({
 
-							position: markerPosition,
-							image: markerImage // 마커이미지 설정 
+							position : markerPosition,
+							image : markerImage
+						// 마커이미지 설정 
 						});
 
 						// 마커가 지도 위에 표시되도록 설정합니다
 						marker.setMap(map);
 
 						// 커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-						var content = '<div class="customoverlay">' +
-							'  <a href="https://map.kakao.com/link/map/11394059" target="_blank">' +
-							'    <span class="title">구의야구공원</span>' +
-							'  </a>' +
-							'</div>';
+						var content = '<div class="customoverlay">'
+								+ '  <a href="https://map.kakao.com/link/map/11394059" target="_blank">'
+								+ '    <span class="title">구의야구공원</span>'
+								+ '  </a>' + '</div>';
 
 						// 커스텀 오버레이가 표시될 위치입니다 
-						var position = new kakao.maps.LatLng(35.122956, 126.863001);
+						var position = new kakao.maps.LatLng(35.122956,
+								126.863001);
 
 						// 커스텀 오버레이를 생성합니다
 						var customOverlay = new kakao.maps.CustomOverlay({
-							map: map,
-							position: position,
-							content: content,
-							yAnchor: 1
+							map : map,
+							position : position,
+							content : content,
+							yAnchor : 1
 						});
-
 					</script>
 					<table>
 						<tr align="center">
-							<td>볼라드번호</td><!-- bolno -->
-							<td>도로명</td><!-- street -->
-							<td>제조공장</td><!-- product -->
-							<td>상태표시</td><!-- bstatus -->
+							<td>볼라드번호</td>
+							<!-- bolno -->
+							<td>도로명</td>
+							<!-- street -->
+							<td>제조공장</td>
+							<!-- product -->
+							<td>상태표시</td>
+							<!-- bstatus -->
 						</tr>
-						<!-- 반복문으로 반복시킬예정 -->
 						<tr align="center">
+							<!-- 반복문으로 반복시킬예정 -->
 							<td>B00001</td>
 							<td>풍암로</td>
 							<td>광주산업</td>
@@ -224,466 +240,594 @@
 							<td>정상</td>
 						</tr>
 					</table>
-
-					<table>
-						<tr>
-						<form action = "#badd"> <!-- 추가창으로이동 insert문 이용 -->
-							<td align="center"><input type="submit" value="추가하기"></td>
-						</form>
-						<form action = "#bupdate"> <!-- 수정창으로이동 update문 이용 -->
-							<td align="center"><input type="submit" value="수정하기"></td>
-						</form>
-						<form action = "#bdelete"> <!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
-							<td align="center"><input type="submit" value="삭제하기"></td>
-						</form>
-						</tr>
-					</table>
 				</form>
+
+				<table>
+					<tr>
+						<form action="#badd">
+							<!-- 추가창으로이동 insert문 이용 -->
+						<td align="center"><input type="submit" value="추가하기"></td>
+						</form>
+						<form action="#bupdate">
+							<!-- 수정창으로이동 update문 이용 -->
+						<td align="center"><input type="submit" value="수정하기"></td>
+						</form>
+						<form action="#bdelete">
+							<!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
+						<td align="center"><input type="submit" value="삭제하기"></td>
+						</form>
+					</tr>
+				</table>
 			</article>
-			<article id = "badd">
+			<article id="badd">
 				<h2>볼라드등록</h2>
 				<form>
-				<table>
-					<tr>
-						<form action = "BoladAdd.java">
-						<td align="right">도로명 : </td>
-						<td><input type="text" name="street"></td>
-					</tr>
-					<tr>
-						<td align="right">제조공장 : </td>
-						<td><input type="text" name="product"></td>
-					</tr>
-					<tr>
-						<td align="right"><input type="submit" value="등록하기"></td>
-							<td><input type="reset" value="다시입력"></td>
-					</tr>
-				</form>
-				</table>
-			</article>
-			<article id = "bupdate">
-				<h2>볼라드수정</h2>
-				<table>
-					<form>
-					<tr>
-						<form action = "BoladUpdate.java">
-						<td align="right">도로명 : </td>
-						<td><input type="text" name="road"></td>
-					</tr>
-					<tr>
-						<td align="right">제조공장 : </td>
-						<td><input type="text" name="product"></td>
-					</tr>
-					<tr>
-						<td align="right"><input type="submit" value="수정하기"></td>
-							<td><input type="reset" value="다시입력"></td>
-					</form>
-					</tr>
-				</table>
-			</article>
-			<article id = "bdelete">
-				<h2>볼라드삭제</h2>
-				<form action = "BoladDelete.java">
-				<table>
-					<tr>
-						<td></td> <!-- 삭제데이터를 반복문으로 불러오기 -->
-					</tr>
-					<tr>
-						<td align="right"><input type="submit" value="삭제하기"></td>
-					</tr>
-				</table>
-			</form>
-			</article>
-			<!-- Stopline -->
-			
-			<article id="stopline">
-				<h2 class="major"><i class="fas fa-video"></i>정지선 위반 관리<i class="fas fa-video"></i></h2>
-				<form>
-					<div id = "cap">
-						
-					</div>
-					<table>
-						<tr align="center">
-							<td>위반단속번호</td><!-- capno -->
-							<td>도로명</td><!-- street -->
-							<td>적발시간</td><!-- sysdate로 자동지정 -->
-							<td>차량번호</td><!-- carno -->
-							<td>적발사진(경로)</td><!-- capture -->
-							<td>볼라드번호</td><!-- bolno -->
-						</tr>
-						<!-- 반복문으로 반복시킬예정 -->
-						<tr align="center">
-							<td><span id = "capno"></span></td>
-							<td><span id = "street"></span></td>
-							<td><input type = "text"></td>
-							<td><input type = "text"></td>
-							<td><span  id = "capture"><a onclick="capture()">경로</a></span></td>
-							<td><span id = "bolno"></span></td>
-						</tr>
-						<tr align="center">
-							<td>C00001</td>
-							<td>풍암로</td>
-							<td>21/06/21 16:20</td>
-							<td>123가4567</td>
-							<td>사진외부경로</td>
-							<td>B00001</td>
-						</tr>
-						<tr align="center">
-							<td>C00001</td>
-							<td>풍암로</td>
-							<td>21/06/21 16:20</td>
-							<td>123가4567</td>
-							<td>사진외부경로</td>
-							<td>B00001</td>
-						</tr>
-						<tr align="center">
-							<td>C00001</td>
-							<td>풍암로</td>
-							<td>21/06/21 16:20</td>
-							<td>123가4567</td>
-							<td>사진외부경로</td>
-							<td>B00001</td>
-						</tr>
-					</table>
 					<table>
 						<tr>
-						<form action = "StopAdd.java"> <!-- 버튼 누를시 즉시 등록 insert문 이용 -->
-							<td align="center"><input type="submit" value="추가하기"></td>
-						</form>
-						<form action = "StopUpdate.java"> <!-- 버튼 누를시 즉시 수정 update문 이용 -->
-							<td align="center"><input type="submit" value="수정하기"></td>
-						</form>
-						<form action = "#sdelete"> <!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
-							<td align="center"><input type="submit" value="삭제하기"></td>
-						</form>
-						</tr>
-					</table>
-				</form>
-			</article>
-
-			<article id = "sdelete">
-				<h2>정지선 위반 삭제</h2>
-				<form>
-				<table>
-					<tr>
-						<form action = "StopDelete.java">
-						<td><input type="checkbox" name = "capno"><span id = "capno"></span></td> <!-- 삭제데이터를 반복문으로 불러오기 -->
-					</tr>
-					<tr>
-						<td align="right"><input type="submit" value="삭제하기"></td>
-					</form>
-					</tr>
-				</table>
-			</article>
-
-			<script src = "./assets/js/jquery.min.js"></script>
-					
-					<script>
-						function capture(){
-							alert("!");
-							var cap = document.getElementById("cap");
-							cap.innerHTML = "<img src = '../../images/unnamed.jpg'>";
-						}
-						
-
-					
-					</script>
-
-			<!-- Event -->
-			<article id="event">
-				<h2 class="major"><i class="far fa-calendar-alt"></i>축제일정관리<i class="far fa-calendar-alt"></i></h2>
-				<form>
-					<table>
-						<tr align="center">
-							<td>행사명</td><!-- ename -->
-							<td>기간</td><!-- day -->
-							<td>주최자</td><!-- host -->
-							<td>통제시간</td><!-- etime -->
-							<td>참가인원</td><!-- people -->
-							<td>시작구간</td><!-- sstreet -->
-							<td>종료구간</td><!-- estreet -->
-						</tr>
-						<tr align="center">
-							<td>2021 추억의 충장축제</td><!-- ename -->
-							<td>21/09/01~21/09/16</td><!-- day -->
-							<td>동구청</td><!-- host -->
-							<td>18:00~20:00</td><!-- etime -->
-							<td>미정</td><!-- people -->
-							<td>금남로</td><!-- sstreet -->
-							<td>문화전당로</td><!-- estreet -->
-						</tr>
-						<tr align="center">
-							<td>2021 추억의 충장축제</td><!-- ename -->
-							<td>21/09/01~21/09/16</td><!-- day -->
-							<td>동구청</td><!-- host -->
-							<td>18:00~20:00</td><!-- etime -->
-							<td>미정</td><!-- people -->
-							<td>금남로</td><!-- sstreet -->
-							<td>문화전당로</td><!-- estreet -->
-						</tr>
-						<tr align="center">
-							<td>2021 추억의 충장축제</td><!-- ename -->
-							<td>21/09/01~21/09/16</td><!-- day -->
-							<td>동구청</td><!-- host -->
-							<td>18:00~20:00</td><!-- etime -->
-							<td>미정</td><!-- people -->
-							<td>금남로</td><!-- sstreet -->
-							<td>문화전당로</td><!-- estreet -->
-						</tr>
-						<tr align="center">
-							<td>2021 추억의 충장축제</td><!-- ename -->
-							<td>21/09/01~21/09/16</td><!-- day -->
-							<td>동구청</td><!-- host -->
-							<td>18:00~20:00</td><!-- etime -->
-							<td>미정</td><!-- people -->
-							<td>금남로</td><!-- sstreet -->
-							<td>문화전당로</td><!-- estreet -->
-						</tr>
-					</table>
-
-					<table>
-						<tr>
-						<form action = "#eadd"> <!-- 추가창으로이동 insert문 이용 -->
-							<td align="center"><input type="submit" value="추가하기"></td>
-						</form>
-						<form action = "#eupdate"> <!-- 수정창으로이동 update문 이용 -->
-							<td align="center"><input type="submit" value="수정하기"></td>
-						</form>
-						<form action = "#edelete"> <!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
-							<td align="center"><input type="submit" value="삭제하기"></td>
-						</form>
-					</form>
-					</tr>
-				</table>
-			</article>
-				
-			<article id = "eadd">
-				<h2>행사/집회등록</h2>
-				<table>
-					<form action = "EventAdd.java">
-					<tr>
-						<td align="right">행사명 : </td>
-						<td><input type="text" name="ename"></td>
-					</tr>
-					<tr>
-						<td align="right">기간 : </td>
-						<td><input type="text" name="day"></td>
-					</tr>
-					<tr>
-						<td align="right">주최자 : </td>
-						<td><input type="text" name="host"></td>
-					</tr>
-					<tr>
-						<td align="right">통제시간 : </td>
-						<td><input type="text" name="etime"></td>
-					</tr>
-					<tr>
-						<td align="right">참가인원 : </td>
-						<td><input type="text" name="people"></td>
-					</tr>
-					<tr>
-						<td align="right">시작구간 : </td>
-						<td><input type="text" name="sstreet"></td>
-					</tr>
-					<tr>
-						<td align="right">종료구간 : </td>
-						<td><input type="text" name="estreet"></td>
-					</tr>
-					<tr>
-						<td align="right"><input type="submit" value="등록하기"></td>
-							<td><input type="reset" value="다시입력"></td>
-					</form>
-					</tr>
-				</table>
-			</article>
-					<article id = "eupdate">
-						<h2>행사/집회수정</h2>
-						<table>
-							<form action = "EventUpdate.java">
-							<tr>
-								<td align="right">행사명 : </td>
-								<td><input type="text" name="ename"></td>
-							</tr>
-							<tr>
-								<td align="right">기간 : </td>
-								<td><input type="text" name="day"></td>
-							</tr>
-							<tr>
-								<td align="right">주최자 : </td>
-								<td><input type="text" name="host"></td>
-							</tr>
-							<tr>
-								<td align="right">통제시간 : </td>
-								<td><input type="text" name="etime"></td>
-							</tr>
-							<tr>
-								<td align="right">참가인원 : </td>
-								<td><input type="text" name="people"></td>
-							</tr>
-							<tr>
-								<td align="right">시작구간 : </td>
-								<td><input type="text" name="sstreet"></td>
-							</tr>
-							<tr>
-								<td align="right">종료구간 : </td>
-								<td><input type="text" name="estreet"></td>
-							</tr>
-							<tr>
-								<td align="right"><input type="submit" value="등록하기"></td>
-									<td><input type="reset" value="다시입력"></td>
-							</form>
-							</tr>
-						</table>
-					</article>
-					<article id = "edelete">
-						<h2>행사/집회삭제</h2>
-						<table>
-							<tr>
-								<form action = "EventDelete.java">
-								<td><input type="checkbox" name = "ename"><span id = "ename"></span></td> <!-- 삭제데이터를 반복문으로 불러오기 -->
-							</tr>
-							<tr>
-								<td align="right"><input type="submit" value="삭제하기"></td>
-							</tr>
-						</table>
-					</form>
-				</article>
-
-			<!-- Event -->
-			<article id="emc">
-				<h2 class="major"><i class="fas fa-road"></i></i>교통통제관리<i class="fas fa-road"></i></i></h2>
-				<form action="EventAdd" method="post">
-					<table>
-						<tr>
-							<td align="right">행사명 : </td>
-							<td colspan="2"><input type="text" name="event"></td>
+							<form action="BoladAdd.java">
+								<td align="right">도로명 :</td>
+								<td><input type="text" name="street"></td>
 						</tr>
 						<tr>
-							<td align="right">기간 : </td>
-							<td colspan="2"><input type="date" name="day"></td>
-						</tr>
-						<tr>
-							<td align="right">행사종류 : </td>
-							<td colspan="2">
-								<select>
-									<option value="#">종류선택</option>
-									<option value="fastival">축제</option>
-									<option value="gathring">집회</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td align="right">주최자 : </td>
-							<td colspan="2"><input type="text" name="organ"></td>
-						</tr>
-						<tr>
-							<td align="right">통제시간 : </td>
-							<td width="150px">
-								<select>
-									<option value="#">시</option>
-									<option value="0h">00</option>
-									<option value="1h">01</option>
-									<option value="2h">02</option>
-									<option value="3h">03</option>
-									<option value="4h">04</option>
-									<option value="5h">05</option>
-									<option value="6h">06</option>
-									<option value="7h">07</option>
-									<option value="8h">08</option>
-									<option value="9h">09</option>
-									<option value="10h">10</option>
-									<option value="11h">11</option>
-									<option value="12h">12</option>
-									<option value="13h">13</option>
-									<option value="14h">14</option>
-									<option value="15h">15</option>
-									<option value="16h">16</option>
-									<option value="17h">17</option>
-									<option value="18h">18</option>
-									<option value="19h">19</option>
-									<option value="20h">20</option>
-									<option value="21h">21</option>
-									<option value="22h">22</option>
-									<option value="23h">23</option>
-								</select>
-							</td>
-							<td align="left">
-								<select>
-									<option value="#">분</option>
-									<option value="0m">00</option>
-									<option value="1m">01</option>
-									<option value="2m">02</option>
-									<option value="3m">03</option>
-									<option value="4m">04</option>
-									<option value="5m">05</option>
-									<option value="6m">06</option>
-									<option value="7m">07</option>
-									<option value="8m">08</option>
-									<option value="9m">09</option>
-									<option value="10m">10</option>
-									<option value="11m">11</option>
-									<option value="12m">12</option>
-									<option value="13m">13</option>
-									<option value="14m">14</option>
-									<option value="15m">15</option>
-									<option value="16m">16</option>
-									<option value="17m">17</option>
-									<option value="18m">18</option>
-									<option value="19m">19</option>
-									<option value="20m">20</option>
-									<option value="21m">21</option>
-									<option value="22m">22</option>
-									<option value="23m">23</option>
-									<option value="24m">24</option>
-									<option value="25m">25</option>
-									<option value="26m">26</option>
-									<option value="27m">27</option>
-									<option value="28m">28</option>
-									<option value="29m">29</option>
-									<option value="30m">30</option>
-									<option value="31m">31</option>
-									<option value="32m">32</option>
-									<option value="33m">33</option>
-									<option value="34m">34</option>
-									<option value="35m">35</option>
-									<option value="36m">36</option>
-									<option value="37m">37</option>
-									<option value="38m">38</option>
-									<option value="39m">39</option>
-									<option value="40m">40</option>
-									<option value="41m">41</option>
-									<option value="42m">42</option>
-									<option value="43m">43</option>
-									<option value="44m">44</option>
-									<option value="45m">45</option>
-									<option value="46m">46</option>
-									<option value="47m">47</option>
-									<option value="48m">48</option>
-									<option value="49m">49</option>
-									<option value="50m">50</option>
-									<option value="51m">51</option>
-									<option value="52m">52</option>
-									<option value="53m">53</option>
-									<option value="54m">54</option>
-									<option value="55m">55</option>
-									<option value="56m">56</option>
-									<option value="57m">57</option>
-									<option value="58m">58</option>
-									<option value="59m">59</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td align="right">참가인원(예상인원) : </td>
-							<td colspan="2"><input type="text" name="particnum"></td>
+							<td align="right">제조공장 :</td>
+							<td><input type="text" name="product"></td>
 						</tr>
 						<tr>
 							<td align="right"><input type="submit" value="등록하기"></td>
-							<td align="center" colspan="2"><input type="reset" value="다시입력"></td>
+							<td><input type="reset" value="다시입력"></td>
+						</tr>
+						</form>
+					</table>
+			</article>
+			<article id="bupdate">
+				<h2>볼라드수정</h2>
+				<table>
+					<form>
+						<tr>
+							<form action="BoladUpdate.java">
+								<td align="right">도로명 :</td>
+								<td><input type="text" name="road"></td>
+						</tr>
+						<tr>
+							<td align="right">제조공장 :</td>
+							<td><input type="text" name="product"></td>
+						</tr>
+						<tr>
+							<td align="right"><input type="submit" value="수정하기"></td>
+							<td><input type="reset" value="다시입력"></td>
+					</form>
+					</tr>
+				</table>
+			</article>
+			<article id="bdelete">
+				<h2>볼라드삭제</h2>
+				<form action="BoladDelete.java">
+					<table>
+						<tr align="center">
+							<td>볼라드번호</td>
+							<!-- bolno -->
+							<td>도로명</td>
+							<!-- street -->
+							<td>제조공장</td>
+							<!-- product -->
+							<td>상태표시</td>
+							<!-- bstatus -->
+						</tr>
+						<tr>
+							<td></td>
+							<!-- 삭제데이터를 반복문으로 불러오기 -->
+						</tr>
+						<tr>
+							<td align="right"><input type="submit" value="삭제하기"></td>
+						</tr>
+					</table>
+				</form>
+			</article>
+			<!-- Stopline -->
+
+			<article id="stopline">
+				<h2 class="major">
+					<i class="fas fa-video"></i>정지선 위반 관리<i class="fas fa-video"></i>
+				</h2>
+				<form>
+					<div id="cap"></div>
+					<table>
+						<tr align="center">
+							<td>위반단속번호</td>
+							<!-- capno -->
+							<td>도로명</td>
+							<!-- street -->
+							<td>적발시간</td>
+							<!-- sysdate로 자동지정 -->
+							<td>차량번호</td>
+							<!-- carno -->
+							<td>적발사진(경로)</td>
+							<!-- capture -->
+							<td>볼라드번호</td>
+							<!-- bolno -->
+						</tr>
+						<tr align="center">
+							<!-- 반복문으로 반복시킬예정 -->
+							<td>C00001</td>
+							<td>풍암로</td>
+							<td>21/06/21 16:20</td>
+							<td>123가4567</td>
+							<td>사진외부경로</td>
+							<td>B00001</td>
+						</tr>
+						<tr align="center">
+							<td>C00001</td>
+							<td>풍암로</td>
+							<td>21/06/21 16:20</td>
+							<td>123가4567</td>
+							<td>사진외부경로</td>
+							<td>B00001</td>
+						</tr>
+						<tr align="center">
+							<td>C00001</td>
+							<td>풍암로</td>
+							<td>21/06/21 16:20</td>
+							<td>123가4567</td>
+							<td>사진외부경로</td>
+							<td>B00001</td>
+						</tr>
+					</table>
+				</form>
+				<table>
+					<tr>
+						<form action="StopAdd.java">
+							<!-- 버튼 누를시 즉시 등록 insert문 이용 -->
+						<td align="center"><input type="submit" value="추가하기"></td>
+						</form>
+						<form action="StopUpdate.java">
+							<!-- 버튼 누를시 즉시 수정 update문 이용 -->
+						<td align="center"><input type="submit" value="수정하기"></td>
+						</form>
+						<form action="#sdelete">
+							<!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
+						<td align="center"><input type="submit" value="삭제하기"></td>
+						</form>
+					</tr>
+				</table>
+			</article>
+
+			<article id="sdelete">
+				<h2>정지선 위반 삭제</h2>
+				<form action="StopDelete.java">
+					<table>
+						<tr align="center">
+							<td>위반단속번호</td>
+							<!-- capno -->
+							<td>도로명</td>
+							<!-- street -->
+							<td>적발시간</td>
+							<!-- sysdate로 자동지정 -->
+							<td>차량번호</td>
+							<!-- carno -->
+							<td>적발사진(경로)</td>
+							<!-- capture -->
+							<td>볼라드번호</td>
+							<!-- bolno -->
+						</tr>
+						<tr>
+							<td></td>
+							<!-- 삭제데이터를 반복문으로 불러오기 -->
+						</tr>
+						<tr>
+							<td align="right"><input type="submit" value="삭제하기"></td>
 						</tr>
 					</table>
 				</form>
 			</article>
 
+			<script src="./assets/js/jquery.min.js"></script>
+
+			<script>
+				function capture() {
+					alert("!");
+					var cap = document.getElementById("cap");
+					cap.innerHTML = "<img src = '../../images/unnamed.jpg'>";
+				}
+			</script>
+
+			<!-- Event -->
+			<article id="event">
+				<h2 class="major">
+					<i class="far fa-calendar-alt"></i>축제일정관리<i
+						class="far fa-calendar-alt"></i>
+				</h2>
+				<form>
+					<table>
+						<tr align="center">
+							<td>행사명</td>
+							<!-- ename -->
+							<td>기간</td>
+							<!-- day -->
+							<td>주최자</td>
+							<!-- host -->
+							<td>통제시간</td>
+							<!-- etime -->
+							<td>참가인원</td>
+							<!-- people -->
+							<td>시작구간</td>
+							<!-- sstreet -->
+							<td>종료구간</td>
+							<!-- estreet -->
+						</tr>
+						<tr align="center">
+							<td>2021 추억의 충장축제</td>
+							<!-- ename -->
+							<td>21/09/01~21/09/16</td>
+							<!-- day -->
+							<td>동구청</td>
+							<!-- host -->
+							<td>18:00~20:00</td>
+							<!-- etime -->
+							<td>미정</td>
+							<!-- people -->
+							<td>금남로</td>
+							<!-- sstreet -->
+							<td>문화전당로</td>
+							<!-- estreet -->
+						</tr>
+						<tr align="center">
+							<td>2021 추억의 충장축제</td>
+							<!-- ename -->
+							<td>21/09/01~21/09/16</td>
+							<!-- day -->
+							<td>동구청</td>
+							<!-- host -->
+							<td>18:00~20:00</td>
+							<!-- etime -->
+							<td>미정</td>
+							<!-- people -->
+							<td>금남로</td>
+							<!-- sstreet -->
+							<td>문화전당로</td>
+							<!-- estreet -->
+						</tr>
+						<tr align="center">
+							<td>2021 추억의 충장축제</td>
+							<!-- ename -->
+							<td>21/09/01~21/09/16</td>
+							<!-- day -->
+							<td>동구청</td>
+							<!-- host -->
+							<td>18:00~20:00</td>
+							<!-- etime -->
+							<td>미정</td>
+							<!-- people -->
+							<td>금남로</td>
+							<!-- sstreet -->
+							<td>문화전당로</td>
+							<!-- estreet -->
+						</tr>
+						<tr align="center">
+							<td>2021 추억의 충장축제</td>
+							<!-- ename -->
+							<td>21/09/01~21/09/16</td>
+							<!-- day -->
+							<td>동구청</td>
+							<!-- host -->
+							<td>18:00~20:00</td>
+							<!-- etime -->
+							<td>미정</td>
+							<!-- people -->
+							<td>금남로</td>
+							<!-- sstreet -->
+							<td>문화전당로</td>
+							<!-- estreet -->
+						</tr>
+					</table>
+				</form>
+				<table>
+					<tr>
+						<form action="#evadd">
+							<!-- 추가창으로이동 insert문 이용 -->
+						<td align="center"><input type="submit" value="추가하기"></td>
+						</form>
+						<form action="#evupdate">
+							<!-- 수정창으로이동 update문 이용 -->
+						<td align="center"><input type="submit" value="수정하기"></td>
+						</form>
+						<form action="#evdelete">
+							<!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
+						<td align="center"><input type="submit" value="삭제하기"></td>
+						</form>
+					</tr>
+				</table>
+			</article>
+
+			<article id="evadd">
+				<h2>행사/집회등록</h2>
+				<table>
+					<form action="EventAdd.java">
+						<tr>
+							<td align="right">행사명 :</td>
+							<td><input type="text" name="ename"></td>
+						</tr>
+						<tr>
+							<td align="right">기간 :</td>
+							<td><input type="text" name="day"></td>
+						</tr>
+						<tr>
+							<td align="right">주최자 :</td>
+							<td><input type="text" name="host"></td>
+						</tr>
+						<tr>
+							<td align="right">통제시간 :</td>
+							<td><input type="text" name="etime"></td>
+						</tr>
+						<tr>
+							<td align="right">참가인원 :</td>
+							<td><input type="text" name="people"></td>
+						</tr>
+						<tr>
+							<td align="right">시작구간 :</td>
+							<td><input type="text" name="sstreet"></td>
+						</tr>
+						<tr>
+							<td align="right">종료구간 :</td>
+							<td><input type="text" name="estreet"></td>
+						</tr>
+						<tr>
+							<td align="right"><input type="submit" value="등록하기"></td>
+							<td><input type="reset" value="다시입력"></td>
+						</tr>
+				</table>
+				</form>
+			</article>
+			<article id="evupdate">
+				<h2>행사/집회수정</h2>
+				<table>
+					<form action="EventUpdate.java">
+						<tr>
+							<td align="right">행사명 :</td>
+							<td><input type="text" name="ename"></td>
+						</tr>
+						<tr>
+							<td align="right">기간 :</td>
+							<td><input type="text" name="day"></td>
+						</tr>
+						<tr>
+							<td align="right">주최자 :</td>
+							<td><input type="text" name="host"></td>
+						</tr>
+						<tr>
+							<td align="right">통제시간 :</td>
+							<td><input type="text" name="etime"></td>
+						</tr>
+						<tr>
+							<td align="right">참가인원 :</td>
+							<td><input type="text" name="people"></td>
+						</tr>
+						<tr>
+							<td align="right">시작구간 :</td>
+							<td><input type="text" name="sstreet"></td>
+						</tr>
+						<tr>
+							<td align="right">종료구간 :</td>
+							<td><input type="text" name="estreet"></td>
+						</tr>
+						<tr>
+							<td align="right"><input type="submit" value="수정하기"></td>
+							<td><input type="reset" value="다시입력"></td>
+					</form>
+					</tr>
+				</table>
+			</article>
+			<article id="evdelete">
+				<h2>행사/집회삭제</h2>
+				<form action="EventDelete.java">
+					<table>
+						<tr align="center">
+							<td>행사명</td>
+							<!-- ename -->
+							<td>기간</td>
+							<!-- day -->
+							<td>주최자</td>
+							<!-- host -->
+							<td>통제시간</td>
+							<!-- etime -->
+							<td>참가인원</td>
+							<!-- people -->
+							<td>시작구간</td>
+							<!-- sstreet -->
+							<td>종료구간</td>
+							<!-- estreet -->
+						</tr>
+						<tr>
+							<td></td>
+							<!-- 삭제데이터를 반복문으로 불러오기 -->
+						</tr>
+						<tr>
+							<td align="right"><input type="submit" value="삭제하기"></td>
+						</tr>
+					</table>
+				</form>
+			</article>
+
+			<!-- EMC -->
+			<article id="emc">
+				<h2 class="major">
+					<i class="fas fa-road"></i></i>교통통제관리<i class="fas fa-road"></i></i>
+				</h2>
+				<form action="EventAdd" method="post">
+					<table>
+						<form>
+						<tr align="center">
+							<td>볼라드번호</td>
+							<!-- bolno -->
+							<td>통제내용</td>
+							<!-- info -->
+							<td>담당자</td>
+							<!-- manager -->
+							<td>도로명</td>
+							<!-- street -->
+							<td>통제시간</td>
+							<!-- ttime -->
+							<td>신호상태</td>
+							<!-- lightcolor -->
+							<td>관할구역</td>
+							<!-- zone -->
+						</tr>
+						<tr align="center">
+							<td>B00001</td>
+							<td>장마로 인한 도로침수</td>
+							<td>서구청</td>
+							<td>죽봉대로</td>
+							<td>00:00~23:59</td>
+							<td>정상</td>
+							<td>서구</td>
+						</tr>
+						<tr align="center">
+							<td>B00001</td>
+							<td>장마로 인한 도로침수</td>
+							<td>서구청</td>
+							<td>죽봉대로</td>
+							<td>00:00~23:59</td>
+							<td>정상</td>
+							<td>서구</td>
+						</tr>
+						<tr align="center">
+							<td>B00001</td>
+							<td>장마로 인한 도로침수</td>
+							<td>서구청</td>
+							<td>죽봉대로</td>
+							<td>00:00~23:59</td>
+							<td>정상</td>
+							<td>서구</td>
+						</tr>
+						<tr align="center">
+							<td>B00001</td>
+							<td>장마로 인한 도로침수</td>
+							<td>서구청</td>
+							<td>죽봉대로</td>
+							<td>00:00~23:59</td>
+							<td>정상</td>
+							<td>서구</td>
+						</tr>
+						</form>
+					</table>
+					<table>
+						<tr>
+							<form action="#emadd">
+								<!-- 추가창으로이동 insert문 이용 -->
+								<td align="center"><input type="submit" value="추가하기"></td>
+							</form>
+							<form action="#emupdate">
+								<!-- 수정창으로이동 update문 이용 -->
+								<td align="center"><input type="submit" value="수정하기"></td>
+							</form>
+							<form action="#emdelete">
+								<!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
+								<td align="center"><input type="submit" value="삭제하기"></td>
+							</form>
+						</tr>
+					</table>
+				</form>
+			</article>
+
+			<article id="emadd">
+				<h2>교통통제등록</h2>
+				<table>
+					<form action="EmcAdd.java">
+						<tr>
+							<td align="right">도로명 :</td>
+							<td><input type="text" name="ename"></td>
+						</tr>
+						<tr>
+							<td align="right">기간 :</td>
+							<td><input type="text" name="day"></td>
+						</tr>
+						<tr>
+							<td align="right">통제내용 :</td>
+							<td><input type="text" name="host"></td>
+						</tr>
+						<tr>
+							<td align="right">담당자 :</td>
+							<td><input type="text" name="etime"></td>
+						</tr>
+						<tr>
+							<td align="right">통제시간 :</td>
+							<td><input type="text" name="people"></td>
+						</tr>
+						<tr>
+							<td align="right">관할구역 :</td>
+							<td><input type="text" name="sstreet"></td>
+						</tr>
+					<tr>
+						<td align="right"><input type="submit" value="등록하기"></td>
+						<td><input type="reset" value="다시입력"></td>
+					</tr>
+				</table>
+				</form>
+			</article>
+			<article id="evupdate">
+				<h2>교통통제수정</h2>
+				<table>
+					<form action="EmcUpdate.java">
+						<tr>
+							<td align="right">도로명 :</td>
+							<td><input type="text" name="ename"></td>
+						</tr>
+						<tr>
+							<td align="right">기간 :</td>
+							<td><input type="text" name="day"></td>
+						</tr>
+						<tr>
+							<td align="right">통제내용 :</td>
+							<td><input type="text" name="host"></td>
+						</tr>
+						<tr>
+							<td align="right">담당자 :</td>
+							<td><input type="text" name="etime"></td>
+						</tr>
+						<tr>
+							<td align="right">통제시간 :</td>
+							<td><input type="text" name="people"></td>
+						</tr>
+						<tr>
+							<td align="right">관할구역 :</td>
+							<td><input type="text" name="sstreet"></td>
+						</tr>
+					<tr>
+						<td align="right"><input type="submit" value="수정하기"></td>
+						<td><input type="reset" value="다시입력"></td>
+					</form>
+					</tr>
+				</table>
+			</article>
+			<article id="emdelete">
+				<h2>교통통제삭제</h2>
+				<form action="EmcDelete.java">
+					<table>
+						<tr align="center">
+							<td>볼라드번호</td>
+							<!-- bolno -->
+							<td>통제내용</td>
+							<!-- info -->
+							<td>담당자</td>
+							<!-- manager -->
+							<td>도로명</td>
+							<!-- street -->
+							<td>통제시간</td>
+							<!-- ttime -->
+							<td>신호상태</td>
+							<!-- lightcolor -->
+							<td>관할구역</td>
+							<!-- zone -->
+						</tr>
+						<tr>
+							<td></td>
+							<!-- 삭제데이터를 반복문으로 불러오기 -->
+						</tr>
+						<tr>
+							<td align="right"><input type="submit" value="삭제하기"></td>
+						</tr>
+					</table>
+				</form>
+			</article>
 
 			<!-- Elements -->
 			<article id="elements">
@@ -691,11 +835,14 @@
 
 				<section>
 					<h3 class="major">Text</h3>
-					<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is
-						<em>emphasized</em>.
-						This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-						This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a
-							href="#">this is a link</a>.</p>
+					<p>
+						This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i>
+						and this is <em>emphasized</em>. This is <sup>superscript</sup>
+						text and this is <sub>subscript</sub> text. This is <u>underlined</u>
+						and this is code:
+						<code>for (;;) { ... }</code>
+						. Finally, <a href="#">this is a link</a>.
+					</p>
 					<hr />
 					<h2>Heading Level 2</h2>
 					<h3>Heading Level 3</h3>
@@ -704,12 +851,15 @@
 					<h6>Heading Level 6</h6>
 					<hr />
 					<h4>Blockquote</h4>
-					<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus
-						euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis
-						iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem
-						ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+					<blockquote>Fringilla nisl. Donec accumsan interdum
+						nisi, quis tincidunt felis sagittis eget tempus euismod.
+						Vestibulum ante ipsum primis in faucibus vestibulum. Blandit
+						adipiscing eu felis iaculis volutpat ac adipiscing accumsan
+						faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum
+						dolor sit amet nullam adipiscing eu felis.</blockquote>
 					<h4>Preformatted</h4>
-					<pre><code>i = 0;
+					<pre>
+						<code>i = 0;
 
 while (!deck.isInOrder()) {
     print 'Iteration ' + i;
@@ -717,7 +867,8 @@ while (!deck.isInOrder()) {
     i++;
 }
 
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+print 'It took ' + i + ' iterations to sort the deck.';</code>
+					</pre>
 				</section>
 
 				<section>
@@ -748,10 +899,14 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					</ol>
 					<h4>Icons</h4>
 					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon brands fa-twitter"><span
+								class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands fa-facebook-f"><span
+								class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands fa-instagram"><span
+								class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands fa-github"><span
+								class="label">Github</span></a></li>
 					</ul>
 
 					<h4>Actions</h4>
@@ -790,7 +945,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 								</tr>
 								<tr>
 									<td>Item Three</td>
-									<td> Morbi faucibus arcu accumsan lorem.</td>
+									<td>Morbi faucibus arcu accumsan lorem.</td>
 									<td>29.99</td>
 								</tr>
 								<tr>
@@ -836,7 +991,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 								</tr>
 								<tr>
 									<td>Item Three</td>
-									<td> Morbi faucibus arcu accumsan lorem.</td>
+									<td>Morbi faucibus arcu accumsan lorem.</td>
 									<td>29.99</td>
 								</tr>
 								<tr>
@@ -885,17 +1040,17 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					<form method="post" action="#">
 						<div class="fields">
 							<div class="field half">
-								<label for="demo-name">Name</label>
-								<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+								<label for="demo-name">Name</label> <input type="text"
+									name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
 							</div>
 							<div class="field half">
-								<label for="demo-email">Email</label>
-								<input type="email" name="demo-email" id="demo-email" value=""
+								<label for="demo-email">Email</label> <input type="email"
+									name="demo-email" id="demo-email" value=""
 									placeholder="jane@untitled.tld" />
 							</div>
 							<div class="field">
-								<label for="demo-category">Category</label>
-								<select name="demo-category" id="demo-category">
+								<label for="demo-category">Category</label> <select
+									name="demo-category" id="demo-category">
 									<option value="">-</option>
 									<option value="1">Manufacturing</option>
 									<option value="1">Shipping</option>
@@ -904,8 +1059,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 								</select>
 							</div>
 							<div class="field half">
-								<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-								<label for="demo-priority-low">Low</label>
+								<input type="radio" id="demo-priority-low" name="demo-priority"
+									checked> <label for="demo-priority-low">Low</label>
 							</div>
 							<div class="field half">
 								<input type="radio" id="demo-priority-high" name="demo-priority">
@@ -921,12 +1076,13 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 							</div>
 							<div class="field">
 								<label for="demo-message">Message</label>
-								<textarea name="demo-message" id="demo-message" placeholder="Enter your message"
-									rows="6"></textarea>
+								<textarea name="demo-message" id="demo-message"
+									placeholder="Enter your message" rows="6"></textarea>
 							</div>
 						</div>
 						<ul class="actions">
-							<li><input type="submit" value="Send Message" class="primary" /></li>
+							<li><input type="submit" value="Send Message"
+								class="primary" /></li>
 							<li><input type="reset" value="Reset" /></li>
 						</ul>
 					</form>
@@ -938,7 +1094,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+			<p class="copyright">
+				&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.
+			</p>
 		</footer>
 
 	</div>
