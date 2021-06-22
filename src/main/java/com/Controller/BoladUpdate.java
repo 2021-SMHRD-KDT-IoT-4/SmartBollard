@@ -13,6 +13,13 @@ public class BoladUpdate extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String street = request.getParameter("street");
+		String product = request.getParameter("product");
+		String bstatus = request.getParameter("bstatus");
+		String heartbeat = request.getParameter("heartbeat");
+		int bolno = Integer.parseInt(request.getParameter("bolno"));
+		
+		
 		
 	}
 
