@@ -29,6 +29,7 @@ public class BoladAdd extends HttpServlet {
 			if(cnt > 0) {
 				System.out.println("볼라드 등록 성공!");
 				
+				
 			}
 	}
 

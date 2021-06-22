@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<script>
+	
+		var check = alert("볼라드 등록이 완료되었습니다!");
+		if(check) {
+			
+		}
+	
+	</script>
 </body>
 </html>
