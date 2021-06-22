@@ -31,8 +31,8 @@
 <body class="is-preload">
 	<%
 
-	ArrayList<BoladDTO> list = new ArrayList<BoladDTO>();
-	BoladDAO dao = new BoladDAO();
+		ArrayList<BoladDTO> list = new ArrayList<BoladDTO>();
+		BoladDAO dao = new BoladDAO();
 	
 	%>
 
