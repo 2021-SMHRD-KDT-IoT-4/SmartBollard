@@ -16,21 +16,21 @@ public class BoladAdd extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("EUC-KR");
-		String bolno = request.getParameter("bolno");
+		int bolno = Integer.parseInt(request.getParameter("bolno"));
 		String street = request.getParameter("street");
 		String product = request.getParameter("product");
 		String bstatus = request.getParameter("bstatus");
+		String heartbeat = request.getParameter("heartbeat");
 		
-		BoladDTO dto = new BoladDTO(bolno, street, product, bstatus);
+		BoladDTO dto = new BoladDTO(bolno, street, product, bstatus, heartbeat);
 		BoladDAO dao = new BoladDAO();
 		int cnt = dao.boladAdd(dto);
-		
 			if(cnt > 0) {
 				System.out.println("볼라드 등록 성공!");
-				
-				
+			} else {
+				System.out.println("볼라드 등록 실패!");
 			}
+			response.sendRedirect("SmartBolad.jsp");
 	}
 
 }

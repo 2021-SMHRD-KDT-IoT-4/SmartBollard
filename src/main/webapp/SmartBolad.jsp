@@ -32,10 +32,8 @@
 
 <body class="is-preload">
 	<%
-
 		ArrayList<BoladDTO> list = new ArrayList<BoladDTO>();
 		BoladDAO dao = new BoladDAO();
-	
 	%>
 
 	<!-- Wrapper -->
@@ -148,7 +146,7 @@
 			<!-- Bolad -->
 			<article id="bolad">
 				<h2 class="major">
-					<i class="fas fa-chess-pawn"></i>볼라드관리<i class="fas fa-chess-pawn"></i></i>
+					<i class="fas fa-chess-pawn"></i>볼라드관리<i class="fas fa-chess-pawn"></i>
 				</h2>
 					<table>
 						<tr>
@@ -263,16 +261,23 @@
 			</article>
 			<article id="badd">
 				<h2>볼라드등록</h2>
-			
-					<form action="BoladAdd.java">
+					<form action="BoladAdd">
 						<table>
 							<tr>
-									<td align="right">도로명 :</td>
-									<td><input type="text" name="street"></td>
+								<td align="right">도로명 :</td>
+								<td><input type="text" name="street"></td>
 							</tr>
 							<tr>
 								<td align="right">제조공장 :</td>
 								<td><input type="text" name="product"></td>
+							</tr>
+							<tr>
+								<td align="right">볼라드상태 :</td>
+								<td><input type="text" name="bstatus"></td>
+							</tr>
+							<tr>
+								<td align="right">작동여부 :</td>
+								<td><input type="text" name="heartbeat"></td>
 							</tr>
 							<tr>
 								<td align="center" colspan="2"><input type="submit"
@@ -552,7 +557,9 @@
 						</tr>
 						<tr>
 							<td align="right">기간 :</td>
-							<td><input type="text" name="day"></td>
+							<td><input type="date" name="day"></td>
+							<td>~</td>
+							<td><input type="date" name="day"></td>
 						</tr>
 						<tr>
 							<td align="right">주최자 :</td>
@@ -591,7 +598,9 @@
 						</tr>
 						<tr>
 							<td align="right">기간 :</td>
-							<td><input type="text" name="day"></td>
+							<td><input type="date" name="day"></td>
+							<td>~</td>
+							<td><input type="date" name="day"></td>
 						</tr>
 						<tr>
 							<td align="right">주최자 :</td>
@@ -742,66 +751,447 @@
 				<table>
 					<form action="EmcAdd.java">
 						<tr>
-							<td align="right">도로명 :</td>
-							<td><input type="text" name="ename"></td>
+							<td align="right"  colspan = "2">도로명 :</td>
+							<td colspan = "4"><input type="text" name="ename"></td>
 						</tr>
 						<tr>
-							<td align="right">기간 :</td>
-							<td><input type="text" name="day"></td>
+							<td align="right" colspan = "2">기간 :</td>
+							<td><input type="date" name="day"></td>
+							<td>~</td>
+							<td><input type="date" name="day" colspan = "2"></td>
 						</tr>
 						<tr>
-							<td align="right">통제내용 :</td>
-							<td><input type="text" name="host"></td>
+							<td align="right" colspan = "2">통제내용 :</td>
+							<td colspan = "4"><input type="text" name="host"></td>
 						</tr>
 						<tr>
-							<td align="right">담당자 :</td>
-							<td><input type="text" name="etime"></td>
+							<td align="right" colspan = "2">담당자 :</td>
+							<td colspan = "4"><input type="text" name="etime"></td>
 						</tr>
 						<tr>
-							<td align="right">통제시간 :</td>
-							<td><input type="text" name="people"></td>
+							<td width = "20px">통제시간 : </td>
+							<td width = "20px">
+								<select>
+									<option value="#">시</option>
+									<option value="0h">00</option>
+									<option value="1h">01</option>
+									<option value="2h">02</option>
+									<option value="3h">03</option>
+									<option value="4h">04</option>
+									<option value="5h">05</option>
+									<option value="6h">06</option>
+									<option value="7h">07</option>
+									<option value="8h">08</option>
+									<option value="9h">09</option>
+									<option value="10h">10</option>
+									<option value="11h">11</option>
+									<option value="12h">12</option>
+									<option value="13h">13</option>
+									<option value="14h">14</option>
+									<option value="15h">15</option>
+									<option value="16h">16</option>
+									<option value="17h">17</option>
+									<option value="18h">18</option>
+									<option value="19h">19</option>
+									<option value="20h">20</option>
+									<option value="21h">21</option>
+									<option value="22h">22</option>
+									<option value="23h">23</option>
+								</select>
+							</td>
+							<td width = "20px">
+								<select>
+									<option value="#">분</option>
+									<option value="0m">00</option>
+									<option value="1m">01</option>
+									<option value="2m">02</option>
+									<option value="3m">03</option>
+									<option value="4m">04</option>
+									<option value="5m">05</option>
+									<option value="6m">06</option>
+									<option value="7m">07</option>
+									<option value="8m">08</option>
+									<option value="9m">09</option>
+									<option value="10m">10</option>
+									<option value="11m">11</option>
+									<option value="12m">12</option>
+									<option value="13m">13</option>
+									<option value="14m">14</option>
+									<option value="15m">15</option>
+									<option value="16m">16</option>
+									<option value="17m">17</option>
+									<option value="18m">18</option>
+									<option value="19m">19</option>
+									<option value="20m">20</option>
+									<option value="21m">21</option>
+									<option value="22m">22</option>
+									<option value="23m">23</option>
+									<option value="24m">24</option>
+									<option value="25m">25</option>
+									<option value="26m">26</option>
+									<option value="27m">27</option>
+									<option value="28m">28</option>
+									<option value="29m">29</option>
+									<option value="30m">30</option>
+									<option value="31m">31</option>
+									<option value="32m">32</option>
+									<option value="33m">33</option>
+									<option value="34m">34</option>
+									<option value="35m">35</option>
+									<option value="36m">36</option>
+									<option value="37m">37</option>
+									<option value="38m">38</option>
+									<option value="39m">39</option>
+									<option value="40m">40</option>
+									<option value="41m">41</option>
+									<option value="42m">42</option>
+									<option value="43m">43</option>
+									<option value="44m">44</option>
+									<option value="45m">45</option>
+									<option value="46m">46</option>
+									<option value="47m">47</option>
+									<option value="48m">48</option>
+									<option value="49m">49</option>
+									<option value="50m">50</option>
+									<option value="51m">51</option>
+									<option value="52m">52</option>
+									<option value="53m">53</option>
+									<option value="54m">54</option>
+									<option value="55m">55</option>
+									<option value="56m">56</option>
+									<option value="57m">57</option>
+									<option value="58m">58</option>
+									<option value="59m">59</option>
+								</select>
+							</td>
+							<td width = "20px">~</td>
+							<td width = "20px">
+								<select>
+									<option value="#">시</option>
+									<option value="0h">00</option>
+									<option value="1h">01</option>
+									<option value="2h">02</option>
+									<option value="3h">03</option>
+									<option value="4h">04</option>
+									<option value="5h">05</option>
+									<option value="6h">06</option>
+									<option value="7h">07</option>
+									<option value="8h">08</option>
+									<option value="9h">09</option>
+									<option value="10h">10</option>
+									<option value="11h">11</option>
+									<option value="12h">12</option>
+									<option value="13h">13</option>
+									<option value="14h">14</option>
+									<option value="15h">15</option>
+									<option value="16h">16</option>
+									<option value="17h">17</option>
+									<option value="18h">18</option>
+									<option value="19h">19</option>
+									<option value="20h">20</option>
+									<option value="21h">21</option>
+									<option value="22h">22</option>
+									<option value="23h">23</option>
+								</select>
+							</td>
+							<td width = "20px">
+								<select>
+									<option value="#">분</option>
+									<option value="0m">00</option>
+									<option value="1m">01</option>
+									<option value="2m">02</option>
+									<option value="3m">03</option>
+									<option value="4m">04</option>
+									<option value="5m">05</option>
+									<option value="6m">06</option>
+									<option value="7m">07</option>
+									<option value="8m">08</option>
+									<option value="9m">09</option>
+									<option value="10m">10</option>
+									<option value="11m">11</option>
+									<option value="12m">12</option>
+									<option value="13m">13</option>
+									<option value="14m">14</option>
+									<option value="15m">15</option>
+									<option value="16m">16</option>
+									<option value="17m">17</option>
+									<option value="18m">18</option>
+									<option value="19m">19</option>
+									<option value="20m">20</option>
+									<option value="21m">21</option>
+									<option value="22m">22</option>
+									<option value="23m">23</option>
+									<option value="24m">24</option>
+									<option value="25m">25</option>
+									<option value="26m">26</option>
+									<option value="27m">27</option>
+									<option value="28m">28</option>
+									<option value="29m">29</option>
+									<option value="30m">30</option>
+									<option value="31m">31</option>
+									<option value="32m">32</option>
+									<option value="33m">33</option>
+									<option value="34m">34</option>
+									<option value="35m">35</option>
+									<option value="36m">36</option>
+									<option value="37m">37</option>
+									<option value="38m">38</option>
+									<option value="39m">39</option>
+									<option value="40m">40</option>
+									<option value="41m">41</option>
+									<option value="42m">42</option>
+									<option value="43m">43</option>
+									<option value="44m">44</option>
+									<option value="45m">45</option>
+									<option value="46m">46</option>
+									<option value="47m">47</option>
+									<option value="48m">48</option>
+									<option value="49m">49</option>
+									<option value="50m">50</option>
+									<option value="51m">51</option>
+									<option value="52m">52</option>
+									<option value="53m">53</option>
+									<option value="54m">54</option>
+									<option value="55m">55</option>
+									<option value="56m">56</option>
+									<option value="57m">57</option>
+									<option value="58m">58</option>
+									<option value="59m">59</option>
+								</select>
+							</td>
 						</tr>
 						<tr>
-							<td align="right">관할구역 :</td>
-							<td><input type="text" name="sstreet"></td>
+							<td align="right" colspan = "2">관할구역 :</td>
+							<td colspan = "4"><input type="text" name="sstreet"></td>
 						</tr>
 						<tr>
-							<td align="center" colspan="2"><input type="submit"
+							<td align="center" colspan="6"><input type="submit"
 								value="등록하기"><input type="reset" value="다시입력"></td>
-						</tr>
+					</form>
+					</tr>
 				</table>
 				</form>
 			</article>
-			<article id="evupdate">
+			<article id="emupdate">
 				<h2>교통통제수정</h2>
 				<table>
 					<form action="EmcUpdate.java">
 						<tr>
-							<td align="right">도로명 :</td>
-							<td><input type="text" name="ename"></td>
+							<td align="right"  colspan = "2">도로명 :</td>
+							<td colspan = "4"><input type="text" name="ename"></td>
 						</tr>
 						<tr>
-							<td align="right">기간 :</td>
-							<td><input type="text" name="day"></td>
+							<td align="right" colspan = "2">기간 :</td>
+							<td><input type="date" name="day"></td>
+							<td>~</td>
+							<td><input type="date" name="day" colspan = "2"></td>
 						</tr>
 						<tr>
-							<td align="right">통제내용 :</td>
-							<td><input type="text" name="host"></td>
+							<td align="right" colspan = "2">통제내용 :</td>
+							<td colspan = "4"><input type="text" name="host"></td>
 						</tr>
 						<tr>
-							<td align="right">담당자 :</td>
-							<td><input type="text" name="etime"></td>
+							<td align="right" colspan = "2">담당자 :</td>
+							<td colspan = "4"><input type="text" name="etime"></td>
 						</tr>
 						<tr>
-							<td align="right">통제시간 :</td>
-							<td><input type="text" name="people"></td>
+							<td width = "20px">통제시간 : </td>
+							<td width = "20px">
+								<select>
+									<option value="#">시</option>
+									<option value="0h">00</option>
+									<option value="1h">01</option>
+									<option value="2h">02</option>
+									<option value="3h">03</option>
+									<option value="4h">04</option>
+									<option value="5h">05</option>
+									<option value="6h">06</option>
+									<option value="7h">07</option>
+									<option value="8h">08</option>
+									<option value="9h">09</option>
+									<option value="10h">10</option>
+									<option value="11h">11</option>
+									<option value="12h">12</option>
+									<option value="13h">13</option>
+									<option value="14h">14</option>
+									<option value="15h">15</option>
+									<option value="16h">16</option>
+									<option value="17h">17</option>
+									<option value="18h">18</option>
+									<option value="19h">19</option>
+									<option value="20h">20</option>
+									<option value="21h">21</option>
+									<option value="22h">22</option>
+									<option value="23h">23</option>
+								</select>
+							</td>
+							<td width = "20px">
+								<select>
+									<option value="#">분</option>
+									<option value="0m">00</option>
+									<option value="1m">01</option>
+									<option value="2m">02</option>
+									<option value="3m">03</option>
+									<option value="4m">04</option>
+									<option value="5m">05</option>
+									<option value="6m">06</option>
+									<option value="7m">07</option>
+									<option value="8m">08</option>
+									<option value="9m">09</option>
+									<option value="10m">10</option>
+									<option value="11m">11</option>
+									<option value="12m">12</option>
+									<option value="13m">13</option>
+									<option value="14m">14</option>
+									<option value="15m">15</option>
+									<option value="16m">16</option>
+									<option value="17m">17</option>
+									<option value="18m">18</option>
+									<option value="19m">19</option>
+									<option value="20m">20</option>
+									<option value="21m">21</option>
+									<option value="22m">22</option>
+									<option value="23m">23</option>
+									<option value="24m">24</option>
+									<option value="25m">25</option>
+									<option value="26m">26</option>
+									<option value="27m">27</option>
+									<option value="28m">28</option>
+									<option value="29m">29</option>
+									<option value="30m">30</option>
+									<option value="31m">31</option>
+									<option value="32m">32</option>
+									<option value="33m">33</option>
+									<option value="34m">34</option>
+									<option value="35m">35</option>
+									<option value="36m">36</option>
+									<option value="37m">37</option>
+									<option value="38m">38</option>
+									<option value="39m">39</option>
+									<option value="40m">40</option>
+									<option value="41m">41</option>
+									<option value="42m">42</option>
+									<option value="43m">43</option>
+									<option value="44m">44</option>
+									<option value="45m">45</option>
+									<option value="46m">46</option>
+									<option value="47m">47</option>
+									<option value="48m">48</option>
+									<option value="49m">49</option>
+									<option value="50m">50</option>
+									<option value="51m">51</option>
+									<option value="52m">52</option>
+									<option value="53m">53</option>
+									<option value="54m">54</option>
+									<option value="55m">55</option>
+									<option value="56m">56</option>
+									<option value="57m">57</option>
+									<option value="58m">58</option>
+									<option value="59m">59</option>
+								</select>
+							</td>
+							<td width = "20px">~</td>
+							<td width = "20px">
+								<select>
+									<option value="#">시</option>
+									<option value="0h">00</option>
+									<option value="1h">01</option>
+									<option value="2h">02</option>
+									<option value="3h">03</option>
+									<option value="4h">04</option>
+									<option value="5h">05</option>
+									<option value="6h">06</option>
+									<option value="7h">07</option>
+									<option value="8h">08</option>
+									<option value="9h">09</option>
+									<option value="10h">10</option>
+									<option value="11h">11</option>
+									<option value="12h">12</option>
+									<option value="13h">13</option>
+									<option value="14h">14</option>
+									<option value="15h">15</option>
+									<option value="16h">16</option>
+									<option value="17h">17</option>
+									<option value="18h">18</option>
+									<option value="19h">19</option>
+									<option value="20h">20</option>
+									<option value="21h">21</option>
+									<option value="22h">22</option>
+									<option value="23h">23</option>
+								</select>
+							</td>
+							<td width = "20px">
+								<select>
+									<option value="#">분</option>
+									<option value="0m">00</option>
+									<option value="1m">01</option>
+									<option value="2m">02</option>
+									<option value="3m">03</option>
+									<option value="4m">04</option>
+									<option value="5m">05</option>
+									<option value="6m">06</option>
+									<option value="7m">07</option>
+									<option value="8m">08</option>
+									<option value="9m">09</option>
+									<option value="10m">10</option>
+									<option value="11m">11</option>
+									<option value="12m">12</option>
+									<option value="13m">13</option>
+									<option value="14m">14</option>
+									<option value="15m">15</option>
+									<option value="16m">16</option>
+									<option value="17m">17</option>
+									<option value="18m">18</option>
+									<option value="19m">19</option>
+									<option value="20m">20</option>
+									<option value="21m">21</option>
+									<option value="22m">22</option>
+									<option value="23m">23</option>
+									<option value="24m">24</option>
+									<option value="25m">25</option>
+									<option value="26m">26</option>
+									<option value="27m">27</option>
+									<option value="28m">28</option>
+									<option value="29m">29</option>
+									<option value="30m">30</option>
+									<option value="31m">31</option>
+									<option value="32m">32</option>
+									<option value="33m">33</option>
+									<option value="34m">34</option>
+									<option value="35m">35</option>
+									<option value="36m">36</option>
+									<option value="37m">37</option>
+									<option value="38m">38</option>
+									<option value="39m">39</option>
+									<option value="40m">40</option>
+									<option value="41m">41</option>
+									<option value="42m">42</option>
+									<option value="43m">43</option>
+									<option value="44m">44</option>
+									<option value="45m">45</option>
+									<option value="46m">46</option>
+									<option value="47m">47</option>
+									<option value="48m">48</option>
+									<option value="49m">49</option>
+									<option value="50m">50</option>
+									<option value="51m">51</option>
+									<option value="52m">52</option>
+									<option value="53m">53</option>
+									<option value="54m">54</option>
+									<option value="55m">55</option>
+									<option value="56m">56</option>
+									<option value="57m">57</option>
+									<option value="58m">58</option>
+									<option value="59m">59</option>
+								</select>
+							</td>
 						</tr>
 						<tr>
-							<td align="right">관할구역 :</td>
-							<td><input type="text" name="sstreet"></td>
+							<td align="right" colspan = "2">관할구역 :</td>
+							<td colspan = "4"><input type="text" name="sstreet"></td>
 						</tr>
 						<tr>
-							<td align="center" colspan="2"><input type="submit"
+							<td align="center" colspan="6"><input type="submit"
 								value="수정하기"><input type="reset" value="다시입력"></td>
 					</form>
 					</tr>

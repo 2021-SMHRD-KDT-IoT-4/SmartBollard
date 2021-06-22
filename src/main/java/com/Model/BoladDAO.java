@@ -57,11 +57,12 @@ public class BoladDAO {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
-				String bolno = rs.getString(1);
+				int bolno = rs.getInt(1);
 				String street = rs.getString(2);
 				String product = rs.getString(3);
 				String bstatus = rs.getString(4);
-				info = new BoladDTO(bolno, street, product, bstatus);
+				String heartbeat = rs.getString(5);
+				info = new BoladDTO(bolno, street, product, bstatus, heartbeat);
 				list.add(info);
 			}
 		} catch (SQLException e) {
@@ -77,11 +78,14 @@ public class BoladDAO {
 		conn();
 		
 		try {
-			String sql = "insert into bolad values (?, ?)";
+			String sql = "insert into bolad values(bolno_sequence.nextval, ?, ?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getStreet());
 			psmt.setString(2, dto.getProduct());
+			psmt.setString(3, dto.getBstatus());
+			psmt.setString(4, dto.getHeartbeat());
 			cnt = psmt.executeUpdate();
+			System.out.println(cnt);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
