@@ -14,6 +14,7 @@ public class BoladDAO {
 	ResultSet rs = null;
 	ArrayList<BoladDTO> list = null;
 	BoladDTO info = null;
+	int cnt = 0;
 	
 	public void conn() {
 		
@@ -55,22 +56,37 @@ public class BoladDAO {
 			String sql = "select * from bolad";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				String bolno = rs.getString(1);
 				String street = rs.getString(2);
 				String product = rs.getString(3);
 				String bstatus = rs.getString(4);
 				info = new BoladDTO(bolno, street, product, bstatus);
 				list.add(info);
-				System.out.println("볼라드 관리 완료");
-			} else {
-				System.out.println("볼라드 관리 실패");
-			} 
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		} return list;
+		
+	}
+	
+	public int boladAdd(BoladDTO dto) {
+		
+		conn();
+		
+		try {
+			String sql = "insert into bolad values (?, ?)";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getStreet());
+			psmt.setString(2, dto.getProduct());
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		} return cnt;
 		
 	}
 	
