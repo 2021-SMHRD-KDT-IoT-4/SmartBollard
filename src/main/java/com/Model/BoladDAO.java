@@ -80,17 +80,40 @@ public class BoladDAO {
 		try {
 			String sql = "insert into bolad values(bolno_sequence.nextval, ?, ?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
+			
+			System.out.println(dto.getStreet());
 			psmt.setString(1, dto.getStreet());
 			psmt.setString(2, dto.getProduct());
 			psmt.setString(3, dto.getBstatus());
 			psmt.setString(4, dto.getHeartbeat());
 			cnt = psmt.executeUpdate();
-			System.out.println(cnt);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		} return cnt;
+		
+	}
+	
+	public int boladUpdate(BoladDTO dto) {
+		
+		conn();
+		
+		try {
+			String sql = "update bolad set street = ?, product = ?, bstatus = ?, heartbeat = ? where = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getStreet());
+			psmt.setString(2, dto.getProduct());
+			psmt.setString(3, dto.getBstatus());
+			psmt.setString(4, dto.getHeartbeat());
+			psmt.setInt(5, dto.getBolno());
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		} return cnt;
+		
 		
 	}
 	
