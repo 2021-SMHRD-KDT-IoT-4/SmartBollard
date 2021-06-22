@@ -292,8 +292,12 @@
 			</article>
 			<article id="bupdate">
 				<h2>볼라드수정</h2>
-					<form action="BoladUpdate.java">
+					<form action="BoladUpdate">
 						<table>
+							<tr>
+								<td align="right">수정할 볼라드번호 :</td>
+								<td><input type="text" name="bolno"></td>
+							</tr>
 							<tr>
 								<td align="right">도로명 :</td>
 								<td><input type="text" name="road"></td>
@@ -301,6 +305,14 @@
 							<tr>
 								<td align="right">제조공장 :</td>
 								<td><input type="text" name="product"></td>
+							</tr>
+							<tr>
+								<td align="right">볼라드상태 :</td>
+								<td><input type="text" name="bstatus"></td>
+							</tr>
+							<tr>
+								<td align="right">작동여부 :</td>
+								<td><input type="text" name="heartbeat"></td>
 							</tr>
 							<tr>
 								<td align="center" colspan="2"><input type="submit"
