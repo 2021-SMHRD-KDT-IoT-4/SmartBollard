@@ -4,6 +4,8 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<%@page import="com.Model.eventDTO"%>
+<%@page import="com.Model.eventDAO"%>
 <%@page import="com.Model.BoladDAO"%>
 <%@page import="com.Model.BoladDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -36,6 +38,9 @@
 	<%
 		ArrayList<BoladDTO> list = new ArrayList<BoladDTO>();
 		BoladDAO dao = new BoladDAO();
+		
+		eventDAO eventdao = new eventDAO();
+		ArrayList<eventDTO> eventList = eventdao.showEvent();
 	%>
 
 	<!-- Wrapper -->
@@ -478,70 +483,20 @@
 							<td>종료구간</td>
 							<!-- estreet -->
 						</tr>
-						<tr align="center">
-							<td>2021 추억의 충장축제</td>
-							<!-- ename -->
-							<td>21/09/01~21/09/16</td>
-							<!-- day -->
-							<td>동구청</td>
-							<!-- host -->
-							<td>18:00~20:00</td>
-							<!-- etime -->
-							<td>미정</td>
-							<!-- people -->
-							<td>금남로</td>
-							<!-- sstreet -->
-							<td>문화전당로</td>
-							<!-- estreet -->
-						</tr>
-						<tr align="center">
-							<td>2021 추억의 충장축제</td>
-							<!-- ename -->
-							<td>21/09/01~21/09/16</td>
-							<!-- day -->
-							<td>동구청</td>
-							<!-- host -->
-							<td>18:00~20:00</td>
-							<!-- etime -->
-							<td>미정</td>
-							<!-- people -->
-							<td>금남로</td>
-							<!-- sstreet -->
-							<td>문화전당로</td>
-							<!-- estreet -->
-						</tr>
-						<tr align="center">
-							<td>2021 추억의 충장축제</td>
-							<!-- ename -->
-							<td>21/09/01~21/09/16</td>
-							<!-- day -->
-							<td>동구청</td>
-							<!-- host -->
-							<td>18:00~20:00</td>
-							<!-- etime -->
-							<td>미정</td>
-							<!-- people -->
-							<td>금남로</td>
-							<!-- sstreet -->
-							<td>문화전당로</td>
-							<!-- estreet -->
-						</tr>
-						<tr align="center">
-							<td>2021 추억의 충장축제</td>
-							<!-- ename -->
-							<td>21/09/01~21/09/16</td>
-							<!-- day -->
-							<td>동구청</td>
-							<!-- host -->
-							<td>18:00~20:00</td>
-							<!-- etime -->
-							<td>미정</td>
-							<!-- people -->
-							<td>금남로</td>
-							<!-- sstreet -->
-							<td>문화전당로</td>
-							<!-- estreet -->
-						</tr>
+						 
+						 <%for(int i=0; i<eventList.size(); i++) {%>
+                        <tr align="center">
+                            <td><%= eventList.get(i).getEname()%></td>
+                            <td><%= eventList.get(i).getDay()%></td>
+                            <td><%= eventList.get(i).getHost()%></td>
+                            <td><%= eventList.get(i).getEtime()%></td>
+                            <td><%= eventList.get(i).getPeople()%></td>
+                            <td><%= eventList.get(i).getSstreet()%></td>
+                            <td><%= eventList.get(i).getEstreet()%></td>
+                           
+                        </tr>
+                        <%} %>
+					
 					</table>
 				</form>
 				<table>
