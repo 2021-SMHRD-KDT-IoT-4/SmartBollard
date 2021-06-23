@@ -30,7 +30,7 @@ public class BoladAdd extends HttpServlet {
 			} else {
 				System.out.println("볼라드 등록 실패!");
 			}
-			response.sendRedirect("SmartBolad.jsp");
+			response.sendRedirect("SmartBolad.jsp#bolad");
 	}
 
 }

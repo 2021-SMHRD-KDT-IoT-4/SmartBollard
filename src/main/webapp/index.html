@@ -249,17 +249,9 @@
 
                 <table>
                     <tr>
-                        <form action="#badd">
+                        <form action="#badd" colspan = "3">
                             <!-- 추가창으로이동 insert문 이용 -->
                             <td align="center"><input type="submit" value="추가하기"></td>
-                        </form>
-                        <form action="#bupdate">
-                            <!-- 수정창으로이동 update문 이용 -->
-                            <td align="center"><input type="submit" value="수정하기"></td>
-                        </form>
-                        <form action="#bdelete">
-                            <!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
-                            <td align="center"><input type="submit" value="삭제하기"></td>
                         </form>
                     </tr>
                 </table>
@@ -355,7 +347,7 @@
                             <td>풍암로</td>
                             <td>21/06/21 16:20</td>
                             <td>123가4567</td>
-                            <td>사진외부경로</td>
+                            <td><a id = "cap" onclick = "capture()">경로</td>
                             <td>B00001</td>
                         </tr>
                         <tr align="center">
@@ -429,7 +421,7 @@
                 function capture() {
                     alert("!");
                     var cap = document.getElementById("cap");
-                    cap.innerHTML = "<img src = '../../images/unnamed.jpg'>";
+                    cap.innerHTML = "<img src = 'images/unnamed.jpg'>";
                 }
             </script>
 
