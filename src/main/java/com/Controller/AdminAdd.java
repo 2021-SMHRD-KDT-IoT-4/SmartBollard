@@ -21,7 +21,7 @@ public class AdminAdd extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("utf-8");
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");

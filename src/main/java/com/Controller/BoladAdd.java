@@ -16,6 +16,7 @@ public class BoladAdd extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
 		
 		String street = request.getParameter("street");
 		String product = request.getParameter("product");
