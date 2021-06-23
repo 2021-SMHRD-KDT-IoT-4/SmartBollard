@@ -224,7 +224,6 @@
 				
 					<table>
 						<tr align="center">
-							<form>	
 								<td>볼라드번호</td>
 								<!-- bolno -->
 								<td>도로명</td>
@@ -233,17 +232,19 @@
 								<!-- product -->
 								<td>상태표시</td>
 							<!-- bstatus -->
+								<td>삭제하기</td>
+							<!-- Bdelete -->
 						</tr>
 						<!-- 반복문으로 반복시킬예정 -->
 						<%
 						for (int i = 0; i < list.size(); i++) {
 						%>
 						<tr align="center">
-								<td><%=list.get(i).getBolno()%></td>
+								<td><%=i+1%></td>
 								<td><%=list.get(i).getStreet()%></td>
 								<td><%=list.get(i).getProduct()%></td>
 								<td><%=list.get(i).getBstatus()%></td>
-							</form>
+								<td><a href = "BoladDelete?bolno=<%= list.get(i).getBolno() %>">삭제</a></td>
 						</tr>
 						<%
 						}
@@ -260,10 +261,6 @@
 						<form action="#bupdate">
 							<!-- 수정창으로이동 update문 이용 -->
 							<td align="center"><input type="submit" value="수정하기"></td>
-						</form>
-						<form action="#bdelete">
-							<!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
-							<td align="center"><input type="submit" value="삭제하기"></td>
 						</form>
 					</tr>
 				</table>

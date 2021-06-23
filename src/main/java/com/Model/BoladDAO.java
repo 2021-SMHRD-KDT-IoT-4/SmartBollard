@@ -49,8 +49,8 @@ public class BoladDAO {
 	
 	public ArrayList<BoladDTO> boladManage() {
 		
-		conn();
 		list = new ArrayList<BoladDTO>();
+		conn();
 		
 		try {
 			String sql = "select * from bolad";
