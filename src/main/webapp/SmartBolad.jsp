@@ -204,7 +204,7 @@
 				
 					<!-- 이미지 지도를 표시할 div 입니다 -->
 			
-				<section id="staticMap" style="width:880px;height:500px;"></section>    
+				<section id="staticMap" style="width:1173px;height:500px;"></section>    
 		
 				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=34f11ae1b3931d43a2a11a70eeada391"></script>
 			<script>    
