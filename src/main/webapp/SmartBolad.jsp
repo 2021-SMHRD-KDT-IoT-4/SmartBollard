@@ -4,6 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<%@page import="com.Model.adminDTO"%>
 <%@page import="com.Model.emcDAO"%>
 <%@page import="com.Model.emcDTO"%>
 <%@page import="com.Model.eventDTO"%>
@@ -41,6 +42,13 @@
 
 <body class="is-preload">
 	<%
+		
+		adminDTO info = (adminDTO)session.getAttribute("login_info");
+	
+		
+	
+	
+	
 		int i = 0;
 		BoladDAO dao = new BoladDAO();
 		ArrayList<BoladDTO> list = dao.boladManage();
@@ -64,21 +72,35 @@
 				<div class="inner">
 					<h1>스마트 볼라드</h1>
 					<p>IoT와 웹을 활용한 스마트 교차로 관리 시스템</p>
+					<%if (info == null){ %>
+					로그인을 해주세요!
+					<%} else{%>
+					<span><%=info.getName() %> 관리자님 안녕하세요</span>
+					<%} %>
 				</div>
 			</div>
-			<nav>
+			<nav>	
+			<ul>	
+					<%if (info == null){ %>
+					<li><a href="#intro" class="button">제품설명</a></li>
+					<li><a href="#admin" class="button">관리자등록</a></li>
+					<%} else{%>
 					<li><a href="#intro" class="button">제품설명</a></li>
 					<li><a href="#admin" class="button">관리자등록</a></li>
 					<li><a href="#bolad" class="button">볼라드관리</a></li>
 					<li><a href="#stopline" class="button">정지선위반관리</a></li>
 					<li><a href="#event" class="button">축제일정관리</a></li>
 					<li><a href="#emc" id="event">통제관리</a></li>
+					<%} %>
 					<!--<li><a href="#elements">Elements</a></li>-->
 				</ul>
 
 			</nav>
+			<%if (info == null){ %>
 			<span><a href="#login">로그인</a></span>
-
+			<%} else{%>
+			<span><a href="Logout">로그아웃</a></span>
+			<%} %>
 		</header>
 
 		<!-- Main -->
@@ -643,8 +665,10 @@
 								<!-- zone -->
 								<td>비고</td>
 							</tr>
+
 							
 							<%for(i = 0; i < emcList.size(); i++) {%>
+
 								<tr>
 									<td><%=emcList.get(i).getEmcno() %></td>
 									<td><%=emcList.get(i).getInfo()%></td>
@@ -654,6 +678,8 @@
 									<td><%=emcList.get(i).getLightcolor() %></td>
 									<td><%=emcList.get(i).getZone() %></td>		
 									<td>	
+									<td><%=emcList.get(i).getZone() %></td>	
+									<td><a href = "EmcDelete?emcno=<%=emcList.get(i).getEmcno() %>">삭제</a></td>		
 								</tr>
 							<%} %>
 
