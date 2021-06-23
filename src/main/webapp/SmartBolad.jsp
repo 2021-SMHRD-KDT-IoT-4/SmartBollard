@@ -38,8 +38,9 @@
 
 <body class="is-preload">
 	<%
-		ArrayList<BoladDTO> list = new ArrayList<BoladDTO>();
+		int i = 0;
 		BoladDAO dao = new BoladDAO();
+		ArrayList<BoladDTO> list = dao.boladManage();
 		
 		eventDAO eventdao = new eventDAO();
 		ArrayList<eventDTO> eventList = eventdao.showEvent();
@@ -54,7 +55,7 @@
 		<!-- Header -->
 		<header id="header">
 			<div class="logo">
-				<span class="icon fa-gem"></span>
+				<span class="icon fa-tree"></span>
 			</div>
 			<div class="content">
 				<div class="inner">
@@ -160,15 +161,6 @@
 				<h2 class="major">
 					<i class="fas fa-chess-pawn"></i>볼라드관리<i class="fas fa-chess-pawn"></i>
 				</h2>
-					<table>
-						<tr>
-							<form>
-								<td><input type="text"></td>
-								<td><input type="button" value="검색"></td>
-							</form>
-						</tr>
-					</table>
-					<br><br>
 					
 					
 				
@@ -188,22 +180,22 @@
 			    },
 			    {
 			        position: new kakao.maps.LatLng(35.123195564562046,126.86298310286587), 
-			        text: 'B00001' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다  
-			        
-			    },
+			        text: 'B<%=list.get(i).getBolno()%>' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다  
+			        	
+			    },			<%i++;%>
 			    {
 			        position: new kakao.maps.LatLng(35.122978914776425,126.86269822615431), 
-			        text: 'B00002' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다  
+			        text: 'B<%=list.get(i).getBolno()%>' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다  
 			        
-			    },
+			    },			<%i++;%>
 			    {
 			        position: new kakao.maps.LatLng(35.12317664494927,126.86219598130481), 
-			        text: 'B00003' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다  
+			        text: 'B<%=list.get(i).getBolno()%>' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다  
 			        
-			    },
+			    },			<%i++;%>
 			    {
 			        position: new kakao.maps.LatLng(35.123440698322185,126.86255208797733 ), 
-			        text: 'B00004' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다  
+			        text: 'B<%=list.get(i).getBolno()%>' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다  
 			        
 			    }
 			];
@@ -242,10 +234,10 @@
 						</tr>
 						<!-- 반복문으로 반복시킬예정 -->
 						<%
-						for (int i = 0; i < list.size(); i++) {
+						for (i = 0; i < list.size(); i++) {
 						%>
 						<tr align="center">
-								<td><%=i+1%></td>
+								<td>B<%=list.get(i).getBolno()%></td>
 								<td><%=list.get(i).getStreet()%></td>
 								<td><%=list.get(i).getProduct()%></td>
 								<td><%=list.get(i).getBstatus()%></td>
@@ -259,13 +251,9 @@
 
 				<table>
 					<tr>
-						<form action="#badd">
+						<form action="#badd" colspan = "3">
 							<!-- 추가창으로이동 insert문 이용 -->
 							<td align="center"><input type="submit" value="추가하기"></td>
-						</form>
-						<form action="#bupdate">
-							<!-- 수정창으로이동 update문 이용 -->
-							<td align="center"><input type="submit" value="수정하기"></td>
 						</form>
 					</tr>
 				</table>
@@ -382,7 +370,7 @@
 							<td>풍암로</td>
 							<td>21/06/21 16:20</td>
 							<td>123가4567</td>
-							<td>사진외부경로</td>
+							<td><a id = "cap" onclick = "capture()">경로</a></td>
 							<td>B00001</td>
 						</tr>
 						<tr align="center">
@@ -457,7 +445,7 @@
 				function capture() {
 					alert("!");
 					var cap = document.getElementById("cap");
-					cap.innerHTML = "<img src = '../../images/unnamed.jpg'>";
+					cap.innerHTML = "<img src = 'images/unnamed.jpg'>";
 				}
 			</script>
 
@@ -486,7 +474,7 @@
 							<!-- estreet -->
 						</tr>
 						 
-						 <%for(int i=0; i<eventList.size(); i++) {%>
+						 <%for(i = 0; i<eventList.size(); i++) {%>
                         <tr align="center">
                             <td><%= eventList.get(i).getEname()%></td>
                             <td><%= eventList.get(i).getDay()%></td>
@@ -638,7 +626,7 @@
 					<table>
 						
 							<tr align="center">
-								<td>볼라드번호</td>
+								<td>통제번호</td>
 								<!-- bolno -->
 								<td>통제내용</td>
 								<!-- info -->
@@ -654,7 +642,10 @@
 								<!-- zone -->
 								<td>비고</td>
 							</tr>
-							<%for(int i = 0; i < emcList.size(); i++) {%>
+
+							
+							<%for(i = 0; i < emcList.size(); i++) {%>
+
 								<tr>
 									<td><%=emcList.get(i).getEmcno() %></td>
 									<td><%=emcList.get(i).getInfo()%></td>
@@ -668,6 +659,7 @@
 							<%} %>
 
 						
+						</form>
 					</table>
 					<table>
 						<tr>
@@ -691,28 +683,28 @@
 				<table>
 					<form action="EmcAdd">
 						<tr>
-							<td align="right">도로명 :</td>
-							<td><input type="text" name="ename"></td>
-						</tr>
-						<tr>
-							<td align="right">기간 :</td>
-							<td><input type="text" name="day"></td>
-						</tr>
-						<tr>
 							<td align="right">통제내용 :</td>
-							<td><input type="text" name="host"></td>
+							<td><input type="text" name="info"></td>
 						</tr>
 						<tr>
 							<td align="right">담당자 :</td>
-							<td><input type="text" name="etime"></td>
+							<td><input type="text" name="manager"></td>
 						</tr>
 						<tr>
-							<td align = "right">통제시간 : </td>
-							<td><input type = "text"></td>
+							<td align="right">도로명 :</td>
+							<td><input type="text" name="street"></td>
+						</tr>
+						<tr>
+							<td align="right">통제날짜 :</td>
+							<td><input type="text" name="ttime"></td>
+						</tr>
+						<tr>
+							<td align="right">신호상태 :</td>
+							<td><input type="text" name="lightcolor"></td>
 						</tr>
 						<tr>
 							<td align="right">관할구역 :</td>
-							<td><input type="text" name="street"></td>
+							<td><input type="text" name="zone"></td>
 						</tr>
 						<tr>
 							<td align="center"><input type="submit"
@@ -720,6 +712,7 @@
 					</form>
 					</tr>
 				</table>
+			</article>
 				</form>
 			</article>
 			
@@ -731,19 +724,13 @@
 						<tr align="center">
 							<td>볼라드번호</td>
 							<!-- bolno -->
-							<td>도로명</td>
-							<!-- street -->
-							<td>신호상태</td>
-							<!-- lightcolor -->
-							<td>관할구역</td>
-							<!-- zone -->
 						</tr>
 						<tr>
 							<td></td>
 							<!-- 통제데이터를 반복문으로 불러오기 -->
 						</tr>
 						<tr>
-							<td align="center" colspan="4"><input type="submit"
+							<td align="center" colspan="2"><input type="submit"
 								value="통제하기"></td>
 						</tr>
 					</table>
