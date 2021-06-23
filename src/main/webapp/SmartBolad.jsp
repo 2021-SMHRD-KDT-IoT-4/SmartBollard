@@ -4,6 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<%@page import="com.Model.adminDTO"%>
 <%@page import="com.Model.emcDAO"%>
 <%@page import="com.Model.emcDTO"%>
 <%@page import="com.Model.eventDTO"%>
@@ -38,6 +39,13 @@
 
 <body class="is-preload">
 	<%
+		
+		adminDTO info = (adminDTO)session.getAttribute("login_info");
+	
+		
+	
+	
+	
 		int i = 0;
 		BoladDAO dao = new BoladDAO();
 		ArrayList<BoladDTO> list = dao.boladManage();
@@ -75,9 +83,12 @@
 				</ul>
 
 			</nav>
-
+			<%if (info == null){ %>
 			<span><a href="#login">로그인</a></span>
-
+			<%} else{%>
+			<span><a href="#login"><%=info.getName() %> 관리자님 안녕하세요</a></span>
+			<span><a href="Logout">로그아웃</a></span>
+			<%} %>
 		</header>
 
 		<!-- Main -->
@@ -570,9 +581,11 @@
 								<!-- zone -->
 								<td>비고</td>
 							</tr>
+
 							
 							
 							<%for(i = 0; i < emcList.size(); i++) {%>
+
 								<tr>
 									<td><%=emcList.get(i).getEmcno() %></td>
 									<td><%=emcList.get(i).getInfo()%></td>
@@ -580,7 +593,8 @@
 									<td><%=emcList.get(i).getStreet() %></td>
 									<td><%=emcList.get(i).getTtime() %></td>
 									<td><%=emcList.get(i).getLightcolor() %></td>
-									<td><%=emcList.get(i).getZone() %></td>			
+									<td><%=emcList.get(i).getZone() %></td>	
+									<td><a href = "EmcDelete?emcno=<%=emcList.get(i).getEmcno() %>">삭제</a></td>		
 								</tr>
 							<%} %>
 

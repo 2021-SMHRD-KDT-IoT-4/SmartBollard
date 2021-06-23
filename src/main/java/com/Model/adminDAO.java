@@ -12,7 +12,7 @@ public class adminDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	int cnt = 0;
-	String name = null;
+	adminDTO info = null;
 
 	public void conn() {
 		try {
@@ -82,7 +82,7 @@ public class adminDAO {
 	}
 	
 	
-	public String login(adminDTO dto) {
+	public adminDTO login(adminDTO dto) {
 		
 		conn();
 		
@@ -97,8 +97,14 @@ public class adminDAO {
 			
 			if(rs.next()) {
 				
-				name = rs.getString(3);
-			
+				String id = rs.getString(1);
+				String pw = rs.getString(2);
+				String name = rs.getString(3);
+				String zone = rs.getString(4);
+				String police = rs.getString(5);
+				
+				info = new adminDTO(id, pw, name, zone, police);
+		
 			}
 		
 		} catch (SQLException e) {
@@ -107,7 +113,7 @@ public class adminDAO {
 		} finally {
 			close();
 		}
-		return name;
+		return info;
 		
 		
 	}
