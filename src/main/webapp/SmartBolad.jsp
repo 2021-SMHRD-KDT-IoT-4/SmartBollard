@@ -555,8 +555,6 @@
 								<!-- lightcolor -->
 								<td align = "center">관할구역</td>
 								<!-- zone -->
-								<td align = "center">비고</td>
-								
 								<td align = "center">삭제하기</td>
 							</tr>
 
@@ -572,7 +570,6 @@
 									<td align = "center"><%=emcList.get(i).getTtime() %></td>
 									<td align = "center"><%=emcList.get(i).getLightcolor() %></td>
 									<td align = "center"><%=emcList.get(i).getZone() %></td>		
-									<td align = "center"></td>		
 									<td align = "center"><a href = "EmcDelete?emcno=<%=emcList.get(i).getEmcno() %>">삭제</a></td>		
 								</tr>
 							<%} %>
