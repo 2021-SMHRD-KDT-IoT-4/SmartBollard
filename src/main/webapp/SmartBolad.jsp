@@ -4,6 +4,8 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<%@page import="com.Model.emcDAO"%>
+<%@page import="com.Model.emcDTO"%>
 <%@page import="com.Model.eventDTO"%>
 <%@page import="com.Model.eventDAO"%>
 <%@page import="com.Model.BoladDAO"%>
@@ -41,6 +43,9 @@
 		
 		eventDAO eventdao = new eventDAO();
 		ArrayList<eventDTO> eventList = eventdao.showEvent();
+		
+		emcDAO emcdao = new emcDAO();
+		ArrayList<emcDTO> emcList = emcdao.showEmc();
 	%>
 
 	<!-- Wrapper -->
@@ -224,7 +229,6 @@
 				
 					<table>
 						<tr align="center">
-							<form>	
 								<td>볼라드번호</td>
 								<!-- bolno -->
 								<td>도로명</td>
@@ -233,17 +237,19 @@
 								<!-- product -->
 								<td>상태표시</td>
 							<!-- bstatus -->
+								<td>삭제하기</td>
+							<!-- Bdelete -->
 						</tr>
 						<!-- 반복문으로 반복시킬예정 -->
 						<%
 						for (int i = 0; i < list.size(); i++) {
 						%>
 						<tr align="center">
-								<td><%=list.get(i).getBolno()%></td>
+								<td><%=i+1%></td>
 								<td><%=list.get(i).getStreet()%></td>
 								<td><%=list.get(i).getProduct()%></td>
 								<td><%=list.get(i).getBstatus()%></td>
-							</form>
+								<td><a href = "BoladDelete?bolno=<%= list.get(i).getBolno() %>">삭제</a></td>
 						</tr>
 						<%
 						}
@@ -260,10 +266,6 @@
 						<form action="#bupdate">
 							<!-- 수정창으로이동 update문 이용 -->
 							<td align="center"><input type="submit" value="수정하기"></td>
-						</form>
-						<form action="#bdelete">
-							<!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
-							<td align="center"><input type="submit" value="삭제하기"></td>
 						</form>
 					</tr>
 				</table>
@@ -562,7 +564,7 @@
 				</h2>
 				<form action="EventAdd" method="post">
 					<table>
-						<form>
+						
 							<tr align="center">
 								<td>볼라드번호</td>
 								<!-- bolno -->
@@ -578,44 +580,21 @@
 								<!-- lightcolor -->
 								<td>관할구역</td>
 								<!-- zone -->
+								<td>비고</td>
 							</tr>
-							<tr align="center">
-								<td>B00001</td>
-								<td>장마로 인한 도로침수</td>
-								<td>서구청</td>
-								<td>죽봉대로</td>
-								<td>00:00~23:59</td>
-								<td>정상</td>
-								<td>서구</td>
-							</tr>
-							<tr align="center">
-								<td>B00001</td>
-								<td>장마로 인한 도로침수</td>
-								<td>서구청</td>
-								<td>죽봉대로</td>
-								<td>00:00~23:59</td>
-								<td>정상</td>
-								<td>서구</td>
-							</tr>
-							<tr align="center">
-								<td>B00001</td>
-								<td>장마로 인한 도로침수</td>
-								<td>서구청</td>
-								<td>죽봉대로</td>
-								<td>00:00~23:59</td>
-								<td>정상</td>
-								<td>서구</td>
-							</tr>
-							<tr align="center">
-								<td>B00001</td>
-								<td>장마로 인한 도로침수</td>
-								<td>서구청</td>
-								<td>죽봉대로</td>
-								<td>00:00~23:59</td>
-								<td>정상</td>
-								<td>서구</td>
-							</tr>
-						</form>
+							<%for(int i = 0; i < list.size(); i++) {%>
+								<tr>
+									<td><%=emcList.get(i).getEmcno() %></td>
+									<td><%=emcList.get(i).getInfo()%></td>
+									<td><%=emcList.get(i).getManager() %></td>
+									<td><%=emcList.get(i).getStreet() %></td>
+									<td><%=emcList.get(i).getTtime() %></td>
+									<td><%=emcList.get(i).getLightcolor() %></td>
+									<td><%=emcList.get(i).getZone() %></td>			
+								</tr>
+							<%} %>
+
+						
 					</table>
 					<table>
 						<tr>
@@ -623,14 +602,8 @@
 								<!-- 추가창으로이동 insert문 이용 -->
 								<td align="center"><input type="submit" value="추가하기"></td>
 							</form>
-							<form action="#emupdate">
-								<!-- 수정창으로이동 update문 이용 -->
-								<td align="center"><input type="submit" value="수정하기"></td>
-							</form>
-							<form action="#emdelete">
-								<!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
-								<td align="center"><input type="submit" value="삭제하기"></td>
-							</form>
+							
+						
 							<form action="#emccontroll">
 								<!-- 통제창으로이동 서버로 신호 전송 예정 -->
 								<td align="center"><input type="submit" value="교통통제하기"></td>
@@ -643,7 +616,7 @@
 			<article id="emadd">
 				<h2>교통통제등록</h2>
 				<table>
-					<form action="EmcAdd.java">
+					<form action="EmcAdd">
 						<tr>
 							<td align="right">도로명 :</td>
 							<td><input type="text" name="ename"></td>
@@ -676,72 +649,8 @@
 				</table>
 				</form>
 			</article>
-			<article id="emupdate">
-				<h2>교통통제수정</h2>
-				<table>
-					<form action="EmcUpdate.java">
-						<tr>
-							<td align="right">도로명 :</td>
-							<td><input type="text" name="ename"></td>
-						</tr>
-						<tr>
-							<td align="right">기간 :</td>
-							<td><input type="text" name="day"></td>
-						</tr>
-						<tr>
-							<td align="right">통제내용 :</td>
-							<td><input type="text" name="host"></td>
-						</tr>
-						<tr>
-							<td align="right">담당자 :</td>
-							<td><input type="text" name="etime"></td>
-						</tr>
-						<tr>
-							<td align = "right">통제시간 : </td>
-							<td><input type = "text"></td>
-						</tr>
-						<tr>
-							<td align="right">관할구역 :</td>
-							<td><input type="text" name="street"></td>
-						</tr>
-						<tr>
-							<td align="center"><input type="submit"
-								value="수정하기"><input type="reset" value="다시입력"></td>
-						</tr>
-					</form>
-				</table>
-			</article>
-			<article id="emdelete">
-				<h2>교통통제삭제</h2>
-				<form action="EmcDelete.java">
-					<table>
-						<tr align="center">
-							<td>볼라드번호</td>
-							<!-- bolno -->
-							<td>통제내용</td>
-							<!-- info -->
-							<td>담당자</td>
-							<!-- manager -->
-							<td>도로명</td>
-							<!-- street -->
-							<td>통제시간</td>
-							<!-- ttime -->
-							<td>신호상태</td>
-							<!-- lightcolor -->
-							<td>관할구역</td>
-							<!-- zone -->
-						</tr>
-						<tr>
-							<td></td>
-							<!-- 삭제데이터를 반복문으로 불러오기 -->
-						</tr>
-						<tr>
-							<td align="center" colspan="7"><input type="submit"
-								value="삭제하기"></td>
-						</tr>
-					</table>
-				</form>
-			</article>
+			
+			
 			<article id="emccontroll">
 				<h2>교통통제</h2>
 				<form action="EmcControll.java">
