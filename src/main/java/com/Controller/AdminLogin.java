@@ -40,8 +40,8 @@ public class AdminLogin extends HttpServlet {
 			session.setAttribute("login_info", info);
 			response.sendRedirect("SmartBolad.jsp");
 		} else {
-			System.out.println(" 로그인실패!");
-			response.sendRedirect("SmartBolad.jsp");
+			System.out.println("로그인실패!");
+			response.sendRedirect("SmartBolad.jsp#loginFail");
 		}
 		
 		

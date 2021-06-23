@@ -53,7 +53,7 @@ public class eventDAO {
 		
 		public int eventAdd(eventDTO dto) {
 			conn();
-			String sql = "insert into event values(?,?,?,?,?,?,?)";
+			String sql = "insert into event values(?,?,?,?,?,?,?,event_sequence.nextval)";
 			try {
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, dto.getEname());
@@ -77,7 +77,7 @@ public class eventDAO {
 		public ArrayList<eventDTO> showEvent() {
 			ArrayList<eventDTO> eventList = new ArrayList<eventDTO>();
 			conn();
-			String sql = "select*from event order by host";
+			String sql = "select*from event";
 			try {
 				psmt= conn.prepareStatement(sql);
 				
@@ -91,8 +91,9 @@ public class eventDAO {
 					int people = rs.getInt(5);
 					String sstreet = rs.getString(6);
 					String estreet = rs.getString(7);
+					int eno = rs.getInt(8);
 					
-					dto = new eventDTO(ename, day, host, etime, people, sstreet, estreet);
+					dto = new eventDTO(ename, day, host, etime, people, sstreet, estreet,eno);
 					eventList.add(dto);
 				}
 				
@@ -101,12 +102,25 @@ public class eventDAO {
 			}finally {
 				close();
 			}return eventList;
-			
-		
-		
-		
+	
 	}
 
-	
+	public int DelOEvent(String eno) {
+		
+		conn();
+		String sql = "delete from event where eno=?";
+				
+			try {
+				psmt=conn.prepareStatement(sql);
+				psmt.setString(1, eno);
+				cnt=psmt.executeUpdate();
+					
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally{
+				close();
+			}return cnt;
+				
+		}
 	
 }

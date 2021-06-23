@@ -9,9 +9,39 @@ public class eventDTO {
 	private int people;
 	private String sstreet;
 	private String estreet;
+	private int eno;
 	
 	
 	
+	public int getEno() {
+		return eno;
+	}
+
+
+
+	public void setEno(int eno) {
+		this.eno = eno;
+	}
+
+
+
+	public eventDTO(String ename, String day, String host, String etime, int people, String sstreet, String estreet, int eno) {
+		super();
+		this.ename = ename;
+		this.day = day;
+		this.host = host;
+		this.etime = etime;
+		this.people = people;
+		this.sstreet = sstreet;
+		this.estreet = estreet;
+		this.eno = eno;
+	}
+
+
+
+
+
+
 	public eventDTO(String ename, String day, String host, String etime, int people, String sstreet, String estreet) {
 		super();
 		this.ename = ename;

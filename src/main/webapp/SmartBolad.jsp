@@ -124,12 +124,23 @@
 								value="로그인"></td>
 						</tr>
 					</table>
-
 				</form>
 			</article>
-
+			
+			<!-- loginfail -->
+			<article id="loginFail">
+				<form action="SmartBolad.jsp">
+					<td align="left"><input type="submit" value="뒤로가기"></td>
+				</form>
+					<table><tr><td align = "center">로그인 실패!!	관련 부서에 문의하십시요!!</td></tr></table>
+			</article>
+			
+			
 			<!-- Intro -->
 			<article id="intro">
+				<form action="SmartBolad.jsp">
+						<td align="left"><input type="submit" value="뒤로가기"></td>
+						</form>
 				<h2 class="major">제품개요</h2>
 				<span class="image main"><img src="images/Info.gif" alt="" /></span>
 				<p>이 제품은 볼라드에 IoT를 접목한 스마트 볼라드 시스템으로 주기능은 볼라드의 신호표시 및 적신호시 무단횡단을
@@ -144,6 +155,9 @@
 				<h2 class="major">
 					<i class="fas fa-users-cog"></i>관리자등록<i class="fas fa-users-cog"></i>
 				</h2>
+				<form action="SmartBolad.jsp">
+						<td align="left"><input type="submit" value="뒤로가기"></td>
+						</form>
 				<form action="AdminAdd" method="post">
 
 					<table>
@@ -190,7 +204,7 @@
 				
 					<!-- 이미지 지도를 표시할 div 입니다 -->
 			
-				<section id="staticMap" style="width:550px;height:500px;"></section>    
+				<section id="staticMap" style="width:880px;height:500px;"></section>    
 		
 				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=34f11ae1b3931d43a2a11a70eeada391"></script>
 			<script>    
@@ -283,6 +297,9 @@
 			</article>
 			<article id="badd">
 				<h2>볼라드등록</h2>
+				<form action="#bolad">
+						<td align="left"><input type="submit" value="뒤로가기"></td>
+						</form>
 					<form action="BoladAdd">
 						<table>
 							<tr>
@@ -307,62 +324,6 @@
 							</tr>
 						</table>
 					</form>
-			</article>
-			<article id="bupdate">
-				<h2>볼라드수정</h2>
-					<form action="BoladUpdate">
-						<table>
-							<tr>
-								<td align="right">수정할 볼라드번호 :</td>
-								<td><input type="text" name="bolno"></td>
-							</tr>
-							<tr>
-								<td align="right">도로명 :</td>
-								<td><input type="text" name="road"></td>
-							</tr>
-							<tr>
-								<td align="right">제조공장 :</td>
-								<td><input type="text" name="product"></td>
-							</tr>
-							<tr>
-								<td align="right">볼라드상태 :</td>
-								<td><input type="text" name="bstatus"></td>
-							</tr>
-							<tr>
-								<td align="right">작동여부 :</td>
-								<td><input type="text" name="heartbeat"></td>
-							</tr>
-							<tr>
-								<td align="center" colspan="2"><input type="submit"
-									value="수정하기"><input type="reset" value="다시입력"></td>
-						</tr>
-						</table>
-					</form>
-			</article>
-			<article id="bdelete">
-				<h2>볼라드삭제</h2>
-				<form action="BoladDelete.java">
-					<table>
-						<tr align="center">
-							<td>볼라드번호</td>
-							<!-- bolno -->
-							<td>도로명</td>
-							<!-- street -->
-							<td>제조공장</td>
-							<!-- product -->
-							<td>상태표시</td>
-							<!-- bstatus -->
-						</tr>
-						<tr>
-							<td></td>
-							<!-- 삭제데이터를 반복문으로 불러오기 -->
-						</tr>
-						<tr>
-							<td align="center" colspan="4"><input type="submit"
-								value="삭제하기"></td>
-						</tr>
-					</table>
-				</form>
 			</article>
 			<!-- Stopline -->
 
@@ -472,7 +433,7 @@
 				}
 			</script>
 
-			<!-- Event -->
+			<!------ Event ------>
 			<article id="event">
 				<h2 class="major">
 					<i class="far fa-calendar-alt"></i>축제일정관리<i
@@ -495,6 +456,7 @@
 							<!-- sstreet -->
 							<td>종료구간</td>
 							<!-- estreet -->
+							<td>삭제하기</td>
 						</tr>
 						 
 						 <%for(i = 0; i<eventList.size(); i++) {%>
@@ -506,7 +468,8 @@
                             <td><%= eventList.get(i).getPeople()%></td>
                             <td><%= eventList.get(i).getSstreet()%></td>
                             <td><%= eventList.get(i).getEstreet()%></td>
-                           	<td>
+                            <td><a href= "DelOneEvent?eno=<%=eventList.get(i).getEno() %>"> 삭제 </a></td>
+                           
                         </tr>
                         <%} %>
 					
@@ -518,22 +481,19 @@
 							<!-- 추가창으로이동 insert문 이용 -->
 							<td align="center"><input type="submit" value="추가하기"></td>
 						</form>
-						<form action="#evupdate">
-							<!-- 수정창으로이동 update문 이용 -->
-							<td align="center"><input type="submit" value="수정하기"></td>
-						</form>
-						<form action="#evdelete">
-							<!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
-							<td align="center"><input type="submit" value="삭제하기"></td>
-						</form>
+						
+						
 					</tr>
 				</table>
 			</article>
 
 			<article id="evadd">
 				<h2>행사/집회등록</h2>
+					<form action="#event">
+						<td align="left"><input type="submit" value="뒤로가기"></td>
+						</form>
 				<table>
-					<form action="EventAdd.java">
+					<form action="EventAdd" method="post">
 						<tr>
 							<td align="right">행사명 :</td>
 							<td><input type="text" name="ename"></td>
@@ -569,76 +529,8 @@
 				</table>
 				</form>
 			</article>
-			<article id="evupdate">
-				<h2>행사/집회수정</h2>
-				<table>
-					<form action="EventUpdate.java">
-						<tr>
-							<td align="right">행사명 :</td>
-							<td><input type="text" name="ename"></td>
-						</tr>
-						<tr>
-							<td align="right">기간 :</td>
-							<td><input type="text" name="day"></td>
-						</tr>
-						<tr>
-							<td align="right">주최자 :</td>
-							<td><input type="text" name="host"></td>
-						</tr>
-						<tr>
-							<td align="right">통제시간 :</td>
-							<td><input type="text" name="etime"></td>
-						</tr>
-						<tr>
-							<td align="right">참가인원 :</td>
-							<td><input type="text" name="people"></td>
-						</tr>
-						<tr>
-							<td align="right">시작구간 :</td>
-							<td><input type="text" name="sstreet"></td>
-						</tr>
-						<tr>
-							<td align="right">종료구간 :</td>
-							<td><input type="text" name="estreet"></td>
-						</tr>
-						<tr>
-							<td align="center" colspan="2"><input type="submit"
-								value="수정하기"><input type="reset" value="다시입력"></td>
-					</form>
-					</tr>
-				</table>
-			</article>
-			<article id="evdelete">
-				<h2>행사/집회삭제</h2>
-				<form action="EventDelete.java">
-					<table>
-						<tr align="center">
-							<td>행사명</td>
-							<!-- ename -->
-							<td>기간</td>
-							<!-- day -->
-							<td>주최자</td>
-							<!-- host -->
-							<td>통제시간</td>
-							<!-- etime -->
-							<td>참가인원</td>
-							<!-- people -->
-							<td>시작구간</td>
-							<!-- sstreet -->
-							<td>종료구간</td>
-							<!-- estreet -->
-						</tr>
-						<tr>
-							<td></td>
-							<!-- 삭제데이터를 반복문으로 불러오기 -->
-						</tr>
-						<tr>
-							<td align="center" colspan="7"><input type="submit"
-								value="삭제하기"></td>
-						</tr>
-					</table>
-				</form>
-			</article>
+		
+			
 
 			<!-- EMC -->
 			<article id="emc">
@@ -649,37 +541,39 @@
 					<table>
 						
 							<tr align="center">
-								<td>통제번호</td>
+								<td align = "center">통제번호</td>
 								<!-- bolno -->
-								<td>통제내용</td>
+								<td align = "center">통제내용</td>
 								<!-- info -->
-								<td>담당자</td>
+								<td align = "center">담당자</td>
 								<!-- manager -->
-								<td>도로명</td>
+								<td align = "center">도로명</td>
 								<!-- street -->
-								<td>통제시간</td>
+								<td align = "center">통제시간</td>
 								<!-- ttime -->
-								<td>신호상태</td>
+								<td align = "center">신호상태</td>
 								<!-- lightcolor -->
-								<td>관할구역</td>
+								<td align = "center">관할구역</td>
 								<!-- zone -->
-								<td>비고</td>
+								<td align = "center">비고</td>
+								
+								<td align = "center">삭제하기</td>
 							</tr>
 
+							
 							
 							<%for(i = 0; i < emcList.size(); i++) {%>
 
 								<tr>
-									<td><%=emcList.get(i).getEmcno() %></td>
-									<td><%=emcList.get(i).getInfo()%></td>
-									<td><%=emcList.get(i).getManager() %></td>
-									<td><%=emcList.get(i).getStreet() %></td>
-									<td><%=emcList.get(i).getTtime() %></td>
-									<td><%=emcList.get(i).getLightcolor() %></td>
-									<td><%=emcList.get(i).getZone() %></td>		
-									<td>	
-									<td><%=emcList.get(i).getZone() %></td>	
-									<td><a href = "EmcDelete?emcno=<%=emcList.get(i).getEmcno() %>">삭제</a></td>		
+									<td align = "center"><%=emcList.get(i).getEmcno() %></td>
+									<td align = "center"><%=emcList.get(i).getInfo()%></td>
+									<td align = "center"><%=emcList.get(i).getManager() %></td>
+									<td align = "center"><%=emcList.get(i).getStreet() %></td>
+									<td align = "center"><%=emcList.get(i).getTtime() %></td>
+									<td align = "center"><%=emcList.get(i).getLightcolor() %></td>
+									<td align = "center"><%=emcList.get(i).getZone() %></td>		
+									<td align = "center"></td>		
+									<td align = "center"><a href = "EmcDelete?emcno=<%=emcList.get(i).getEmcno() %>">삭제</a></td>		
 								</tr>
 							<%} %>
 
@@ -693,6 +587,9 @@
 
 			<article id="emadd">
 				<h2>교통통제등록</h2>
+				<form action="#emc">
+						<td align="left"><input type="submit" value="뒤로가기"></td>
+						</form>
 				<table>
 					<form action="EmcAdd">
 						<tr>
@@ -732,7 +629,10 @@
 			
 			<article id="emccontroll">
 				<h2>교통통제</h2>
-				<form action="EmcControll.java">
+						<form action="#emc">
+						<td align="left"><input type="submit" value="뒤로가기"></td>
+						<form action="EmcControll.java">
+						</form>
 					<table>
 						<tr align="center">
 							<td>볼라드번호</td>
