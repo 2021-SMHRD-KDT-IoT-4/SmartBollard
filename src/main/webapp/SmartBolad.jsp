@@ -34,6 +34,9 @@
 .button {
 	background-color: black;
 }
+.span {
+	display : inline;
+}
 </style>
 
 <body class="is-preload">
@@ -64,7 +67,6 @@
 				</div>
 			</div>
 			<nav>
-				<ul>
 					<li><a href="#intro" class="button">제품설명</a></li>
 					<li><a href="#admin" class="button">관리자등록</a></li>
 					<li><a href="#bolad" class="button">볼라드관리</a></li>
@@ -75,7 +77,6 @@
 				</ul>
 
 			</nav>
-
 			<span><a href="#login">로그인</a></span>
 
 		</header>
@@ -483,7 +484,7 @@
                             <td><%= eventList.get(i).getPeople()%></td>
                             <td><%= eventList.get(i).getSstreet()%></td>
                             <td><%= eventList.get(i).getEstreet()%></td>
-                           
+                           	<td>
                         </tr>
                         <%} %>
 					
@@ -651,27 +652,16 @@
 									<td><%=emcList.get(i).getStreet() %></td>
 									<td><%=emcList.get(i).getTtime() %></td>
 									<td><%=emcList.get(i).getLightcolor() %></td>
-									<td><%=emcList.get(i).getZone() %></td>			
+									<td><%=emcList.get(i).getZone() %></td>		
+									<td>	
 								</tr>
 							<%} %>
 
 						
 						</form>
 					</table>
-					<table>
-						<tr>
-							<form action="#emadd">
-								<!-- 추가창으로이동 insert문 이용 -->
-								<td align="center"><input type="submit" value="추가하기"></td>
-							</form>
-							
-						
-							<form action="#emccontroll">
-								<!-- 통제창으로이동 서버로 신호 전송 예정 -->
-								<td align="center"><input type="submit" value="교통통제하기"></td>
-							</form>
-						</tr>
-					</table>
+					<form action="#emadd" align = "center"><input type="submit" value="추가하기"></form>
+					<form action="#emccontroll" align = "center"><input type="submit" value="교통통제하기"></form>
 				</form>
 			</article>
 
@@ -704,8 +694,8 @@
 							<td><input type="text" name="zone"></td>
 						</tr>
 						<tr>
-							<td align="center"><input type="submit"
-								value="등록하기"><input type="reset" value="다시입력"></td>
+							<td align="right"><input type="submit" value="등록하기"></td>
+							<td align="center"><input type="reset" value="다시입력"></td>
 					</form>
 					</tr>
 				</table>
