@@ -4,6 +4,8 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<%@page import="com.Model.emcDAO"%>
+<%@page import="com.Model.emcDTO"%>
 <%@page import="com.Model.eventDTO"%>
 <%@page import="com.Model.eventDAO"%>
 <%@page import="com.Model.BoladDAO"%>
@@ -41,6 +43,9 @@
 		
 		eventDAO eventdao = new eventDAO();
 		ArrayList<eventDTO> eventList = eventdao.showEvent();
+		
+		emcDAO emcdao = new emcDAO();
+		ArrayList<emcDTO> emcList = emcdao.showEmc();
 	%>
 
 	<!-- Wrapper -->
@@ -653,10 +658,17 @@
 								<td>비고</td>
 							</tr>
 							<%for(int i = 0; i < list.size(); i++) {%>
+								<tr>
+									<td><%=emcList.get(i).getEmcno() %></td>
+									<td><%=emcList.get(i).getInfo()%></td>
+									<td><%=emcList.get(i).getManager() %></td>
+									<td><%=emcList.get(i).getStreet() %></td>
+									<td><%=emcList.get(i).getTtime() %></td>
+									<td><%=emcList.get(i).getLightcolor() %></td>
+									<td><%=emcList.get(i).getZone() %></td>			
+								</tr>
 							<%} %>
-							
-							
-							
+
 						
 					</table>
 					<table>

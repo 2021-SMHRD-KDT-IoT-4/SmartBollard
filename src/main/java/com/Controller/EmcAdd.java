@@ -31,7 +31,7 @@ public class EmcAdd extends HttpServlet {
 		emcDTO dto = new emcDTO(info, manager, street, ttime, lightcolor, zone);
 		emcDAO dao = new emcDAO();
 		
-		int cnt = dao.emcInsert(dto);
+		int cnt = dao.emcAdd(dto);
 		
 		if(cnt >0) {
 			System.out.println("통제등록성공!");

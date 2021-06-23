@@ -14,7 +14,7 @@ public class emcDAO {
 	ResultSet rs = null;
 	int cnt = 0;
 	String a = null;
-	ArrayList<emcDTO> emcList;
+	emcDTO dto = null;
 	
 	
 	public void conn() {
@@ -55,7 +55,7 @@ public class emcDAO {
 	}
 	
 	
-	public int emcInsert(emcDTO dto) {
+	public int emcAdd(emcDTO dto) {
 		 conn();
 		 
 		 String sql = "insert into emc values(emcno_sequence.nextval,?,?,?,?,?,?)";
@@ -79,6 +79,40 @@ public class emcDAO {
 		 return cnt;
 	}
 	
+	
+	
+	public ArrayList<emcDTO> showEmc() {
+		ArrayList<emcDTO> emcList = new ArrayList<emcDTO>();
+		conn();
+		String sql = "select*from emc order by emcno";
+		try {
+			psmt= conn.prepareStatement(sql);
+			
+			rs= psmt.executeQuery();
+			
+			while(rs.next()) {
+				int emcno = rs.getInt(1);
+				String info = rs.getString(2);
+				String manager = rs.getString(3);
+				String street = rs.getString(4);
+				String ttime = rs.getString(5);
+				String lightcolor = rs.getString(6);
+				String zone = rs.getString(7);
+				
+				dto = new emcDTO(emcno, info, manager, street, ttime, lightcolor, zone);
+				emcList.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}return emcList;
+		
+	
+	
+	
+}
 	
 	
 	
