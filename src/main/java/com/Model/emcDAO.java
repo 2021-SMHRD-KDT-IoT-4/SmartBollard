@@ -109,12 +109,28 @@ public class emcDAO {
 			close();
 		}return emcList;
 		
-	
-	
-	
+
 }
 	
 	
+	public int deleteOneEmc(int emcno) {
+			
+			conn();
+			
+			String sql = "delete from emc where emcno = ?";
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setInt(1, emcno);
+				cnt = psmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			return cnt;
+		}
+		
 	
 	
 	
