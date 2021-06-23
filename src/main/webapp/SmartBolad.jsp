@@ -459,7 +459,7 @@
 				}
 			</script>
 
-			<!-- Event -->
+			<!------ Event ---------------------------------------------->
 			<article id="event">
 				<h2 class="major">
 					<i class="far fa-calendar-alt"></i>축제일정관리<i
@@ -482,6 +482,7 @@
 							<!-- sstreet -->
 							<td>종료구간</td>
 							<!-- estreet -->
+							<td>삭제하기</td>
 						</tr>
 						 
 						 <%for(int i=0; i<eventList.size(); i++) {%>
@@ -493,6 +494,7 @@
                             <td><%= eventList.get(i).getPeople()%></td>
                             <td><%= eventList.get(i).getSstreet()%></td>
                             <td><%= eventList.get(i).getEstreet()%></td>
+                            <td><a href= "DelOneEvent?eno=<%=eventList.get(i).getEno() %>"> 삭제 </a></td>
                            
                         </tr>
                         <%} %>
@@ -505,14 +507,8 @@
 							<!-- 추가창으로이동 insert문 이용 -->
 							<td align="center"><input type="submit" value="추가하기"></td>
 						</form>
-						<form action="#evupdate">
-							<!-- 수정창으로이동 update문 이용 -->
-							<td align="center"><input type="submit" value="수정하기"></td>
-						</form>
-						<form action="#evdelete">
-							<!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
-							<td align="center"><input type="submit" value="삭제하기"></td>
-						</form>
+						
+						
 					</tr>
 				</table>
 			</article>
@@ -520,7 +516,7 @@
 			<article id="evadd">
 				<h2>행사/집회등록</h2>
 				<table>
-					<form action="EventAdd.java">
+					<form action="EventAdd" method="post">
 						<tr>
 							<td align="right">행사명 :</td>
 							<td><input type="text" name="ename"></td>
@@ -556,76 +552,8 @@
 				</table>
 				</form>
 			</article>
-			<article id="evupdate">
-				<h2>행사/집회수정</h2>
-				<table>
-					<form action="EventUpdate.java">
-						<tr>
-							<td align="right">행사명 :</td>
-							<td><input type="text" name="ename"></td>
-						</tr>
-						<tr>
-							<td align="right">기간 :</td>
-							<td><input type="text" name="day"></td>
-						</tr>
-						<tr>
-							<td align="right">주최자 :</td>
-							<td><input type="text" name="host"></td>
-						</tr>
-						<tr>
-							<td align="right">통제시간 :</td>
-							<td><input type="text" name="etime"></td>
-						</tr>
-						<tr>
-							<td align="right">참가인원 :</td>
-							<td><input type="text" name="people"></td>
-						</tr>
-						<tr>
-							<td align="right">시작구간 :</td>
-							<td><input type="text" name="sstreet"></td>
-						</tr>
-						<tr>
-							<td align="right">종료구간 :</td>
-							<td><input type="text" name="estreet"></td>
-						</tr>
-						<tr>
-							<td align="center" colspan="2"><input type="submit"
-								value="수정하기"><input type="reset" value="다시입력"></td>
-					</form>
-					</tr>
-				</table>
-			</article>
-			<article id="evdelete">
-				<h2>행사/집회삭제</h2>
-				<form action="EventDelete.java">
-					<table>
-						<tr align="center">
-							<td>행사명</td>
-							<!-- ename -->
-							<td>기간</td>
-							<!-- day -->
-							<td>주최자</td>
-							<!-- host -->
-							<td>통제시간</td>
-							<!-- etime -->
-							<td>참가인원</td>
-							<!-- people -->
-							<td>시작구간</td>
-							<!-- sstreet -->
-							<td>종료구간</td>
-							<!-- estreet -->
-						</tr>
-						<tr>
-							<td></td>
-							<!-- 삭제데이터를 반복문으로 불러오기 -->
-						</tr>
-						<tr>
-							<td align="center" colspan="7"><input type="submit"
-								value="삭제하기"></td>
-						</tr>
-					</table>
-				</form>
-			</article>
+		
+			
 
 			<!-- EMC -->
 			<article id="emc">
