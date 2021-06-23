@@ -4,6 +4,8 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<%@page import="com.Model.emcDAO"%>
+<%@page import="com.Model.emcDTO"%>
 <%@page import="com.Model.eventDTO"%>
 <%@page import="com.Model.eventDAO"%>
 <%@page import="com.Model.BoladDAO"%>
@@ -36,12 +38,15 @@
 
 <body class="is-preload">
 	<%
+		int i = 0;
 		BoladDAO dao = new BoladDAO();
 		ArrayList<BoladDTO> list = dao.boladManage();
 		
 		eventDAO eventdao = new eventDAO();
 		ArrayList<eventDTO> eventList = eventdao.showEvent();
-		int i = 0;
+		
+		emcDAO emcdao = new emcDAO();
+		ArrayList<emcDTO> emcList = emcdao.showEmc();
 	%>
 
 	<!-- Wrapper -->
@@ -469,7 +474,7 @@
 							<!-- estreet -->
 						</tr>
 						 
-						 <%for(i=0; i<eventList.size(); i++) {%>
+						 <%for(i = 0; i<eventList.size(); i++) {%>
                         <tr align="center">
                             <td><%= eventList.get(i).getEname()%></td>
                             <td><%= eventList.get(i).getDay()%></td>
@@ -619,7 +624,7 @@
 				</h2>
 				<form action="EventAdd" method="post">
 					<table>
-						<form>
+						
 							<tr align="center">
 								<td>통제번호</td>
 								<!-- bolno -->
@@ -635,43 +640,22 @@
 								<!-- lightcolor -->
 								<td>관할구역</td>
 								<!-- zone -->
+								<td>비고</td>
 							</tr>
-							<tr align="center">
-								<td>E00001</td>
-								<td>장마로 인한 도로침수</td>
-								<td>서구청</td>
-								<td>죽봉대로</td>
-								<td>00:00~23:59</td>
-								<td>정상</td>
-								<td>서구</td>
-							</tr>
-							<tr align="center">
-								<td>E00001</td>
-								<td>장마로 인한 도로침수</td>
-								<td>서구청</td>
-								<td>죽봉대로</td>
-								<td>00:00~23:59</td>
-								<td>정상</td>
-								<td>서구</td>
-							</tr>
-							<tr align="center">
-								<td>E00001</td>
-								<td>장마로 인한 도로침수</td>
-								<td>서구청</td>
-								<td>죽봉대로</td>
-								<td>00:00~23:59</td>
-								<td>정상</td>
-								<td>서구</td>
-							</tr>
-							<tr align="center">
-								<td>B00001</td>
-								<td>장마로 인한 도로침수</td>
-								<td>서구청</td>
-								<td>죽봉대로</td>
-								<td>00:00~23:59</td>
-								<td>정상</td>
-								<td>서구</td>
-							</tr>
+							
+							<%for(i = 0; i < emcList.size(); i++) {%>
+								<tr>
+									<td><%=emcList.get(i).getEmcno() %></td>
+									<td><%=emcList.get(i).getInfo()%></td>
+									<td><%=emcList.get(i).getManager() %></td>
+									<td><%=emcList.get(i).getStreet() %></td>
+									<td><%=emcList.get(i).getTtime() %></td>
+									<td><%=emcList.get(i).getLightcolor() %></td>
+									<td><%=emcList.get(i).getZone() %></td>			
+								</tr>
+							<%} %>
+
+						
 						</form>
 					</table>
 					<table>
@@ -680,14 +664,8 @@
 								<!-- 추가창으로이동 insert문 이용 -->
 								<td align="center"><input type="submit" value="추가하기"></td>
 							</form>
-							<form action="#emupdate">
-								<!-- 수정창으로이동 update문 이용 -->
-								<td align="center"><input type="submit" value="수정하기"></td>
-							</form>
-							<form action="#emdelete">
-								<!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
-								<td align="center"><input type="submit" value="삭제하기"></td>
-							</form>
+							
+						
 							<form action="#emccontroll">
 								<!-- 통제창으로이동 서버로 신호 전송 예정 -->
 								<td align="center"><input type="submit" value="교통통제하기"></td>
@@ -700,7 +678,7 @@
 			<article id="emadd">
 				<h2>교통통제등록</h2>
 				<table>
-					<form action="EmcAdd.java">
+					<form action="EmcAdd">
 						<tr>
 							<td align="right">통제내용 :</td>
 							<td><input type="text" name="info"></td>
@@ -732,6 +710,10 @@
 					</tr>
 				</table>
 			</article>
+				</form>
+			</article>
+			
+			
 			<article id="emccontroll">
 				<h2>교통통제</h2>
 				<form action="EmcControll.java">
