@@ -4,6 +4,8 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<%@page import="com.Model.StopDTO"%>
+<%@page import="com.Model.StopDAO"%>
 <%@page import="com.Model.adminDTO"%>
 <%@page import="com.Model.emcDAO"%>
 <%@page import="com.Model.emcDTO"%>
@@ -35,8 +37,14 @@
 .button {
 	background-color: black;
 }
-.span {
-	display : inline;
+
+#header {
+	position : absolute ;
+}
+
+#img {
+	position : relative ;
+	top : 22px ;
 }
 </style>
 
@@ -58,6 +66,9 @@
 		
 		emcDAO emcdao = new emcDAO();
 		ArrayList<emcDTO> emcList = emcdao.showEmc();
+		
+		StopDAO stopDao = new StopDAO();
+		ArrayList<StopDTO> stopList = stopDao.stopShow();
 	%>
 
 	<!-- Wrapper -->
@@ -66,14 +77,14 @@
 		<!-- Header -->
 		<header id="header">
 			<div class="logo">
-				<span class="icon fa-tree"></span>
+				<img src = "images/Police.jpg" id = "img" width = "70px" height = "70px">
 			</div>
 			<div class="content">
 				<div class="inner">
 					<h1>스마트 볼라드</h1>
 					<p>IoT와 웹을 활용한 스마트 교차로 관리 시스템</p>
 					<%if (info == null){ %>
-					로그인을 해주세요!
+					로그인이 필요합니다!
 					<%} else{%>
 					<span><%=info.getName() %> 관리자님 안녕하세요</span>
 					<%} %>
@@ -84,23 +95,23 @@
 					<%if (info == null){ %>
 					<li><a href="#intro" class="button">제품설명</a></li>
 					<li><a href="#admin" class="button">관리자등록</a></li>
-					<%} else{%>
+					<%} else {%>
 					<li><a href="#intro" class="button">제품설명</a></li>
 					<li><a href="#admin" class="button">관리자등록</a></li>
 					<li><a href="#bolad" class="button">볼라드관리</a></li>
 					<li><a href="#stopline" class="button">정지선위반관리</a></li>
 					<li><a href="#event" class="button">축제일정관리</a></li>
 					<li><a href="#emc" id="event">통제관리</a></li>
-					<%} %>
+					<% } %>
 					<!--<li><a href="#elements">Elements</a></li>-->
 				</ul>
 
 			</nav>
 			<%if (info == null){ %>
-			<span><a href="#login">로그인</a></span>
-			<%} else{%>
-			<span><a href="Logout">로그아웃</a></span>
-			<%} %>
+			<nav><ul><li><a href="#login" class="button">로그인</a></li></ul></nav>
+			<% } else{ %>
+			<nav><ul><li><a href="Logout" class="button">로그아웃</a></li></ul></nav>
+			<% } %>
 		</header>
 
 		<!-- Main -->
@@ -347,82 +358,66 @@
 							<!-- capture -->
 							<td>볼라드번호</td>
 							<!-- bolno -->
+							<td>삭제하기</td>
 						</tr>
+						<%
+						for (i = 0; i < stopList.size(); i++) {
+						%>
 						<tr align="center">
-							<!-- 반복문으로 반복시킬예정 -->
-							<td>C00001</td>
-							<td>풍암로</td>
-							<td>21/06/21 16:20</td>
-							<td>123가4567</td>
-							<td><a id = "cap" onclick = "capture()">경로</a></td>
-							<td>B00001</td>
+								<td>C<%=stopList.get(i).getCapno()%></td>
+								<td><%=stopList.get(i).getStreet()%></td>
+								<td><%=stopList.get(i).getCaptime()%></td>
+								<td><%=stopList.get(i).getCarno()%></td>
+								<td><a id = "cap" onclick = "capture()"><%=stopList.get(i).getCapture()%></a></td>
+								<td>B<%=stopList.get(i).getBolno()%></td>
+								<td><a href = "StopDelete?capno=<%= stopList.get(i).getCapno() %>">삭제</a></td>
 						</tr>
-						<tr align="center">
-							<td>C00001</td>
-							<td>풍암로</td>
-							<td>21/06/21 16:20</td>
-							<td>123가4567</td>
-							<td>사진외부경로</td>
-							<td>B00001</td>
-						</tr>
-						<tr align="center">
-							<td>C00001</td>
-							<td>풍암로</td>
-							<td>21/06/21 16:20</td>
-							<td>123가4567</td>
-							<td>사진외부경로</td>
-							<td>B00001</td>
-						</tr>
+						<%
+						}
+						%>
 					</table>
 				</form>
 				<table>
 					<tr>
-						<form action="StopAdd.java">
+						<form action="#sadd">
 							<!-- 버튼 누를시 즉시 등록 insert문 이용 -->
 							<td align="center"><input type="submit" value="추가하기"></td>
-						</form>
-						<form action="StopUpdate.java">
-							<!-- 버튼 누를시 즉시 수정 update문 이용 -->
-							<td align="center"><input type="submit" value="수정하기"></td>
-						</form>
-						<form action="#sdelete">
-							<!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
-							<td align="center"><input type="submit" value="삭제하기"></td>
 						</form>
 					</tr>
 				</table>
 			</article>
-
-			<article id="sdelete">
-				<h2>정지선 위반 삭제</h2>
-				<form action="StopDelete.java">
-					<table>
-						<tr align="center">
-							<td>위반단속번호</td>
-							<!-- capno -->
-							<td>도로명</td>
-							<!-- street -->
-							<td>적발시간</td>
-							<!-- sysdate로 자동지정 -->
-							<td>차량번호</td>
-							<!-- carno -->
-							<td>적발사진(경로)</td>
-							<!-- capture -->
-							<td>볼라드번호</td>
-							<!-- bolno -->
-						</tr>
-						<tr>
-							<td></td>
-							<!-- 삭제데이터를 반복문으로 불러오기 -->
-						</tr>
-						<tr>
-							<td align="center" colspan="6"><input type="submit"
-								value="삭제하기"></td>
-						</tr>
-					</table>
-				</form>
+			
+			<article id="sadd">
+				<h2>정지선 위반 등록</h2>
+				<form action="#bolad">
+						<td align="left"><input type="submit" value="뒤로가기"></td>
+						</form>
+					<form action="StopAdd">
+						<table>
+							<tr>
+								<td align="right">도로명 :</td>
+								<td><input type="text" name="street"></td>
+							</tr>
+							<tr>
+								<td align="right">차량번호 :</td>
+								<td><input type="text" name="carno"></td>
+							</tr>
+							<tr>
+								<td align="right">저장경로 :</td>
+								<td><input type="text" name="capture" value = "경로"></td>
+							</tr>
+							<tr>
+								<td align="right">볼라드번호 :</td>
+								<td><input type="text" name="bolno"></td>
+							</tr>
+							<tr>
+								<td align="center" colspan="2"><input type="submit"
+									value="등록하기"><input type="reset" value="다시입력"></td>
+							</tr>
+						</table>
+					</form>
 			</article>
-
+			
 			<script src="./assets/js/jquery.min.js"></script>
 
 			<script>
@@ -636,7 +631,7 @@
 							<!-- bolno -->
 						</tr>
 						<tr>
-							<td></td>
+							<td align = "center"><input type = "checkbox">B00001</td>
 							<!-- 통제데이터를 반복문으로 불러오기 -->
 						</tr>
 						<tr>
@@ -913,7 +908,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code>
 		<!-- Footer -->
 		<footer id="footer">
 			<p class="copyright">
-				&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.
 			</p>
 		</footer>
 

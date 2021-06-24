@@ -35,10 +35,10 @@ public class AdminAdd extends HttpServlet {
 		
 		if(cnt >0) {
 			System.out.println("조인성공!");
-			response.sendRedirect("index.html");
+			response.sendRedirect("SmartBolad.jsp");
 		} else {
 			System.out.println("조 인실패!");
-			response.sendRedirect("index.html#admin");
+			response.sendRedirect("SmartBolad.jsp#admin");
 		}
 		
 		
