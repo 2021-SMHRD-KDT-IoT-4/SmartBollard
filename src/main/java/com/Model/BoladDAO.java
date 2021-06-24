@@ -12,7 +12,7 @@ public class BoladDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
-	ArrayList<BoladDTO> list = null;
+	ArrayList<BoladDTO> boladList = null;
 	BoladDTO info = null;
 	int cnt = 0;
 	
@@ -49,7 +49,7 @@ public class BoladDAO {
 	
 	public ArrayList<BoladDTO> boladManage() {
 		
-		list = new ArrayList<BoladDTO>();
+		boladList = new ArrayList<BoladDTO>();
 		conn();
 		
 		try {
@@ -63,13 +63,13 @@ public class BoladDAO {
 				String bstatus = rs.getString(4);
 				String heartbeat = rs.getString(5);
 				info = new BoladDTO(bolno, street, product, bstatus, heartbeat);
-				list.add(info);
+				boladList.add(info);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
-		} return list;
+		} return boladList;
 		
 	}
 	

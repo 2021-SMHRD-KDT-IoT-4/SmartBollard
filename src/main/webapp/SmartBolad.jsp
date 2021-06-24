@@ -4,15 +4,13 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<%@page import="com.Model.StopDTO"%>
-<%@page import="com.Model.StopDAO"%>
-<%@page import="com.Model.adminDTO"%>
-<%@page import="com.Model.emcDAO"%>
 <%@page import="com.Model.emcDTO"%>
+<%@page import="com.Model.emcDAO"%>
 <%@page import="com.Model.eventDTO"%>
 <%@page import="com.Model.eventDAO"%>
-<%@page import="com.Model.BoladDAO"%>
 <%@page import="com.Model.BoladDTO"%>
+<%@page import="com.Model.BoladDAO"%>
+<%@page import="com.Model.adminDTO"%>
 <%@page import="java.util.ArrayList"%>
 <html>
 
@@ -66,9 +64,6 @@
 		
 		emcDAO emcdao = new emcDAO();
 		ArrayList<emcDTO> emcList = emcdao.showEmc();
-		
-		StopDAO stopDao = new StopDAO();
-		ArrayList<StopDTO> stopList = stopDao.stopShow();
 	%>
 
 	<!-- Wrapper -->
@@ -358,66 +353,82 @@
 							<!-- capture -->
 							<td>볼라드번호</td>
 							<!-- bolno -->
-							<td>삭제하기</td>
 						</tr>
-						<%
-						for (i = 0; i < stopList.size(); i++) {
-						%>
 						<tr align="center">
-								<td>C<%=stopList.get(i).getCapno()%></td>
-								<td><%=stopList.get(i).getStreet()%></td>
-								<td><%=stopList.get(i).getCaptime()%></td>
-								<td><%=stopList.get(i).getCarno()%></td>
-								<td><a id = "cap" onclick = "capture()"><%=stopList.get(i).getCapture()%></a></td>
-								<td>B<%=stopList.get(i).getBolno()%></td>
-								<td><a href = "StopDelete?capno=<%= stopList.get(i).getCapno() %>">삭제</a></td>
+							<!-- 반복문으로 반복시킬예정 -->
+							<td>C00001</td>
+							<td>풍암로</td>
+							<td>21/06/21 16:20</td>
+							<td>123가4567</td>
+							<td><a id = "cap" onclick = "capture()">경로</a></td>
+							<td>B00001</td>
 						</tr>
-						<%
-						}
-						%>
+						<tr align="center">
+							<td>C00001</td>
+							<td>풍암로</td>
+							<td>21/06/21 16:20</td>
+							<td>123가4567</td>
+							<td>사진외부경로</td>
+							<td>B00001</td>
+						</tr>
+						<tr align="center">
+							<td>C00001</td>
+							<td>풍암로</td>
+							<td>21/06/21 16:20</td>
+							<td>123가4567</td>
+							<td>사진외부경로</td>
+							<td>B00001</td>
+						</tr>
 					</table>
 				</form>
 				<table>
 					<tr>
-						<form action="#sadd">
+						<form action="StopAdd.java">
 							<!-- 버튼 누를시 즉시 등록 insert문 이용 -->
 							<td align="center"><input type="submit" value="추가하기"></td>
+						</form>
+						<form action="StopUpdate.java">
+							<!-- 버튼 누를시 즉시 수정 update문 이용 -->
+							<td align="center"><input type="submit" value="수정하기"></td>
+						</form>
+						<form action="#sdelete">
+							<!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
+							<td align="center"><input type="submit" value="삭제하기"></td>
 						</form>
 					</tr>
 				</table>
 			</article>
-			
-			<article id="sadd">
-				<h2>정지선 위반 등록</h2>
-				<form action="#bolad">
-						<td align="left"><input type="submit" value="뒤로가기"></td>
-						</form>
-					<form action="StopAdd">
-						<table>
-							<tr>
-								<td align="right">도로명 :</td>
-								<td><input type="text" name="street"></td>
-							</tr>
-							<tr>
-								<td align="right">차량번호 :</td>
-								<td><input type="text" name="carno"></td>
-							</tr>
-							<tr>
-								<td align="right">저장경로 :</td>
-								<td><input type="text" name="capture" value = "경로"></td>
-							</tr>
-							<tr>
-								<td align="right">볼라드번호 :</td>
-								<td><input type="text" name="bolno"></td>
-							</tr>
-							<tr>
-								<td align="center" colspan="2"><input type="submit"
-									value="등록하기"><input type="reset" value="다시입력"></td>
-							</tr>
-						</table>
-					</form>
+
+			<article id="sdelete">
+				<h2>정지선 위반 삭제</h2>
+				<form action="StopDelete.java">
+					<table>
+						<tr align="center">
+							<td>위반단속번호</td>
+							<!-- capno -->
+							<td>도로명</td>
+							<!-- street -->
+							<td>적발시간</td>
+							<!-- sysdate로 자동지정 -->
+							<td>차량번호</td>
+							<!-- carno -->
+							<td>적발사진(경로)</td>
+							<!-- capture -->
+							<td>볼라드번호</td>
+							<!-- bolno -->
+						</tr>
+						<tr>
+							<td></td>
+							<!-- 삭제데이터를 반복문으로 불러오기 -->
+						</tr>
+						<tr>
+							<td align="center" colspan="6"><input type="submit"
+								value="삭제하기"></td>
+						</tr>
+					</table>
+				</form>
 			</article>
-			
+
 			<script src="./assets/js/jquery.min.js"></script>
 
 			<script>
