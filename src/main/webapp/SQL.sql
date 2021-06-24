@@ -7,6 +7,7 @@ select*from event;
 
 select * from emc;
 
+select * from stopline;
 
 
 
@@ -22,5 +23,3 @@ select * from emc;
 
 
 
-
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
