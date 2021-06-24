@@ -404,7 +404,7 @@
 							</tr>
 							<tr>
 								<td align="right">저장경로 :</td>
-								<td><input type="text" name="capture"></td>
+								<td><input type="text" name="capture" value = "경로"></td>
 							</tr>
 							<tr>
 								<td align="right">볼라드번호 :</td>
