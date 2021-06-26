@@ -1331,7 +1331,7 @@ input, select, textarea {
 				line-height: 2;
 			}
 
-		#header nav ul {
+		#header nav ul{
 			display: -moz-flex;
 			display: -webkit-flex;
 			display: -ms-flex;
@@ -1343,16 +1343,16 @@ input, select, textarea {
 			border-radius: 4px;
 		}
 
-			#header nav ul li {
+			#header nav ul li{
 				padding-left: 0;
 				border-left: solid 1px #ffffff;
 			}
 
-				#header nav ul li:first-child {
+				#header nav ul li:first-child{
 					border-left: 0;
 				}
 
-				#header nav ul li a {
+				#header nav ul li a{
 					display: block;
 					min-width: 10rem;
 					height: 2.75rem;
@@ -1364,11 +1364,11 @@ input, select, textarea {
 					border-bottom: 0;
 				}
 
-					#header nav ul li a:hover {
+					#header nav ul li a:hover{
 						background-color: rgba(255, 255, 255, 0.075);
 					}
 
-					#header nav ul li a:active {
+					#header nav ul li a:active{
 						background-color: rgba(255, 255, 255, 0.175);
 					}
 

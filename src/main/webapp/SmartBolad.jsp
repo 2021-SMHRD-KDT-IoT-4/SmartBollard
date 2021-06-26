@@ -26,9 +26,7 @@
 
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="assets/css/noscript.css" />
-<noscript>
-	
-</noscript>
+<noscript></noscript>
 
 
 </head>
@@ -42,39 +40,40 @@
 }
 
 #header {
-	position : absolute ;
+	position: absolute;
 }
 
 #img {
-	position : relative ;
-	top : 22px ;
+	position: relative;
+	top: 22px;
+}
+
+.content {
+	background-color : black ;
 }
 </style>
 
 <body class="is-preload">
 	<%
-		
-		adminDTO info = (adminDTO)session.getAttribute("login_info");
-		
-		
-		int i = 0;
-		BoladDAO dao = new BoladDAO();
-		ArrayList<BoladDTO> boladList = dao.boladManage();
-		
-		StopDAO stopDao = new StopDAO();
-		ArrayList<StopDTO> stopList = stopDao.stopShow();
-		
-		eventDAO eventdao = new eventDAO();
-		ArrayList<eventDTO> eventList = eventdao.showEvent();
+	adminDTO info = (adminDTO) session.getAttribute("login_info");
 
-		emcDAO emcdao = new emcDAO();
-		ArrayList<emcDTO> emcList = emcdao.showEmc();
-		
-		ArrayList<BoladDTO> bolnoList = null;
-			
-		String stbolno = null;
-		response.setCharacterEncoding("UTF-8");
-		
+	int i = 0;
+	BoladDAO dao = new BoladDAO();
+	ArrayList<BoladDTO> boladList = dao.boladManage();
+
+	StopDAO stopDao = new StopDAO();
+	ArrayList<StopDTO> stopList = stopDao.stopShow();
+
+	eventDAO eventdao = new eventDAO();
+	ArrayList<eventDTO> eventList = eventdao.showEvent();
+
+	emcDAO emcdao = new emcDAO();
+	ArrayList<emcDTO> emcList = emcdao.showEmc();
+
+	ArrayList<BoladDTO> bolnoList = null;
+
+	String stbolno = null;
+	response.setCharacterEncoding("UTF-8");
 	%>
 
 	<!-- Wrapper -->
@@ -83,41 +82,66 @@
 		<!-- Header -->
 		<header id="header">
 			<div class="logo">
-				<img src = "images/Police.jpg" width = "30px" height = "30px">
+				<img src="images/Police.jpg" width="30px" height="30px">
 			</div>
 			<div class="content">
 				<div class="inner">
 					<h1>스마트 볼라드</h1>
 					<p>IoT와 웹을 활용한 스마트 교차로 관리 시스템</p>
-					<%if (info == null){ %>
+					<%
+					if (info == null) {
+					%>
 					로그인이 필요합니다!
-					<%} else{%>
-					<span><%=info.getName() %> 관리자님 안녕하세요</span>
-					<%} %>
+					<%
+					} else {
+					%>
+					<span><%=info.getName()%> 관리자님 안녕하세요</span>
+					<%
+					}
+					%>
 				</div>
 			</div>
-			<nav>	
-			<ul>	
-					<%if (info == null){ %>
+			<nav>
+				<ul>
+					<%
+					if (info == null) {
+					%>
 					<li><a href="#intro" class="button">제품설명</a></li>
 					<li><a href="#admin" class="button">관리자등록</a></li>
-					<%} else {%>
+					<%
+					} else {
+					%>
 					<li><a href="#intro" class="button">제품설명</a></li>
 					<li><a href="#admin" class="button">관리자등록</a></li>
 					<li><a href="#bolad" class="button">볼라드관리</a></li>
 					<li><a href="#stopline" class="button">정지선위반관리</a></li>
 					<li><a href="#event" class="button">축제일정관리</a></li>
 					<li><a href="#emc" id="event">통제관리</a></li>
-					<% } %>
-					<!--<li><a href="#elements">Elements</a></li>-->
+					<%
+					}
+					%>
 				</ul>
 
 			</nav>
-			<%if (info == null){ %>
-			<nav><ul><li><a href="#login" class="button">로그인</a></li></ul></nav>
-			<% } else{ %>
-			<nav><ul><li><a href="Logout" class="button">로그아웃</a></li></ul></nav>
-			<% } %>
+			<%
+			if (info == null) {
+			%>
+			<nav>
+				<ul>
+					<li><a href="#login" class="button">로그인</a></li>
+				</ul>
+			</nav>
+			<%
+			} else {
+			%>
+			<nav>
+				<ul>
+					<li><a href="Logout" class="button">로그아웃</a></li>
+				</ul>
+			</nav>
+			<%
+			}
+			%>
 		</header>
 
 		<!-- Main -->
@@ -143,22 +167,26 @@
 					</table>
 				</form>
 			</article>
-			
+
 			<!-- loginfail -->
 			<article id="loginFail">
 				<form action="SmartBolad.jsp">
 					<td align="left"><input type="submit" value="뒤로가기"></td>
 				</form>
-					<table><tr><td align = "center">로그인 실패!!	관련 부서에 문의하십시요!!</td></tr></table>
+				<table>
+					<tr>
+						<td align="center">로그인 실패!! 관련 부서에 문의하십시요!!</td>
+					</tr>
+				</table>
 			</article>
-			
-			
+
+
 			<!-- Intro -->
 			<article id="intro">
 				<h2 class="major">제품개요</h2>
 				<form action="SmartBolad.jsp">
-						<td align="left"><input type="submit" value="뒤로가기"></td>
-						</form>
+					<td align="left"><input type="submit" value="뒤로가기"></td>
+				</form>
 				<span class="image main"><img src="images/Info.gif" alt="" /></span>
 				<p>이 제품은 볼라드에 IoT를 접목한 스마트 볼라드 시스템으로 주기능은 볼라드의 신호표시 및 적신호시 무단횡단을
 					방지하기위한 시스템으로서 주변 정지선 카메라와 차량/보행자 신호등과의 연계로 크게는 교차로 전체를 제어할수있는 획기적인
@@ -173,8 +201,8 @@
 					<i class="fas fa-users-cog"></i>관리자등록<i class="fas fa-users-cog"></i>
 				</h2>
 				<form action="SmartBolad.jsp">
-						<td align="left"><input type="submit" value="뒤로가기"></td>
-						</form>
+					<td align="left"><input type="submit" value="뒤로가기"></td>
+				</form>
 				<form action="AdminAdd" method="post">
 
 					<table>
@@ -215,16 +243,17 @@
 				<h2 class="major">
 					<i class="fas fa-chess-pawn"></i>볼라드관리<i class="fas fa-chess-pawn"></i>
 				</h2>
-					<form action="SmartBolad.jsp">
-						<td align="left"><input type="submit" value="뒤로가기"></td>
-						</form>
-					
-					<!-- 이미지 지도를 표시할 div 입니다 -->
-			
-				<div id="staticMap" style="width:600px;height:350px;"></div>    
+				<form action="SmartBolad.jsp">
+					<td align="left"><input type="submit" value="뒤로가기"></td>
+				</form>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4cd120e494a61065de839a6b3498e5cd"></script>
-<script>
+				<!-- 이미지 지도를 표시할 div 입니다 -->
+
+				<div id="staticMap" style="width: 880px; height: 370px;"></div>
+
+				<script type="text/javascript"
+					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4cd120e494a61065de839a6b3498e5cd"></script>
+				<script>
 			// 이미지 지도에 표시할 마커입니다
 			// 이미지 지도에 표시할 마커를 아래와 같이 배열로 넣어주면 여러개의 마커를 표시할 수 있습니다
 			
@@ -268,40 +297,41 @@
 				
 		
 			</script>
-                   
-					<table>
-						<tr align="center">
-								<td>볼라드번호</td>
-								<!-- bolno -->
-								<td>도로명</td>
-								<!-- street -->
-								<td>제조공장</td>
-								<!-- product -->
-								<td>상태표시</td>
-							<!-- bstatus -->
-								<td>삭제하기</td>
-							<!-- Bdelete -->
-						</tr>
-						<!-- 반복문으로 반복시킬예정 -->
-						<%
-						for (i = 0; i < boladList.size(); i++) {
-						%>
-						<tr align="center">
-								<td>B<%=boladList.get(i).getBolno()%></td>
-								<td><%=boladList.get(i).getStreet()%></td>
-								<td><%=boladList.get(i).getProduct()%></td>
-								<td><%=boladList.get(i).getBstatus()%></td>
-								<td><a href = "BoladDelete?bolno=<%= boladList.get(i).getBolno() %>">삭제</a></td>
-						</tr>
-						<%
-						}
-						%>
-					</table>
-				
+
+				<table>
+					<tr align="center">
+						<td>볼라드번호</td>
+						<!-- bolno -->
+						<td>도로명</td>
+						<!-- street -->
+						<td>제조공장</td>
+						<!-- product -->
+						<td>상태표시</td>
+						<!-- bstatus -->
+						<td>삭제하기</td>
+						<!-- Bdelete -->
+					</tr>
+					<!-- 반복문으로 반복시킬예정 -->
+					<%
+					for (i = 0; i < boladList.size(); i++) {
+					%>
+					<tr align="center">
+						<td>B<%=boladList.get(i).getBolno()%></td>
+						<td><%=boladList.get(i).getStreet()%></td>
+						<td><%=boladList.get(i).getProduct()%></td>
+						<td><%=boladList.get(i).getBstatus()%></td>
+						<td><a
+							href="BoladDelete?bolno=<%=boladList.get(i).getBolno()%>">삭제</a></td>
+					</tr>
+					<%
+					}
+					%>
+				</table>
+
 
 				<table>
 					<tr>
-						<form action="#badd" colspan = "3">
+						<form action="#badd" colspan="3">
 							<!-- 추가창으로이동 insert문 이용 -->
 							<td align="center"><input type="submit" value="추가하기"></td>
 						</form>
@@ -311,32 +341,32 @@
 			<article id="badd">
 				<h2>볼라드등록</h2>
 				<form action="#bolad">
-						<td align="left"><input type="submit" value="뒤로가기"></td>
-						</form>
-					<form action="BoladAdd">
-						<table>
-							<tr>
-								<td align="right">도로명 :</td>
-								<td><input type="text" name="street"></td>
-							</tr>
-							<tr>
-								<td align="right">제조공장 :</td>
-								<td><input type="text" name="product"></td>
-							</tr>
-							<tr>
-								<td align="right">볼라드상태 :</td>
-								<td><input type="text" name="bstatus"></td>
-							</tr>
-							<tr>
-								<td align="right">작동여부 :</td>
-								<td><input type="text" name="heartbeat"></td>
-							</tr>
-							<tr>
-								<td align="center" colspan="2"><input type="submit"
-									value="등록하기"><input type="reset" value="다시입력"></td>
-							</tr>
-						</table>
-					</form>
+					<td align="left"><input type="submit" value="뒤로가기"></td>
+				</form>
+				<form action="BoladAdd">
+					<table>
+						<tr>
+							<td align="right">도로명 :</td>
+							<td><input type="text" name="street"></td>
+						</tr>
+						<tr>
+							<td align="right">제조공장 :</td>
+							<td><input type="text" name="product"></td>
+						</tr>
+						<tr>
+							<td align="right">볼라드상태 :</td>
+							<td><input type="text" name="bstatus"></td>
+						</tr>
+						<tr>
+							<td align="right">작동여부 :</td>
+							<td><input type="text" name="heartbeat"></td>
+						</tr>
+						<tr>
+							<td align="center" colspan="2"><input type="submit"
+								value="등록하기"><input type="reset" value="다시입력"></td>
+						</tr>
+					</table>
+				</form>
 			</article>
 			<!-- Stopline -->
 
@@ -345,8 +375,8 @@
 					<i class="fas fa-video"></i>정지선 위반 관리<i class="fas fa-video"></i>
 				</h2>
 				<form action="SmartBolad.jsp">
-						<td align="left"><input type="submit" value="뒤로가기"></td>
-						</form>
+					<td align="left"><input type="submit" value="뒤로가기"></td>
+				</form>
 				<form>
 					<div id="cap"></div>
 					<table>
@@ -370,13 +400,14 @@
 						for (i = 0; i < stopList.size(); i++) {
 						%>
 						<tr align="center">
-								<td>C<%=stopList.get(i).getCapno()%></td>
-								<td><%=stopList.get(i).getStreet()%></td>
-								<td><%=stopList.get(i).getCaptime()%></td>
-								<td><%=stopList.get(i).getCarno()%></td>
-								<td><a id = "cap" onclick = "capture()"><%=stopList.get(i).getCapture()%></a></td>
-								<td>B<%=stopList.get(i).getBolno()%></td>
-								<td><a href = "StopDelete?capno=<%= stopList.get(i).getCapno() %>">삭제</a></td>
+							<td>C<%=stopList.get(i).getCapno()%></td>
+							<td><%=stopList.get(i).getStreet()%></td>
+							<td><%=stopList.get(i).getCaptime()%></td>
+							<td><%=stopList.get(i).getCarno()%></td>
+							<td><a id="cap" onclick="capture()"><%=stopList.get(i).getCapture()%></a></td>
+							<td>B<%=stopList.get(i).getBolno()%></td>
+							<td><a
+								href="StopDelete?capno=<%=stopList.get(i).getCapno()%>">삭제</a></td>
 						</tr>
 						<%
 						}
@@ -396,12 +427,12 @@
 			<article id="sadd">
 				<h2>정지선 위반 추가</h2>
 				<form action="#stopline">
-						<td align="left"><input type="submit" value="뒤로가기"></td>
-						</form>
+					<td align="left"><input type="submit" value="뒤로가기"></td>
+				</form>
 				<form action="StopAdd">
 					<table>
 						<tr align="center">
-							<tr>
+						<tr>
 							<td align="right">도로명 :</td>
 							<td><input type="text" name="street"></td>
 						</tr>
@@ -411,7 +442,7 @@
 						</tr>
 						<tr>
 							<td align="right">저장경로 :</td>
-							<td><input type="text" name="capture" value = "경로"></td>
+							<td><input type="text" name="capture" value="경로"></td>
 						</tr>
 						<tr>
 							<td align="right">볼라드번호 :</td>
@@ -429,11 +460,11 @@
 
 			<script>
 				function capture() {
-					alert("!");
+					alert("사진 전송중....");
 					var cap = document.getElementById("cap");
 					cap.innerHTML = "<img src = 'images/unnamed.jpg'>";
 				}
-			</script>
+				</script>
 
 			<!------ Event ------>
 			<article id="event">
@@ -442,8 +473,8 @@
 						class="far fa-calendar-alt"></i>
 				</h2>
 				<form action="SmartBolad.jsp">
-						<td align="left"><input type="submit" value="뒤로가기"></td>
-						</form>
+					<td align="left"><input type="submit" value="뒤로가기"></td>
+				</form>
 				<form>
 					<table>
 						<tr align="center">
@@ -463,21 +494,26 @@
 							<!-- estreet -->
 							<td>삭제하기</td>
 						</tr>
-						 
-						 <%for(i = 0; i<eventList.size(); i++) {%>
-                        <tr align="center">
-                            <td><%= eventList.get(i).getEname()%></td>
-                            <td><%= eventList.get(i).getDay()%></td>
-                            <td><%= eventList.get(i).getHost()%></td>
-                            <td><%= eventList.get(i).getEtime()%></td>
-                            <td><%= eventList.get(i).getPeople()%></td>
-                            <td><%= eventList.get(i).getSstreet()%></td>
-                            <td><%= eventList.get(i).getEstreet()%></td>
-                            <td><a href= "DelOneEvent?eno=<%=eventList.get(i).getEno() %>"> 삭제 </a></td>
-                           
-                        </tr>
-                        <%} %>
-					
+
+						<%
+						for (i = 0; i < eventList.size(); i++) {
+						%>
+						<tr align="center">
+							<td><%=eventList.get(i).getEname()%></td>
+							<td><%=eventList.get(i).getDay()%></td>
+							<td><%=eventList.get(i).getHost()%></td>
+							<td><%=eventList.get(i).getEtime()%></td>
+							<td><%=eventList.get(i).getPeople()%></td>
+							<td><%=eventList.get(i).getSstreet()%></td>
+							<td><%=eventList.get(i).getEstreet()%></td>
+							<td><a
+								href="DelOneEvent?eno=<%=eventList.get(i).getEno()%>"> 삭제 </a></td>
+
+						</tr>
+						<%
+						}
+						%>
+
 					</table>
 				</form>
 				<table>
@@ -486,17 +522,17 @@
 							<!-- 추가창으로이동 insert문 이용 -->
 							<td align="center"><input type="submit" value="추가하기"></td>
 						</form>
-						
-						
+
+
 					</tr>
 				</table>
 			</article>
 
 			<article id="evadd">
 				<h2>행사/집회등록</h2>
-					<form action="#event">
-						<td align="left"><input type="submit" value="뒤로가기"></td>
-						</form>
+				<form action="#event">
+					<td align="left"><input type="submit" value="뒤로가기"></td>
+				</form>
 				<table>
 					<form action="EventAdd" method="post">
 						<tr>
@@ -534,8 +570,8 @@
 				</table>
 				</form>
 			</article>
-		
-			
+
+
 
 			<!-- EMC -->
 			<article id="emc">
@@ -543,58 +579,67 @@
 					<i class="fas fa-road"></i></i>교통통제관리<i class="fas fa-road"></i></i>
 				</h2>
 				<form action="SmartBolad.jsp">
-						<td align="left"><input type="submit" value="뒤로가기"></td>
-						</form>
+					<td align="left"><input type="submit" value="뒤로가기"></td>
+				</form>
 				<form action="EventAdd" method="post">
 					<table>
-						
-							<tr align="center">
-								<td align = "center">통제번호</td>
-								<!-- bolno -->
-								<td align = "center">통제내용</td>
-								<!-- info -->
-								<td align = "center">담당자</td>
-								<!-- manager -->
-								<td align = "center">도로명</td>
-								<!-- street -->
-								<td align = "center">통제시간</td>
-								<!-- ttime -->
-								<td align = "center">신호상태</td>
-								<!-- lightcolor -->
-								<td align = "center">관할구역</td>
-								<!-- zone -->
-								<td align = "center">삭제하기</td>
-							</tr>
 
-							
-							
-							<%for(i = 0; i < emcList.size(); i++) {%>
+						<tr align="center">
+							<td align="center">통제번호</td>
+							<!-- bolno -->
+							<td align="center">통제내용</td>
+							<!-- info -->
+							<td align="center">담당자</td>
+							<!-- manager -->
+							<td align="center">도로명</td>
+							<!-- street -->
+							<td align="center">통제시간</td>
+							<!-- ttime -->
+							<td align="center">신호상태</td>
+							<!-- lightcolor -->
+							<td align="center">관할구역</td>
+							<!-- zone -->
+							<td align="center">삭제하기</td>
+						</tr>
 
-								<tr>
-									<td align = "center"><%=emcList.get(i).getEmcno() %></td>
-									<td align = "center"><%=emcList.get(i).getInfo()%></td>
-									<td align = "center"><%=emcList.get(i).getManager() %></td>
-									<td align = "center"><%=emcList.get(i).getStreet() %></td>
-									<td align = "center"><%=emcList.get(i).getTtime() %></td>
-									<td align = "center"><%=emcList.get(i).getLightcolor() %></td>
-									<td align = "center"><%=emcList.get(i).getZone() %></td>		
-									<td align = "center"><a href = "EmcDelete?emcno=<%=emcList.get(i).getEmcno() %>">삭제</a></td>		
-								</tr>
-							<%} %>
 
-						
+
+						<%
+						for (i = 0; i < emcList.size(); i++) {
+						%>
+
+						<tr>
+							<td align="center"><%=emcList.get(i).getEmcno()%></td>
+							<td align="center"><%=emcList.get(i).getInfo()%></td>
+							<td align="center"><%=emcList.get(i).getManager()%></td>
+							<td align="center"><%=emcList.get(i).getStreet()%></td>
+							<td align="center"><%=emcList.get(i).getTtime()%></td>
+							<td align="center"><%=emcList.get(i).getLightcolor()%></td>
+							<td align="center"><%=emcList.get(i).getZone()%></td>
+							<td align="center"><a
+								href="EmcDelete?emcno=<%=emcList.get(i).getEmcno()%>">삭제</a></td>
+						</tr>
+						<%
+						}
+						%>
+
+
 						</form>
 					</table>
-					<form action="#emadd" align = "center"><input type="submit" value="추가하기"></form>
-					<form action="SearchStreet" align = "center"><input type="submit" value="교통통제하기" name = "street"></form>
+					<form action="#emadd" align="center">
+						<input type="submit" value="추가하기">
+					</form>
+					<form action="SearchStreet" align="center">
+						<input type="submit" value="교통통제하기" name="street">
+					</form>
 				</form>
 			</article>
 
 			<article id="emadd">
 				<h2>교통통제등록</h2>
 				<form action="#emc">
-						<td align="left"><input type="submit" value="뒤로가기"></td>
-						</form>
+					<td align="left"><input type="submit" value="뒤로가기"></td>
+				</form>
 				<table>
 					<form action="EmcAdd">
 						<tr>
@@ -628,334 +673,99 @@
 					</tr>
 				</table>
 			</article>
-				</form>
+			</form>
 			</article>
-			
-			
+
+
 			<article id="emccontroll">
 				<h2>교통통제</h2>
-						<form action="#emc">
-						<td align="left"><input type="submit" value="뒤로가기"></td>
+				<form action="#emc">
+					<td align="left"><input type="submit" value="뒤로가기"></td>
+				</form>
+				<table>
+					<tr>
+						<form action="SearchStreet">
+							<td><input type="text" name="street"
+								placeholder="도로명을 입력하세요."></td>
+							<td><input type="submit" value="검색"></td>
 						</form>
-						<table>
-                        <tr>
-                            <form action = "SearchStreet">
-                                <td><input type="text" name = "street" placeholder = "도로명을 입력하세요."></td>
-                                <td><input type="submit" value="검색" ></td>
-                            </form>
-                        </tr>
-                    </table>
-						<form>
+					</tr>
+				</table>
+				<form>
 					<table>
 						<tr align="center">
 							<td>볼라드번호</td>
 							<!-- bolno -->
 						</tr>
 						<!-- 통제데이터를 반복문으로 불러오기 -->
-						<%	String street = request.getParameter("name");
-							System.out.println(street);
-							
-							if(street == null){%>
-							
-								
-						<% }
-						else if(street.equals("교통통제하기")){%>
-						<% 
+						<%
+						String street = request.getParameter("name");
+						System.out.println(street);
+
+						if (street == null) {
+						%>
+
+
+						<%
+						} else if (street.equals("교통통제하기")) {
+						%>
+						<%
 						ArrayList<BoladDTO> bolnoList1 = emcdao.allBoladShow();
-								bolnoList = emcdao.streetBoladShow(street);
-							%>
-								
-									<% for(i = 0 ; i < bolnoList1.size() ; i++) { %>
-									<tr>
-										<td align = "center"><input type = "submit" value = "B<%=bolnoList1.get(i).getBolno()%> 통제하기"></td>
-									</tr>
-						<%}}else{ %>
-							<% 
-							
-								ArrayList<BoladDTO> bolnoList1 = emcdao.streetBoladShow(street);
-								bolnoList = emcdao.streetBoladShow(street);
-								%>
-									<form action = "controll.jsp">
-								<%	for(i = 0 ; i < bolnoList1.size() ; i++) { %>
-									
-									<tr>
-										<td align = "center"><input type = "submit" value = "B<%=bolnoList1.get(i).getBolno()%> 통제하기"></td>
-									</tr>
-						<%} }%>
-									
-							
-							
+						bolnoList = emcdao.streetBoladShow(street);
+						%>
+
+						<%
+						for (i = 0; i < bolnoList1.size(); i++) {
+						%>
+						<tr>
+							<td align="center"><input type="submit"
+								value="B<%=bolnoList1.get(i).getBolno()%> 통제하기"></td>
+						</tr>
+						<%
+						}
+						} else {
+						%>
+						<%
+						ArrayList<BoladDTO> bolnoList1 = emcdao.streetBoladShow(street);
+						bolnoList = emcdao.streetBoladShow(street);
+						%>
+						<%
+						for (i = 0; i < bolnoList1.size(); i++) {
+						%>
+
+						<tr>
+							<td align="center"><input type="submit"
+								value="B<%=bolnoList1.get(i).getBolno()%> 통제하기"></td>
+						</tr>
+						<%
+						}
+						}
+						%>
 					</table>
-					</form>
+				</form>
+				<form action = "https://192.168.1.6">
+				<table>
+					<tr>
+						<td align = "center"><input type = "submit" value = "통제하기"></td>
+					</tr>
+				</table>
+				</form>
 			</article>
 
-			<!-- Elements -->
-			<article id="elements">
-				<h2 class="major">Elements</h2>
-
-				<section>
-					<h3 class="major">Text</h3>
-					<p>
-						This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i>
-						and this is <em>emphasized</em>. This is <sup>superscript</sup>
-						text and this is <sub>subscript</sub> text. This is <u>underlined</u>
-						and this is code:
-						<code>for (;;) { ... }</code>
-						. Finally, <a href="#">this is a link</a>.
-					</p>
-					<hr />
-					<h2>Heading Level 2</h2>
-					<h3>Heading Level 3</h3>
-					<h4>Heading Level 4</h4>
-					<h5>Heading Level 5</h5>
-					<h6>Heading Level 6</h6>
-					<hr />
-					<h4>Blockquote</h4>
-					<blockquote>Fringilla nisl. Donec accumsan interdum
-						nisi, quis tincidunt felis sagittis eget tempus euismod.
-						Vestibulum ante ipsum primis in faucibus vestibulum. Blandit
-						adipiscing eu felis iaculis volutpat ac adipiscing accumsan
-						faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum
-						dolor sit amet nullam adipiscing eu felis.</blockquote>
-					<h4>Preformatted</h4>
-					<pre>
-						<code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code>
-					</pre>
-				</section>
-
-				<section>
-					<h3 class="major">Lists</h3>
-
-					<h4>Unordered</h4>
-					<ul>
-						<li>Dolor pulvinar etiam.</li>
-						<li>Sagittis adipiscing.</li>
-						<li>Felis enim feugiat.</li>
-					</ul>
-
-					<h4>Alternate</h4>
-					<ul class="alt">
-						<li>Dolor pulvinar etiam.</li>
-						<li>Sagittis adipiscing.</li>
-						<li>Felis enim feugiat.</li>
-					</ul>
-
-					<h4>Ordered</h4>
-					<ol>
-						<li>Dolor pulvinar etiam.</li>
-						<li>Etiam vel felis viverra.</li>
-						<li>Felis enim feugiat.</li>
-						<li>Dolor pulvinar etiam.</li>
-						<li>Etiam vel felis lorem.</li>
-						<li>Felis enim et feugiat.</li>
-					</ol>
-					<h4>Icons</h4>
-					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span
-								class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-facebook-f"><span
-								class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands fa-instagram"><span
-								class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands fa-github"><span
-								class="label">Github</span></a></li>
-					</ul>
-
-					<h4>Actions</h4>
-					<ul class="actions">
-						<li><a href="#" class="button primary">Default</a></li>
-						<li><a href="#" class="button">Default</a></li>
-					</ul>
-					<ul class="actions stacked">
-						<li><a href="#" class="button primary">Default</a></li>
-						<li><a href="#" class="button">Default</a></li>
-					</ul>
-				</section>
-
-				<section>
-					<h3 class="major">Table</h3>
-					<h4>Default</h4>
-					<div class="table-wrapper">
-						<table>
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th>Description</th>
-									<th>Price</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>Item One</td>
-									<td>Ante turpis integer aliquet porttitor.</td>
-									<td>29.99</td>
-								</tr>
-								<tr>
-									<td>Item Two</td>
-									<td>Vis ac commodo adipiscing arcu aliquet.</td>
-									<td>19.99</td>
-								</tr>
-								<tr>
-									<td>Item Three</td>
-									<td>Morbi faucibus arcu accumsan lorem.</td>
-									<td>29.99</td>
-								</tr>
-								<tr>
-									<td>Item Four</td>
-									<td>Vitae integer tempus condimentum.</td>
-									<td>19.99</td>
-								</tr>
-								<tr>
-									<td>Item Five</td>
-									<td>Ante turpis integer aliquet porttitor.</td>
-									<td>29.99</td>
-								</tr>
-							</tbody>
-							<tfoot>
-								<tr>
-									<td colspan="2"></td>
-									<td>100.00</td>
-								</tr>
-							</tfoot>
-						</table>
-					</div>
-
-					<h4>Alternate</h4>
-					<div class="table-wrapper">
-						<table class="alt">
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th>Description</th>
-									<th>Price</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>Item One</td>
-									<td>Ante turpis integer aliquet porttitor.</td>
-									<td>29.99</td>
-								</tr>
-								<tr>
-									<td>Item Two</td>
-									<td>Vis ac commodo adipiscing arcu aliquet.</td>
-									<td>19.99</td>
-								</tr>
-								<tr>
-									<td>Item Three</td>
-									<td>Morbi faucibus arcu accumsan lorem.</td>
-									<td>29.99</td>
-								</tr>
-								<tr>
-									<td>Item Four</td>
-									<td>Vitae integer tempus condimentum.</td>
-									<td>19.99</td>
-								</tr>
-								<tr>
-									<td>Item Five</td>
-									<td>Ante turpis integer aliquet porttitor.</td>
-									<td>29.99</td>
-								</tr>
-							</tbody>
-							<tfoot>
-								<tr>
-									<td colspan="2"></td>
-									<td>100.00</td>
-								</tr>
-							</tfoot>
-						</table>
-					</div>
-				</section>
-
-				<section>
-					<h3 class="major">Buttons</h3>
-					<ul class="actions">
-						<li><a href="#" class="button primary">Primary</a></li>
-						<li><a href="#" class="button">Default</a></li>
-					</ul>
-					<ul class="actions">
-						<li><a href="#" class="button">Default</a></li>
-						<li><a href="#" class="button small">Small</a></li>
-					</ul>
-					<ul class="actions">
-						<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-						<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-					</ul>
-					<ul class="actions">
-						<li><span class="button primary disabled">Disabled</span></li>
-						<li><span class="button disabled">Disabled</span></li>
-					</ul>
-				</section>
-
-				<section>
-					<h3 class="major">Form</h3>
-					<form method="post" action="#">
-						<div class="fields">
-							<div class="field half">
-								<label for="demo-name">Name</label> <input type="text"
-									name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-							</div>
-							<div class="field half">
-								<label for="demo-email">Email</label> <input type="email"
-									name="demo-email" id="demo-email" value=""
-									placeholder="jane@untitled.tld" />
-							</div>
-							<div class="field">
-								<label for="demo-category">Category</label> <select
-									name="demo-category" id="demo-category">
-									<option value="">-</option>
-									<option value="1">Manufacturing</option>
-									<option value="1">Shipping</option>
-									<option value="1">Administration</option>
-									<option value="1">Human Resources</option>
-								</select>
-							</div>
-							<div class="field half">
-								<input type="radio" id="demo-priority-low" name="demo-priority"
-									checked> <label for="demo-priority-low">Low</label>
-							</div>
-							<div class="field half">
-								<input type="radio" id="demo-priority-high" name="demo-priority">
-								<label for="demo-priority-high">High</label>
-							</div>
-							<div class="field half">
-								<input type="checkbox" id="demo-copy" name="demo-copy">
-								<label for="demo-copy">Email me a copy</label>
-							</div>
-							<div class="field half">
-								<input type="checkbox" id="demo-human" name="demo-human" checked>
-								<label for="demo-human">Not a robot</label>
-							</div>
-							<div class="field">
-								<label for="demo-message">Message</label>
-								<textarea name="demo-message" id="demo-message"
-									placeholder="Enter your message" rows="6"></textarea>
-							</div>
-						</div>
-						<ul class="actions">
-							<li><input type="submit" value="Send Message"
-								class="primary" /></li>
-							<li><input type="reset" value="Reset" /></li>
-						</ul>
-					</form>
-				</section>
-
-			</article>
 
 		</div>
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">
-			</p>
+			<p class="copyright">해당 제품에 대한 자세한 사항은 010-1234-5678에 문의해주세요.</p>
+			<a href = "mailto:smhrd@smhrd.or.kr" class="fas fa-envelope"></a>
+			<a href = "https://www.youtube.com/channel/UCubIpLB7cA9tWIUZ26WFKPg" class="fab fa-youtube"></a>
+			<a href = "https://www.facebook.com/smhrd0317" class="fab fa-facebook"></a>
+			<a href = "https://www.instagram.com/smhrd0317?utm_medium=copy_link" class="fab fa-instagram"></a>
+			<a href = "https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard" class="fab fa-github"></a>
+			
+			
+			
 		</footer>
 
 	</div>
