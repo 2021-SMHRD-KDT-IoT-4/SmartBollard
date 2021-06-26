@@ -82,7 +82,6 @@
 		<!-- Header -->
 		<header id="header">
 			<div class="logo">
-				<img src="images/Police.jpg" width="30px" height="30px">
 			</div>
 			<div class="content">
 				<div class="inner">
@@ -249,7 +248,7 @@
 
 				<!-- 이미지 지도를 표시할 div 입니다 -->
 
-				<div id="staticMap" style="width: 880px; height: 370px;"></div>
+				<div id="staticMap" style="width: 890px; height: 370px;"></div>
 
 				<script type="text/javascript"
 					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4cd120e494a61065de839a6b3498e5cd"></script>
@@ -682,15 +681,14 @@
 				<form action="#emc">
 					<td align="left"><input type="submit" value="뒤로가기"></td>
 				</form>
+				<form action="SearchStreet">
 				<table>
 					<tr>
-						<form action="SearchStreet">
-							<td><input type="text" name="street"
-								placeholder="도로명을 입력하세요."></td>
-							<td><input type="submit" value="검색"></td>
-						</form>
+							<td><input type="text" name="street" placeholder="도로명을 입력하세요."></td>
+							<td align = "right"><input type="submit" value="검색"></td>
 					</tr>
 				</table>
+				</form>
 				<form>
 					<table>
 						<tr align="center">

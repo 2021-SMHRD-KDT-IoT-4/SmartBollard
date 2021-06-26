@@ -89,9 +89,6 @@ input, select, textarea {
 		box-sizing: border-box;
 	}
 
-	*, *:before, *:after {
-		box-sizing: inherit;
-	}
 
 	body {
 		background: #1b1f22;
