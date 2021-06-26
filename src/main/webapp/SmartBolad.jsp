@@ -4,6 +4,8 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<%@page import="com.Model.StopDTO"%>
+<%@page import="com.Model.StopDAO"%>
 <%@page import="com.Model.emcDTO"%>
 <%@page import="com.Model.emcDAO"%>
 <%@page import="com.Model.eventDTO"%>
@@ -12,6 +14,7 @@
 <%@page import="com.Model.BoladDAO"%>
 <%@page import="com.Model.adminDTO"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.net.URLDecoder"%>
 <html>
 
 <head>
@@ -20,9 +23,11 @@
 	pageEncoding="UTF-8"%>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
+
 <link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/noscript.css" />
 <noscript>
-	<link rel="stylesheet" href="assets/css/noscript.css" />
+	
 </noscript>
 
 
@@ -50,20 +55,26 @@
 	<%
 		
 		adminDTO info = (adminDTO)session.getAttribute("login_info");
-	
 		
-	
-	
-	
+		
 		int i = 0;
 		BoladDAO dao = new BoladDAO();
-		ArrayList<BoladDTO> list = dao.boladManage();
+		ArrayList<BoladDTO> boladList = dao.boladManage();
+		
+		StopDAO stopDao = new StopDAO();
+		ArrayList<StopDTO> stopList = stopDao.stopShow();
 		
 		eventDAO eventdao = new eventDAO();
 		ArrayList<eventDTO> eventList = eventdao.showEvent();
-		
+
 		emcDAO emcdao = new emcDAO();
 		ArrayList<emcDTO> emcList = emcdao.showEmc();
+		
+		ArrayList<BoladDTO> bolnoList = null;
+			
+		String stbolno = null;
+		response.setCharacterEncoding("UTF-8");
+		
 	%>
 
 	<!-- Wrapper -->
@@ -72,7 +83,7 @@
 		<!-- Header -->
 		<header id="header">
 			<div class="logo">
-				<img src = "images/Police.jpg" id = "img" width = "70px" height = "70px">
+				<img src = "images/Police.jpg" width = "30px" height = "30px">
 			</div>
 			<div class="content">
 				<div class="inner">
@@ -144,10 +155,10 @@
 			
 			<!-- Intro -->
 			<article id="intro">
+				<h2 class="major">제품개요</h2>
 				<form action="SmartBolad.jsp">
 						<td align="left"><input type="submit" value="뒤로가기"></td>
 						</form>
-				<h2 class="major">제품개요</h2>
 				<span class="image main"><img src="images/Info.gif" alt="" /></span>
 				<p>이 제품은 볼라드에 IoT를 접목한 스마트 볼라드 시스템으로 주기능은 볼라드의 신호표시 및 적신호시 무단횡단을
 					방지하기위한 시스템으로서 주변 정지선 카메라와 차량/보행자 신호등과의 연계로 크게는 교차로 전체를 제어할수있는 획기적인
@@ -204,16 +215,16 @@
 				<h2 class="major">
 					<i class="fas fa-chess-pawn"></i>볼라드관리<i class="fas fa-chess-pawn"></i>
 				</h2>
+					<form action="SmartBolad.jsp">
+						<td align="left"><input type="submit" value="뒤로가기"></td>
+						</form>
 					
-					
-				
-				
 					<!-- 이미지 지도를 표시할 div 입니다 -->
 			
-				<section id="staticMap" style="width:1173px;height:500px;"></section>    
-		
-				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=34f11ae1b3931d43a2a11a70eeada391"></script>
-			<script>    
+				<div id="staticMap" style="width:600px;height:350px;"></div>    
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4cd120e494a61065de839a6b3498e5cd"></script>
+<script>
 			// 이미지 지도에 표시할 마커입니다
 			// 이미지 지도에 표시할 마커를 아래와 같이 배열로 넣어주면 여러개의 마커를 표시할 수 있습니다
 			
@@ -223,26 +234,25 @@
 			    },
 			    {
 			        position: new kakao.maps.LatLng(35.123195564562046,126.86298310286587), 
-			        text: 'B<%=list.get(i).getBolno()%>' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다  
+			        text: 'B<%=boladList.get(i).getBolno()%>'
 			        	
 			    },			<%i++;%>
 			    {
 			        position: new kakao.maps.LatLng(35.122978914776425,126.86269822615431), 
-			        text: 'B<%=list.get(i).getBolno()%>' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다  
+			        text: 'B<%=boladList.get(i).getBolno()%>'
 			        
 			    },			<%i++;%>
 			    {
 			        position: new kakao.maps.LatLng(35.12317664494927,126.86219598130481), 
-			        text: 'B<%=list.get(i).getBolno()%>' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다  
+			        text: 'B<%=boladList.get(i).getBolno()%>'
 			        
 			    },			<%i++;%>
 			    {
-			        position: new kakao.maps.LatLng(35.123440698322185,126.86255208797733 ), 
-			        text: 'B<%=list.get(i).getBolno()%>' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다  
+			        position: new kakao.maps.LatLng(35.123440698322185,126.86255208797733), 
+			        text: 'B<%=boladList.get(i).getBolno()%>'
 			        
 			    }
 			];
-			
 			
 			var staticMapContainer  = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
 			    staticMapOption = { 
@@ -251,6 +261,7 @@
 			        marker: markers // 이미지 지도에 표시할 마커 
 			    };    
 			
+			
 			// 이미지 지도를 생성합니다
 			var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
 			
@@ -258,10 +269,6 @@
 		
 			</script>
                    
-					
-					
-					
-				
 					<table>
 						<tr align="center">
 								<td>볼라드번호</td>
@@ -277,14 +284,14 @@
 						</tr>
 						<!-- 반복문으로 반복시킬예정 -->
 						<%
-						for (i = 0; i < list.size(); i++) {
+						for (i = 0; i < boladList.size(); i++) {
 						%>
 						<tr align="center">
-								<td>B<%=list.get(i).getBolno()%></td>
-								<td><%=list.get(i).getStreet()%></td>
-								<td><%=list.get(i).getProduct()%></td>
-								<td><%=list.get(i).getBstatus()%></td>
-								<td><a href = "BoladDelete?bolno=<%= list.get(i).getBolno() %>">삭제</a></td>
+								<td>B<%=boladList.get(i).getBolno()%></td>
+								<td><%=boladList.get(i).getStreet()%></td>
+								<td><%=boladList.get(i).getProduct()%></td>
+								<td><%=boladList.get(i).getBstatus()%></td>
+								<td><a href = "BoladDelete?bolno=<%= boladList.get(i).getBolno() %>">삭제</a></td>
 						</tr>
 						<%
 						}
@@ -337,6 +344,9 @@
 				<h2 class="major">
 					<i class="fas fa-video"></i>정지선 위반 관리<i class="fas fa-video"></i>
 				</h2>
+				<form action="SmartBolad.jsp">
+						<td align="left"><input type="submit" value="뒤로가기"></td>
+						</form>
 				<form>
 					<div id="cap"></div>
 					<table>
@@ -353,77 +363,63 @@
 							<!-- capture -->
 							<td>볼라드번호</td>
 							<!-- bolno -->
+							<td>삭제하기</td>
 						</tr>
+						<!-- 반복문으로 반복시킬예정 -->
+						<%
+						for (i = 0; i < stopList.size(); i++) {
+						%>
 						<tr align="center">
-							<!-- 반복문으로 반복시킬예정 -->
-							<td>C00001</td>
-							<td>풍암로</td>
-							<td>21/06/21 16:20</td>
-							<td>123가4567</td>
-							<td><a id = "cap" onclick = "capture()">경로</a></td>
-							<td>B00001</td>
+								<td>C<%=stopList.get(i).getCapno()%></td>
+								<td><%=stopList.get(i).getStreet()%></td>
+								<td><%=stopList.get(i).getCaptime()%></td>
+								<td><%=stopList.get(i).getCarno()%></td>
+								<td><a id = "cap" onclick = "capture()"><%=stopList.get(i).getCapture()%></a></td>
+								<td>B<%=stopList.get(i).getBolno()%></td>
+								<td><a href = "StopDelete?capno=<%= stopList.get(i).getCapno() %>">삭제</a></td>
 						</tr>
-						<tr align="center">
-							<td>C00001</td>
-							<td>풍암로</td>
-							<td>21/06/21 16:20</td>
-							<td>123가4567</td>
-							<td>사진외부경로</td>
-							<td>B00001</td>
-						</tr>
-						<tr align="center">
-							<td>C00001</td>
-							<td>풍암로</td>
-							<td>21/06/21 16:20</td>
-							<td>123가4567</td>
-							<td>사진외부경로</td>
-							<td>B00001</td>
-						</tr>
+						<%
+						}
+						%>
 					</table>
 				</form>
 				<table>
 					<tr>
-						<form action="StopAdd.java">
+						<form action="#sadd">
 							<!-- 버튼 누를시 즉시 등록 insert문 이용 -->
 							<td align="center"><input type="submit" value="추가하기"></td>
-						</form>
-						<form action="StopUpdate.java">
-							<!-- 버튼 누를시 즉시 수정 update문 이용 -->
-							<td align="center"><input type="submit" value="수정하기"></td>
-						</form>
-						<form action="#sdelete">
-							<!-- 삭제창으로이동 체크박스필요 delete문 이용 -->
-							<td align="center"><input type="submit" value="삭제하기"></td>
 						</form>
 					</tr>
 				</table>
 			</article>
 
-			<article id="sdelete">
-				<h2>정지선 위반 삭제</h2>
-				<form action="StopDelete.java">
+			<article id="sadd">
+				<h2>정지선 위반 추가</h2>
+				<form action="#stopline">
+						<td align="left"><input type="submit" value="뒤로가기"></td>
+						</form>
+				<form action="StopAdd">
 					<table>
 						<tr align="center">
-							<td>위반단속번호</td>
-							<!-- capno -->
-							<td>도로명</td>
-							<!-- street -->
-							<td>적발시간</td>
-							<!-- sysdate로 자동지정 -->
-							<td>차량번호</td>
-							<!-- carno -->
-							<td>적발사진(경로)</td>
-							<!-- capture -->
-							<td>볼라드번호</td>
-							<!-- bolno -->
+							<tr>
+							<td align="right">도로명 :</td>
+							<td><input type="text" name="street"></td>
 						</tr>
 						<tr>
-							<td></td>
-							<!-- 삭제데이터를 반복문으로 불러오기 -->
+							<td align="right">차량번호 :</td>
+							<td><input type="text" name="carno"></td>
+						</tr>
+						<tr>
+							<td align="right">저장경로 :</td>
+							<td><input type="text" name="capture" value = "경로"></td>
+						</tr>
+						<tr>
+							<td align="right">볼라드번호 :</td>
+							<td><input type="text" name="bolno"></td>
 						</tr>
 						<tr>
 							<td align="center" colspan="6"><input type="submit"
-								value="삭제하기"></td>
+								value="추가하기"></td>
 						</tr>
 					</table>
 				</form>
@@ -445,6 +441,9 @@
 					<i class="far fa-calendar-alt"></i>축제일정관리<i
 						class="far fa-calendar-alt"></i>
 				</h2>
+				<form action="SmartBolad.jsp">
+						<td align="left"><input type="submit" value="뒤로가기"></td>
+						</form>
 				<form>
 					<table>
 						<tr align="center">
@@ -543,6 +542,9 @@
 				<h2 class="major">
 					<i class="fas fa-road"></i></i>교통통제관리<i class="fas fa-road"></i></i>
 				</h2>
+				<form action="SmartBolad.jsp">
+						<td align="left"><input type="submit" value="뒤로가기"></td>
+						</form>
 				<form action="EventAdd" method="post">
 					<table>
 						
@@ -584,7 +586,7 @@
 						</form>
 					</table>
 					<form action="#emadd" align = "center"><input type="submit" value="추가하기"></form>
-					<form action="#emccontroll" align = "center"><input type="submit" value="교통통제하기"></form>
+					<form action="SearchStreet" align = "center"><input type="submit" value="교통통제하기" name = "street"></form>
 				</form>
 			</article>
 
@@ -634,23 +636,57 @@
 				<h2>교통통제</h2>
 						<form action="#emc">
 						<td align="left"><input type="submit" value="뒤로가기"></td>
-						<form action="EmcControll.java">
 						</form>
+						<table>
+                        <tr>
+                            <form action = "SearchStreet">
+                                <td><input type="text" name = "street" placeholder = "도로명을 입력하세요."></td>
+                                <td><input type="submit" value="검색" ></td>
+                            </form>
+                        </tr>
+                    </table>
+						<form>
 					<table>
 						<tr align="center">
 							<td>볼라드번호</td>
 							<!-- bolno -->
 						</tr>
-						<tr>
-							<td align = "center"><input type = "checkbox">B00001</td>
-							<!-- 통제데이터를 반복문으로 불러오기 -->
-						</tr>
-						<tr>
-							<td align="center" colspan="2"><input type="submit"
-								value="통제하기"></td>
-						</tr>
+						<!-- 통제데이터를 반복문으로 불러오기 -->
+						<%	String street = request.getParameter("name");
+							System.out.println(street);
+							
+							if(street == null){%>
+							
+								
+						<% }
+						else if(street.equals("교통통제하기")){%>
+						<% 
+						ArrayList<BoladDTO> bolnoList1 = emcdao.allBoladShow();
+								bolnoList = emcdao.streetBoladShow(street);
+							%>
+								
+									<% for(i = 0 ; i < bolnoList1.size() ; i++) { %>
+									<tr>
+										<td align = "center"><input type = "submit" value = "B<%=bolnoList1.get(i).getBolno()%> 통제하기"></td>
+									</tr>
+						<%}}else{ %>
+							<% 
+							
+								ArrayList<BoladDTO> bolnoList1 = emcdao.streetBoladShow(street);
+								bolnoList = emcdao.streetBoladShow(street);
+								%>
+									<form action = "controll.jsp">
+								<%	for(i = 0 ; i < bolnoList1.size() ; i++) { %>
+									
+									<tr>
+										<td align = "center"><input type = "submit" value = "B<%=bolnoList1.get(i).getBolno()%> 통제하기"></td>
+									</tr>
+						<%} }%>
+									
+							
+							
 					</table>
-				</form>
+					</form>
 			</article>
 
 			<!-- Elements -->

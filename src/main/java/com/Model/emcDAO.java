@@ -15,7 +15,10 @@ public class emcDAO {
 	int cnt = 0;
 	String a = null;
 	emcDTO dto = null;
-	
+	BoladDTO info = null;
+	BoladDTO stinfo = null;
+	ArrayList<BoladDTO> bolnoList = null;
+	ArrayList<BoladDTO> streetList = null;
 	
 	public void conn() {
 		try {
@@ -131,7 +134,54 @@ public class emcDAO {
 			return cnt;
 		}
 		
+	public ArrayList<BoladDTO> allBoladShow() {
+		
+		bolnoList = new ArrayList<BoladDTO>();
+		conn();
+		
+		try {
+			String sql = "select * from bolad";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				int bolno = rs.getInt(1);
+				
+				info = new BoladDTO(bolno);
+				bolnoList.add(info);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		} return bolnoList;
+		
+	}
 	
+public ArrayList<BoladDTO> streetBoladShow(String street) {
+		
+		bolnoList = new ArrayList<BoladDTO>();
+		conn();
+		
+		try {
+			String sql = "select * from bolad where street = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, street);
+			rs = psmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				int bolno = rs.getInt(1);
+				stinfo = new BoladDTO(bolno);
+				bolnoList.add(stinfo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		} return bolnoList;
+		
+	}
 	
 	
 }

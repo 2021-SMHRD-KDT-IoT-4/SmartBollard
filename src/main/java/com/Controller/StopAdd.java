@@ -27,7 +27,7 @@ public class StopAdd extends HttpServlet {
 			if(cnt > 0) {
 				System.out.println("정지선 위반사항 등록 성공!");
 			} else {
-				System.out.println("정지선 위반사항 등록 성공!");
+				System.out.println("정지선 위반사항 등록 실패!");
 			}
 			response.sendRedirect("SmartBolad.jsp#stopline");
 	}

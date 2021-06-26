@@ -8,6 +8,12 @@ public class BoladDTO {
 	String bstatus;
 	String heartbeat;
 	
+	
+	
+	public BoladDTO(int bolno) {
+		this.bolno = bolno;
+	}
+
 	public BoladDTO(int bolno, String street, String product, String bstatus, String heartbeat) {
 		this.bolno = bolno;
 		this.street = street;
@@ -28,6 +34,10 @@ public class BoladDTO {
 		this.product = product;
 		this.bstatus = bstatus;
 		this.heartbeat = heartbeat;
+	}
+
+	public BoladDTO(String street) {
+		this.street = street;
 	}
 
 	public int getBolno() {
