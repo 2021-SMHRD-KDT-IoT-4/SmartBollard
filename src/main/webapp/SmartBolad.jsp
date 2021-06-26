@@ -83,11 +83,10 @@
 		<!-- Header -->
 		<header id="header">
 			<div class="logo">
-				<img src = "images/Police.jpg" width = "30px" height = "30px">
 			</div>
 			<div class="content">
 				<div class="inner">
-					<h1>스마트 볼라드</h1>
+					<h1>SMART BOLLARD</h1>
 					<p>IoT와 웹을 활용한 스마트 교차로 관리 시스템</p>
 					<%if (info == null){ %>
 					로그인이 필요합니다!
