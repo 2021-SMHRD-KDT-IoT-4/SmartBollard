@@ -22,7 +22,6 @@ public class BoladControll extends HttpServlet {
 		
 	 	
 		int heartBeat = Integer.parseInt(request.getParameter("yj"));	
-		int bolno = 21;
 		
 		
 		BoladDAO dao = new BoladDAO();
@@ -34,6 +33,7 @@ public class BoladControll extends HttpServlet {
 		BoladDTO dto = new BoladDTO(heartBeat);
 		System.out.println(heartBeat);
 		
+		int bolno = 21;
 		if(heartBeat < 800) {
 		
 			c = dao.boladBreak(bolno);
