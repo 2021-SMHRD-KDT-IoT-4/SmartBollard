@@ -43,13 +43,8 @@
 	position: absolute;
 }
 
-#img {
-	position: relative;
-	top: 22px;
-}
-
 .content {
-	background-color : black ;
+	background-color : rgba( 0, 0, 0, 0.5) ;
 }
 </style>
 
@@ -219,7 +214,7 @@
 						</tr>
 						<tr>
 							<td align="right">경관이름 :</td>
-							<td><input type="text" name="admin"></td>
+							<td><input type="text" name="name"></td>
 						</tr>
 						<tr>
 							<td align="right">관할구역 :</td>
@@ -227,7 +222,7 @@
 						</tr>
 						<tr>
 							<td align="right">경찰서명 :</td>
-							<td><input type="text" name="office"></td>
+							<td><input type="text" name="police"></td>
 						</tr>
 						<tr>
 							<td align="right"><input type="submit" value="등록하기"></td>
@@ -248,7 +243,7 @@
 
 				<!-- 이미지 지도를 표시할 div 입니다 -->
 
-				<div id="staticMap" style="width: 890px; height: 370px;"></div>
+				<div id="staticMap" style=" width: 960px; height: 370px;"></div>
 
 				<script type="text/javascript"
 					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4cd120e494a61065de839a6b3498e5cd"></script>
@@ -741,7 +736,7 @@
 						%>
 					</table>
 				</form>
-				<form action = "https://192.168.1.6">
+				<form action = "http://192.168.1.8">
 				<table>
 					<tr>
 						<td align = "center"><input type = "submit" value = "통제하기"></td>
@@ -755,7 +750,7 @@
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">해당 제품에 대한 자세한 사항은 010-1234-5678에 문의해주세요.</p>
+			<p class="copyright">해당 제품에 대한 자세한 사항은 010-XXXX-XXXX에 문의해주세요.</p>
 			<a href = "mailto:smhrd@smhrd.or.kr" class="fas fa-envelope"></a>
 			<a href = "https://www.youtube.com/channel/UCubIpLB7cA9tWIUZ26WFKPg" class="fab fa-youtube"></a>
 			<a href = "https://www.facebook.com/smhrd0317" class="fab fa-facebook"></a>
