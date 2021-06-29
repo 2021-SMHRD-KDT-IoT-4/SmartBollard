@@ -37,7 +37,7 @@ public class AdminAdd extends HttpServlet {
 			System.out.println("조인성공!");
 			response.sendRedirect("SmartBolad.jsp");
 		} else {
-			System.out.println("조 인실패!");
+			System.out.println("조인실패!");
 			response.sendRedirect("SmartBolad.jsp#admin");
 		}
 		

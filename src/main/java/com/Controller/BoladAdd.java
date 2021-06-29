@@ -21,7 +21,7 @@ public class BoladAdd extends HttpServlet {
 		String street = request.getParameter("street");
 		String product = request.getParameter("product");
 		String bstatus = request.getParameter("bstatus");
-		String heartbeat = request.getParameter("heartbeat");
+		int heartbeat = Integer.parseInt(request.getParameter("heartbeat")) ;
 		
 		BoladDTO dto = new BoladDTO(street, product, bstatus, heartbeat);
 		BoladDAO dao = new BoladDAO();

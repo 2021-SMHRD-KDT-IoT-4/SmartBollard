@@ -74,6 +74,9 @@
 
 	String stbolno = null;
 	response.setCharacterEncoding("UTF-8");
+	
+	
+	
 	%>
 
 	<!-- Wrapper -->
@@ -219,7 +222,7 @@
 						</tr>
 						<tr>
 							<td align="right">경관이름 :</td>
-							<td><input type="text" name="admin"></td>
+							<td><input type="text" name="name"></td>
 						</tr>
 						<tr>
 							<td align="right">관할구역 :</td>
@@ -227,7 +230,7 @@
 						</tr>
 						<tr>
 							<td align="right">경찰서명 :</td>
-							<td><input type="text" name="office"></td>
+							<td><input type="text" name="police"></td>
 						</tr>
 						<tr>
 							<td align="right"><input type="submit" value="등록하기"></td>
@@ -309,6 +312,7 @@
 						<!-- bstatus -->
 						<td>삭제하기</td>
 						<!-- Bdelete -->
+					
 					</tr>
 					<!-- 반복문으로 반복시킬예정 -->
 					<%
@@ -321,6 +325,7 @@
 						<td><%=boladList.get(i).getBstatus()%></td>
 						<td><a
 							href="BoladDelete?bolno=<%=boladList.get(i).getBolno()%>">삭제</a></td>
+						<td></td>
 					</tr>
 					<%
 					}

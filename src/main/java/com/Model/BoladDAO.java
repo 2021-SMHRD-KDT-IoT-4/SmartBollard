@@ -15,6 +15,7 @@ public class BoladDAO {
 	ArrayList<BoladDTO> boladList = null;
 	BoladDTO info = null;
 	int cnt = 0;
+	int c = 0;
 	
 	public void conn() {
 		
@@ -61,7 +62,7 @@ public class BoladDAO {
 				String street = rs.getString(2);
 				String product = rs.getString(3);
 				String bstatus = rs.getString(4);
-				String heartbeat = rs.getString(5);
+				int heartbeat = rs.getInt(5);
 				info = new BoladDTO(bolno, street, product, bstatus, heartbeat);
 				boladList.add(info);
 			}
@@ -84,7 +85,7 @@ public class BoladDAO {
 			psmt.setString(1, dto.getStreet());
 			psmt.setString(2, dto.getProduct());
 			psmt.setString(3, dto.getBstatus());
-			psmt.setString(4, dto.getHeartbeat());
+			psmt.setInt(4, dto.getHeartbeat());
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -110,6 +111,67 @@ public class BoladDAO {
 		} return cnt;
 		
 		
+	}
+	
+	
+	public int boladUpdate(int heartBeat) {
+		conn();
+		
+		String sql = "update bolad set heartbeat = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setInt(1, heartBeat);
+			
+			cnt = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	
+	public int boladBreak(int bolno) {
+		conn();
+		String sql = "update bolad set bstatus = '고장' where bolno =?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, bolno);
+			
+			c = psmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+			
+		}
+		return c;
+	}
+	
+	
+	public int boladNormal(int bolno) {
+		conn();
+		String sql = "update bolad set bstatus = '정상' where bolno =?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, bolno);
+			
+			c = psmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		
+		}
+		return c;
 	}
 	
 }
