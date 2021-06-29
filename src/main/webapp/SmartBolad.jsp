@@ -69,6 +69,9 @@
 
 	String stbolno = null;
 	response.setCharacterEncoding("UTF-8");
+	
+	
+	
 	%>
 
 	<!-- Wrapper -->
@@ -304,6 +307,7 @@
 						<!-- bstatus -->
 						<td>삭제하기</td>
 						<!-- Bdelete -->
+					
 					</tr>
 					<!-- 반복문으로 반복시킬예정 -->
 					<%
@@ -316,6 +320,7 @@
 						<td><%=boladList.get(i).getBstatus()%></td>
 						<td><a
 							href="BoladDelete?bolno=<%=boladList.get(i).getBolno()%>">삭제</a></td>
+						<td></td>
 					</tr>
 					<%
 					}

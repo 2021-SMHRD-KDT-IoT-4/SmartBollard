@@ -6,15 +6,16 @@ public class BoladDTO {
 	String street;
 	String product;
 	String bstatus;
-	String heartbeat;
+	int heartbeat;
 	
 	
 	
+
 	public BoladDTO(int bolno) {
 		this.bolno = bolno;
 	}
 
-	public BoladDTO(int bolno, String street, String product, String bstatus, String heartbeat) {
+	public BoladDTO(int bolno, String street, String product, String bstatus, int heartbeat) {
 		this.bolno = bolno;
 		this.street = street;
 		this.product = product;
@@ -29,7 +30,7 @@ public class BoladDTO {
 
 	
 
-	public BoladDTO(String street, String product, String bstatus, String heartbeat) {
+	public BoladDTO(String street, String product, String bstatus, int heartbeat) {
 		this.street = street;
 		this.product = product;
 		this.bstatus = bstatus;
@@ -71,13 +72,13 @@ public class BoladDTO {
 	public void setBstatus(String bstatus) {
 		this.bstatus = bstatus;
 	}
-	public String getHeartbeat() {
+	public int getHeartbeat() {
 		return heartbeat;
 	}
 
 
 
-	public void setHeartbeat(String heartbeat) {
+	public void setHeartbeat(int heartbeat) {
 		this.heartbeat = heartbeat;
 	}
 	
