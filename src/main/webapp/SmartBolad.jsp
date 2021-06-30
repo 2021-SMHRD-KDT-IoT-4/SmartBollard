@@ -43,13 +43,8 @@
 	position: absolute;
 }
 
-#img {
-	position: relative;
-	top: 22px;
-}
-
 .content {
-	background-color : black ;
+	background-color : rgba( 0, 0, 0, 0.5) ;
 }
 </style>
 
@@ -251,6 +246,7 @@
 
 				<!-- 이미지 지도를 표시할 div 입니다 -->
 
+				<div id="staticMap" style=" width: 960px; height: 370px;"></div>
 				<div id="staticMap" style="width: 1280px; height: 370px;"></div>
 
 				<script type="text/javascript"
@@ -746,7 +742,7 @@
 						%>
 					</table>
 				</form>
-				<form action = "https://192.168.1.6">
+				<form action = "http://192.168.1.8">
 				<table>
 					<tr>
 						<td align = "center"><input type = "submit" value = "통제하기"></td>
@@ -760,7 +756,7 @@
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">해당 제품에 대한 자세한 사항은 010-1234-5678에 문의해주세요.</p>
+			<p class="copyright">해당 제품에 대한 자세한 사항은 010-XXXX-XXXX에 문의해주세요.</p>
 			<a href = "mailto:smhrd@smhrd.or.kr" class="fas fa-envelope"></a>
 			<a href = "https://www.youtube.com/channel/UCubIpLB7cA9tWIUZ26WFKPg" class="fab fa-youtube"></a>
 			<a href = "https://www.facebook.com/smhrd0317" class="fab fa-facebook"></a>
