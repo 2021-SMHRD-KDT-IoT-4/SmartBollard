@@ -137,7 +137,7 @@ public class BoladDAO {
 	
 	public int boladBreak(int bolno) {
 		conn();
-		String sql = "update bolad set bstatus = '고장' where bolno =?";
+		String sql = "update bolad set bstatus = '고장' where bolno = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, bolno);
@@ -157,7 +157,7 @@ public class BoladDAO {
 	
 	public int boladNormal(int bolno) {
 		conn();
-		String sql = "update bolad set bstatus = '정상' where bolno =?";
+		String sql = "update bolad set bstatus = '정상' where bolno = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, bolno);
