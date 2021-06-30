@@ -203,33 +203,33 @@
 				<form action="AdminAdd" method="post">
 
 					<table>
-						<tr>
-							<td align="right">아이디 :</td>
+						<tr align="center">
+							<td>아이디 :</td>
 							<td><input type="text" name="id"></td>
 						</tr>
-						<tr>
-							<td align="right">비밀번호 :</td>
+						<tr align="center">
+							<td>비밀번호 :</td>
 							<td><input type="password" name="pw"></td>
 						</tr>
-						<tr>
-							<td align="right">비밀번호확인 :</td>
+						<tr align="center">
+							<td>비밀번호확인 :</td>
 							<td><input type="password" name="pwck"></td>
 						</tr>
-						<tr>
-							<td align="right">경관이름 :</td>
+						<tr align="center">
+							<td>경관이름 :</td>
 							<td><input type="text" name="name"></td>
 						</tr>
-						<tr>
-							<td align="right">관할구역 :</td>
+						<tr align="center">
+							<td>관할구역 :</td>
 							<td><input type="text" name="zone"></td>
 						</tr>
-						<tr>
-							<td align="right">경찰서명 :</td>
+						<tr align="center">
+							<td>경찰서명 :</td>
 							<td><input type="text" name="police"></td>
 						</tr>
 						<tr>
-							<td align="right"><input type="submit" value="등록하기"></td>
-							<td align="left"><input type="reset" value="다시입력"></td>
+							<td align="center"><input type="submit" value="등록하기"></td>
+							<td align="center"><input type="reset" value="다시입력"></td>
 						</tr>
 					</table>
 				</form>
@@ -246,7 +246,6 @@
 
 				<!-- 이미지 지도를 표시할 div 입니다 -->
 
-				<div id="staticMap" style=" width: 960px; height: 370px;"></div>
 				<div id="staticMap" style="width: 1280px; height: 370px;"></div>
 
 				<script type="text/javascript"
@@ -345,24 +344,24 @@
 				</form>
 				<form action="BoladAdd">
 					<table>
-						<tr>
-							<td align="right">도로명 :</td>
+						<tr align = "center">
+							<td>도로명 :</td>
 							<td><input type="text" name="street"></td>
 						</tr>
-						<tr>
-							<td align="right">제조공장 :</td>
+						<tr align = "center">
+							<td>제조공장 :</td>
 							<td><input type="text" name="product"></td>
 						</tr>
-						<tr>
-							<td align="right">볼라드상태 :</td>
+						<tr align = "center">
+							<td>볼라드상태 :</td>
 							<td><input type="text" name="bstatus"></td>
 						</tr>
-						<tr>
-							<td align="right">작동여부 :</td>
+						<tr align = "center">
+							<td>작동여부 :</td>
 							<td><input type="text" name="heartbeat"></td>
 						</tr>
-						<tr>
-							<td align="center" colspan="2"><input type="submit"
+						<tr align = "center">
+							<td colspan="2"><input type="submit"
 								value="등록하기"><input type="reset" value="다시입력"></td>
 						</tr>
 					</table>
@@ -432,24 +431,23 @@
 				<form action="StopAdd">
 					<table>
 						<tr align="center">
-						<tr>
-							<td align="right">도로명 :</td>
+							<td>도로명 :</td>
 							<td><input type="text" name="street"></td>
 						</tr>
-						<tr>
-							<td align="right">차량번호 :</td>
+						<tr align = "center">
+							<td>차량번호 :</td>
 							<td><input type="text" name="carno"></td>
 						</tr>
-						<tr>
-							<td align="right">저장경로 :</td>
+						<tr align = "center">
+							<td>저장경로 :</td>
 							<td><input type="text" name="capture" value="경로"></td>
 						</tr>
-						<tr>
-							<td align="right">볼라드번호 :</td>
+						<tr align = "center">
+							<td>볼라드번호 :</td>
 							<td><input type="text" name="bolno"></td>
 						</tr>
-						<tr>
-							<td align="center" colspan="6"><input type="submit"
+						<tr align = "center">
+							<td colspan="6"><input type="submit"
 								value="추가하기"></td>
 						</tr>
 					</table>
@@ -535,35 +533,35 @@
 				</form>
 				<table>
 					<form action="EventAdd" method="post">
-						<tr>
-							<td align="right">행사명 :</td>
+						<tr align = "center">
+							<td>행사명 :</td>
 							<td><input type="text" name="ename"></td>
 						</tr>
-						<tr>
-							<td align="right">기간 :</td>
+						<tr align = "center">
+							<td>기간 :</td>
 							<td><input type="text" name="day"></td>
 						</tr>
-						<tr>
-							<td align="right">주최자 :</td>
+						<tr align = "center">
+							<td>주최자 :</td>
 							<td><input type="text" name="host"></td>
 						</tr>
-						<tr>
-							<td align="right">통제시간 :</td>
+						<tr align = "center">
+							<td>통제시간 :</td>
 							<td><input type="text" name="etime"></td>
 						</tr>
-						<tr>
-							<td align="right">참가인원 :</td>
+						<tr align = "center">
+							<td>참가인원 :</td>
 							<td><input type="text" name="people"></td>
 						</tr>
-						<tr>
-							<td align="right">시작구간 :</td>
+						<tr align = "center">
+							<td>시작구간 :</td>
 							<td><input type="text" name="sstreet"></td>
 						</tr>
-						<tr>
-							<td align="right">종료구간 :</td>
+						<tr align = "center">
+							<td>종료구간 :</td>
 							<td><input type="text" name="estreet"></td>
 						</tr>
-						<tr>
+						<tr align = "center">
 							<td align="center" colspan="2"><input type="submit"
 								value="등록하기"><input type="reset" value="다시입력"></td>
 						</tr>
@@ -642,33 +640,33 @@
 				</form>
 				<table>
 					<form action="EmcAdd">
-						<tr>
-							<td align="right">통제내용 :</td>
+						<tr align = "center">
+							<td>통제내용 :</td>
 							<td><input type="text" name="info"></td>
 						</tr>
-						<tr>
-							<td align="right">담당자 :</td>
+						<tr align = "center">
+							<td>담당자 :</td>
 							<td><input type="text" name="manager"></td>
 						</tr>
-						<tr>
-							<td align="right">도로명 :</td>
+						<tr align = "center">
+							<td>도로명 :</td>
 							<td><input type="text" name="street"></td>
 						</tr>
-						<tr>
-							<td align="right">통제날짜 :</td>
+						<tr align = "center">
+							<td>통제날짜 :</td>
 							<td><input type="text" name="ttime"></td>
 						</tr>
-						<tr>
-							<td align="right">신호상태 :</td>
+						<tr align = "center">
+							<td>신호상태 :</td>
 							<td><input type="text" name="lightcolor"></td>
 						</tr>
-						<tr>
-							<td align="right">관할구역 :</td>
+						<tr align = "center">
+							<td>관할구역 :</td>
 							<td><input type="text" name="zone"></td>
 						</tr>
-						<tr>
-							<td align="right"><input type="submit" value="등록하기"></td>
-							<td align="center"><input type="reset" value="다시입력"></td>
+						<tr align = "center">
+							<td><input type="submit" value="등록하기"></td>
+							<td><input type="reset" value="다시입력"></td>
 					</form>
 					</tr>
 				</table>
@@ -690,7 +688,7 @@
 					</tr>
 				</table>
 				</form>
-				<form>
+				<form  action = "http://192.168.1.8">
 					<table>
 						<tr align="center">
 							<td>볼라드번호</td>
@@ -710,7 +708,7 @@
 						%>
 						<%
 						ArrayList<BoladDTO> bolnoList1 = emcdao.allBoladShow();
-						bolnoList = emcdao.streetBoladShow(street);
+						
 						%>
 
 						<%
@@ -726,7 +724,7 @@
 						%>
 						<%
 						ArrayList<BoladDTO> bolnoList1 = emcdao.streetBoladShow(street);
-						bolnoList = emcdao.streetBoladShow(street);
+						
 						%>
 						<%
 						for (i = 0; i < bolnoList1.size(); i++) {
@@ -742,13 +740,7 @@
 						%>
 					</table>
 				</form>
-				<form action = "http://192.168.1.8">
-				<table>
-					<tr>
-						<td align = "center"><input type = "submit" value = "통제하기"></td>
-					</tr>
-				</table>
-				</form>
+				
 			</article>
 
 
