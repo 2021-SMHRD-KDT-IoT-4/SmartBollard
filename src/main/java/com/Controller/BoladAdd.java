@@ -20,10 +20,8 @@ public class BoladAdd extends HttpServlet {
 		
 		String street = request.getParameter("street");
 		String product = request.getParameter("product");
-		String bstatus = request.getParameter("bstatus");
-		int heartbeat = Integer.parseInt(request.getParameter("heartbeat")) ;
 		
-		BoladDTO dto = new BoladDTO(street, product, bstatus, heartbeat);
+		BoladDTO dto = new BoladDTO(street, product);
 		BoladDAO dao = new BoladDAO();
 		int cnt = dao.boladAdd(dto);
 			if(cnt > 0) {

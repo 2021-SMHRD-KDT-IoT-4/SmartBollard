@@ -84,7 +84,7 @@
 			<div class="content">
 				<div class="inner">
 					<h1>SMART BOLLARD</h1>
-					<p>IoT와 웹을 활용한 스마트 교차로 관리 시스템</p>
+					<p>IoT와 웹을 활용한 스마트 교차로 관리 시스템</p> <!-- 대소문자 확인 필요시 필히 EDGE 브라우져를 사용할것!!  -->
 					<%
 					if (info == null) {
 					%>
@@ -184,7 +184,7 @@
 				<form action="SmartBolad.jsp">
 					<td align="left"><input type="submit" value="뒤로가기"></td>
 				</form>
-				<span class="image main"><img src="images/Info.gif" alt="" /></span>
+				<span class="image main"><img src="images/info.gif" alt="" /></span>
 				<p>이 제품은 볼라드에 IoT를 접목한 스마트 볼라드 시스템으로 주기능은 볼라드의 신호표시 및 적신호시 무단횡단을
 					방지하기위한 시스템으로서 주변 정지선 카메라와 차량/보행자 신호등과의 연계로 크게는 교차로 전체를 제어할수있는 획기적인
 					시스템입니다.</p>
@@ -246,7 +246,6 @@
 
 				<!-- 이미지 지도를 표시할 div 입니다 -->
 
-				<div id="staticMap" style=" width: 960px; height: 370px;"></div>
 				<div id="staticMap" style="width: 1280px; height: 370px;"></div>
 
 				<script type="text/javascript"
@@ -354,14 +353,6 @@
 							<td><input type="text" name="product"></td>
 						</tr>
 						<tr>
-							<td align="right">볼라드상태 :</td>
-							<td><input type="text" name="bstatus"></td>
-						</tr>
-						<tr>
-							<td align="right">작동여부 :</td>
-							<td><input type="text" name="heartbeat"></td>
-						</tr>
-						<tr>
 							<td align="center" colspan="2"><input type="submit"
 								value="등록하기"><input type="reset" value="다시입력"></td>
 						</tr>
@@ -439,10 +430,6 @@
 						<tr>
 							<td align="right">차량번호 :</td>
 							<td><input type="text" name="carno"></td>
-						</tr>
-						<tr>
-							<td align="right">저장경로 :</td>
-							<td><input type="text" name="capture" value="경로"></td>
 						</tr>
 						<tr>
 							<td align="right">볼라드번호 :</td>
@@ -595,7 +582,7 @@
 							<!-- street -->
 							<td align="center">통제시간</td>
 							<!-- ttime -->
-							<td align="center">신호상태</td>
+							<td align="center">통제상태</td>
 							<!-- lightcolor -->
 							<td align="center">관할구역</td>
 							<!-- zone -->
@@ -659,10 +646,6 @@
 							<td><input type="text" name="ttime"></td>
 						</tr>
 						<tr>
-							<td align="right">신호상태 :</td>
-							<td><input type="text" name="lightcolor"></td>
-						</tr>
-						<tr>
 							<td align="right">관할구역 :</td>
 							<td><input type="text" name="zone"></td>
 						</tr>
@@ -690,39 +673,22 @@
 					</tr>
 				</table>
 				</form>
-				<form>
+				<form action = "test">
 					<table>
 						<tr align="center">
-							<td>볼라드번호</td>
+							<td>볼라드통제</td>
 							<!-- bolno -->
 						</tr>
 						<!-- 통제데이터를 반복문으로 불러오기 -->
 						<%
 						String street = request.getParameter("name");
-						System.out.println(street);
 
 						if (street == null) {
 						%>
 
 
 						<%
-						} else if (street.equals("교통통제하기")) {
-						%>
-						<%
-						ArrayList<BoladDTO> bolnoList1 = emcdao.allBoladShow();
-						bolnoList = emcdao.streetBoladShow(street);
-						%>
-
-						<%
-						for (i = 0; i < bolnoList1.size(); i++) {
-						%>
-						<tr>
-							<td align="center"><input type="submit"
-								value="B<%=bolnoList1.get(i).getBolno()%> 통제하기"></td>
-						</tr>
-						<%
-						}
-						} else {
+						}  else  {
 						%>
 						<%
 						ArrayList<BoladDTO> bolnoList1 = emcdao.streetBoladShow(street);
@@ -734,7 +700,7 @@
 
 						<tr>
 							<td align="center"><input type="submit"
-								value="B<%=bolnoList1.get(i).getBolno()%> 통제하기"></td>
+								value=<%=bolnoList1.get(i).getBolno()%> name = "bolno"></td>
 						</tr>
 						<%
 						}

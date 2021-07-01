@@ -18,10 +18,9 @@ public class StopAdd extends HttpServlet {
 		
 		String street = request.getParameter("street");
 		String carno = request.getParameter("carno");
-		String capture = request.getParameter("capture");
 		int bolno = Integer.parseInt(request.getParameter("bolno"));
 		
-		StopDTO dto = new StopDTO(street, carno, capture, bolno);
+		StopDTO dto = new StopDTO(street, carno, bolno);
 		StopDAO dao = new StopDAO();
 		int cnt = dao.stopAdd(dto);
 			if(cnt > 0) {

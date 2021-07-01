@@ -79,12 +79,11 @@ public class StopDAO {
 			conn();
 			
 			try {
-				String sql = "insert into stopline values (capno_sequence.nextval, ?, sysdate, ?, ?, ?)";
+				String sql = "insert into stopline values (capno_sequence.nextval, ?, sysdate, ?, '°æ·Î', ?)";
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, dto.getStreet());
 				psmt.setString(2, dto.getCarno());
-				psmt.setString(3, dto.getCapture());
-				psmt.setInt(4, dto.getBolno());
+				psmt.setInt(3, dto.getBolno());
 				cnt = psmt.executeUpdate();
 			} catch (SQLException e) {
 				e.printStackTrace();

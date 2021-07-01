@@ -79,13 +79,11 @@ public class BoladDAO {
 		conn();
 		
 		try {
-			String sql = "insert into bolad values(bolno_sequence.nextval, ?, ?, ?, ?)";
+			String sql = "insert into bolad values(bolno_sequence.nextval, ?, ?, null, null)";
 			psmt = conn.prepareStatement(sql);
 			
 			psmt.setString(1, dto.getStreet());
 			psmt.setString(2, dto.getProduct());
-			psmt.setString(3, dto.getBstatus());
-			psmt.setInt(4, dto.getHeartbeat());
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

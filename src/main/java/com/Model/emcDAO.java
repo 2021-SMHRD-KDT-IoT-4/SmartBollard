@@ -61,15 +61,14 @@ public class emcDAO {
 	public int emcAdd(emcDTO dto) {
 		 conn();
 		 
-		 String sql = "insert into emc values(emcno_sequence.nextval,?,?,?,?,?,?)";
+		 String sql = "insert into emc values(emcno_sequence.nextval,?,?,?,?,null,?)";
 		 try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getInfo());
 			psmt.setString(2, dto.getManager());
 			psmt.setString(3, dto.getStreet());
 			psmt.setString(4, dto.getTtime());
-			psmt.setString(5, dto.getLightcolor());
-			psmt.setString(6, dto.getZone());
+			psmt.setString(5, dto.getZone());
 			cnt = psmt.executeUpdate();
 			
 			

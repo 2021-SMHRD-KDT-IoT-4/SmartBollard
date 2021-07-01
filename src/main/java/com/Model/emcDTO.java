@@ -21,12 +21,11 @@ public class emcDTO {
 		this.zone = zone;
 	}
 
-	public emcDTO(String info, String manager, String street, String ttime, String lightcolor, String zone) {
+	public emcDTO(String info, String manager, String street, String ttime, String zone) {
 		this.info = info;
 		this.manager = manager;
 		this.street = street;
 		this.ttime = ttime;
-		this.lightcolor = lightcolor;
 		this.zone = zone;
 	}
 	

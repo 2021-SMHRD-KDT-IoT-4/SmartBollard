@@ -2,11 +2,11 @@ package com.Model;
 
 public class BoladDTO {
 	
-	int bolno;
-	String street;
-	String product;
-	String bstatus;
-	int heartbeat;
+	private	int bolno;
+	private String street;
+	private String product;
+	private String bstatus;
+	private int heartbeat;
 	
 	
 	
@@ -28,14 +28,6 @@ public class BoladDTO {
 		this.product = product;
 	}
 
-	
-
-	public BoladDTO(String street, String product, String bstatus, int heartbeat) {
-		this.street = street;
-		this.product = product;
-		this.bstatus = bstatus;
-		this.heartbeat = heartbeat;
-	}
 
 	public BoladDTO(String street) {
 		this.street = street;

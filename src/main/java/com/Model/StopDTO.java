@@ -18,10 +18,9 @@ public class StopDTO {
 		this.bolno = bolno;
 	}
 
-	public StopDTO(String street, String carno, String capture, int bolno) {
+	public StopDTO(String street, String carno, int bolno) {
 		this.street = street;
 		this.carno = carno;
-		this.capture = capture;
 		this.bolno = bolno;
 	}
 

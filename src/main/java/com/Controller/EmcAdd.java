@@ -24,11 +24,10 @@ public class EmcAdd extends HttpServlet {
 		String manager = request.getParameter("manager");
 		String street = request.getParameter("street");
 		String ttime = request.getParameter("ttime");
-		String lightcolor = request.getParameter("lightcolor");
 		String zone = request.getParameter("zone");
 		
 		
-		emcDTO dto = new emcDTO(info, manager, street, ttime, lightcolor, zone);
+		emcDTO dto = new emcDTO(info, manager, street, ttime, zone);
 		emcDAO dao = new emcDAO();
 		
 		int cnt = dao.emcAdd(dto);
