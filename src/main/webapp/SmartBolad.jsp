@@ -184,7 +184,7 @@
 				<form action="SmartBolad.jsp">
 					<td align="left"><input type="submit" value="뒤로가기"></td>
 				</form>
-				<span class="image main"><img src="images/Info.gif" alt="" /></span>
+				<span class="image main"><img src="images/qqq.gif" alt="" /></span>
 				<p>이 제품은 볼라드에 IoT를 접목한 스마트 볼라드 시스템으로 주기능은 볼라드의 신호표시 및 적신호시 무단횡단을
 					방지하기위한 시스템으로서 주변 정지선 카메라와 차량/보행자 신호등과의 연계로 크게는 교차로 전체를 제어할수있는 획기적인
 					시스템입니다.</p>
