@@ -184,7 +184,11 @@
 				<form action="SmartBolad.jsp">
 					<td align="left"><input type="submit" value="뒤로가기"></td>
 				</form>
+<<<<<<< HEAD
 				<span class="image main"><img src="images/info.gif" alt="" /></span>
+=======
+				<span class="image main"><img src="images/qqq.gif" alt="" /></span>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
 				<p>이 제품은 볼라드에 IoT를 접목한 스마트 볼라드 시스템으로 주기능은 볼라드의 신호표시 및 적신호시 무단횡단을
 					방지하기위한 시스템으로서 주변 정지선 카메라와 차량/보행자 신호등과의 연계로 크게는 교차로 전체를 제어할수있는 획기적인
 					시스템입니다.</p>
@@ -203,33 +207,33 @@
 				<form action="AdminAdd" method="post">
 
 					<table>
-						<tr>
-							<td align="right">아이디 :</td>
+						<tr align="center">
+							<td>아이디 :</td>
 							<td><input type="text" name="id"></td>
 						</tr>
-						<tr>
-							<td align="right">비밀번호 :</td>
+						<tr align="center">
+							<td>비밀번호 :</td>
 							<td><input type="password" name="pw"></td>
 						</tr>
-						<tr>
-							<td align="right">비밀번호확인 :</td>
+						<tr align="center">
+							<td>비밀번호확인 :</td>
 							<td><input type="password" name="pwck"></td>
 						</tr>
-						<tr>
-							<td align="right">경관이름 :</td>
+						<tr align="center">
+							<td>경관이름 :</td>
 							<td><input type="text" name="name"></td>
 						</tr>
-						<tr>
-							<td align="right">관할구역 :</td>
+						<tr align="center">
+							<td>관할구역 :</td>
 							<td><input type="text" name="zone"></td>
 						</tr>
-						<tr>
-							<td align="right">경찰서명 :</td>
+						<tr align="center">
+							<td>경찰서명 :</td>
 							<td><input type="text" name="police"></td>
 						</tr>
 						<tr>
-							<td align="right"><input type="submit" value="등록하기"></td>
-							<td align="left"><input type="reset" value="다시입력"></td>
+							<td align="center"><input type="submit" value="등록하기"></td>
+							<td align="center"><input type="reset" value="다시입력"></td>
 						</tr>
 					</table>
 				</form>
@@ -344,16 +348,29 @@
 				</form>
 				<form action="BoladAdd">
 					<table>
-						<tr>
-							<td align="right">도로명 :</td>
+						<tr align = "center">
+							<td>도로명 :</td>
 							<td><input type="text" name="street"></td>
 						</tr>
-						<tr>
-							<td align="right">제조공장 :</td>
+						<tr align = "center">
+							<td>제조공장 :</td>
 							<td><input type="text" name="product"></td>
 						</tr>
+<<<<<<< HEAD
 						<tr>
 							<td align="center" colspan="2"><input type="submit"
+=======
+						<tr align = "center">
+							<td>볼라드상태 :</td>
+							<td><input type="text" name="bstatus"></td>
+						</tr>
+						<tr align = "center">
+							<td>작동여부 :</td>
+							<td><input type="text" name="heartbeat"></td>
+						</tr>
+						<tr align = "center">
+							<td colspan="2"><input type="submit"
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
 								value="등록하기"><input type="reset" value="다시입력"></td>
 						</tr>
 					</table>
@@ -423,20 +440,28 @@
 				<form action="StopAdd">
 					<table>
 						<tr align="center">
-						<tr>
-							<td align="right">도로명 :</td>
+							<td>도로명 :</td>
 							<td><input type="text" name="street"></td>
 						</tr>
-						<tr>
-							<td align="right">차량번호 :</td>
+						<tr align = "center">
+							<td>차량번호 :</td>
 							<td><input type="text" name="carno"></td>
 						</tr>
+<<<<<<< HEAD
 						<tr>
 							<td align="right">볼라드번호 :</td>
+=======
+						<tr align = "center">
+							<td>저장경로 :</td>
+							<td><input type="text" name="capture" value="경로"></td>
+						</tr>
+						<tr align = "center">
+							<td>볼라드번호 :</td>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
 							<td><input type="text" name="bolno"></td>
 						</tr>
-						<tr>
-							<td align="center" colspan="6"><input type="submit"
+						<tr align = "center">
+							<td colspan="6"><input type="submit"
 								value="추가하기"></td>
 						</tr>
 					</table>
@@ -522,35 +547,35 @@
 				</form>
 				<table>
 					<form action="EventAdd" method="post">
-						<tr>
-							<td align="right">행사명 :</td>
+						<tr align = "center">
+							<td>행사명 :</td>
 							<td><input type="text" name="ename"></td>
 						</tr>
-						<tr>
-							<td align="right">기간 :</td>
+						<tr align = "center">
+							<td>기간 :</td>
 							<td><input type="text" name="day"></td>
 						</tr>
-						<tr>
-							<td align="right">주최자 :</td>
+						<tr align = "center">
+							<td>주최자 :</td>
 							<td><input type="text" name="host"></td>
 						</tr>
-						<tr>
-							<td align="right">통제시간 :</td>
+						<tr align = "center">
+							<td>통제시간 :</td>
 							<td><input type="text" name="etime"></td>
 						</tr>
-						<tr>
-							<td align="right">참가인원 :</td>
+						<tr align = "center">
+							<td>참가인원 :</td>
 							<td><input type="text" name="people"></td>
 						</tr>
-						<tr>
-							<td align="right">시작구간 :</td>
+						<tr align = "center">
+							<td>시작구간 :</td>
 							<td><input type="text" name="sstreet"></td>
 						</tr>
-						<tr>
-							<td align="right">종료구간 :</td>
+						<tr align = "center">
+							<td>종료구간 :</td>
 							<td><input type="text" name="estreet"></td>
 						</tr>
-						<tr>
+						<tr align = "center">
 							<td align="center" colspan="2"><input type="submit"
 								value="등록하기"><input type="reset" value="다시입력"></td>
 						</tr>
@@ -629,29 +654,38 @@
 				</form>
 				<table>
 					<form action="EmcAdd">
-						<tr>
-							<td align="right">통제내용 :</td>
+						<tr align = "center">
+							<td>통제내용 :</td>
 							<td><input type="text" name="info"></td>
 						</tr>
-						<tr>
-							<td align="right">담당자 :</td>
+						<tr align = "center">
+							<td>담당자 :</td>
 							<td><input type="text" name="manager"></td>
 						</tr>
-						<tr>
-							<td align="right">도로명 :</td>
+						<tr align = "center">
+							<td>도로명 :</td>
 							<td><input type="text" name="street"></td>
 						</tr>
-						<tr>
-							<td align="right">통제날짜 :</td>
+						<tr align = "center">
+							<td>통제날짜 :</td>
 							<td><input type="text" name="ttime"></td>
 						</tr>
+<<<<<<< HEAD
 						<tr>
 							<td align="right">관할구역 :</td>
+=======
+						<tr align = "center">
+							<td>신호상태 :</td>
+							<td><input type="text" name="lightcolor"></td>
+						</tr>
+						<tr align = "center">
+							<td>관할구역 :</td>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
 							<td><input type="text" name="zone"></td>
 						</tr>
-						<tr>
-							<td align="right"><input type="submit" value="등록하기"></td>
-							<td align="center"><input type="reset" value="다시입력"></td>
+						<tr align = "center">
+							<td><input type="submit" value="등록하기"></td>
+							<td><input type="reset" value="다시입력"></td>
 					</form>
 					</tr>
 				</table>
@@ -673,7 +707,11 @@
 					</tr>
 				</table>
 				</form>
+<<<<<<< HEAD
 				<form action = "test">
+=======
+				<form  action = "http://192.168.1.8">
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
 					<table>
 						<tr align="center">
 							<td>볼라드통제</td>
@@ -688,11 +726,31 @@
 
 
 						<%
+<<<<<<< HEAD
 						}  else  {
+=======
+						} else if (street.equals("교통통제하기")) {
+						%>
+						<%
+						ArrayList<BoladDTO> bolnoList1 = emcdao.allBoladShow();
+						
+						%>
+
+						<%
+						for (i = 0; i < bolnoList1.size(); i++) {
+						%>
+						<tr>
+							<td align="center"><input type="submit"
+								value="B<%=bolnoList1.get(i).getBolno()%> 통제하기"></td>
+						</tr>
+						<%
+						}
+						} else {
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
 						%>
 						<%
 						ArrayList<BoladDTO> bolnoList1 = emcdao.streetBoladShow(street);
-						bolnoList = emcdao.streetBoladShow(street);
+						
 						%>
 						<%
 						for (i = 0; i < bolnoList1.size(); i++) {
@@ -708,13 +766,7 @@
 						%>
 					</table>
 				</form>
-				<form action = "http://192.168.1.8">
-				<table>
-					<tr>
-						<td align = "center"><input type = "submit" value = "통제하기"></td>
-					</tr>
-				</table>
-				</form>
+				
 			</article>
 
 

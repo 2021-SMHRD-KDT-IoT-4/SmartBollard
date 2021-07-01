@@ -18,10 +18,10 @@ public class BoladControll extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 	 	
 		int heartBeat = Integer.parseInt(request.getParameter("yj"));	
 		
+	
 		
 		BoladDAO dao = new BoladDAO();
 		int cnt = dao.boladUpdate(heartBeat);
