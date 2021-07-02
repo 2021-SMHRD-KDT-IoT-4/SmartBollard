@@ -528,7 +528,9 @@
 			<article id="evadd">																				<!-- 축제및 집회일정 추가 화면입니다. -->
 				<h2>행사/집회등록</h2>
 				<form action="#event">
-					<td align="left"><input type="submit" value="뒤로가기"></td>
+				<table>
+					<tr><td align="left"><input type="submit" value="뒤로가기"></td></tr>
+				</table>
 				</form>
 				<table>
 					<form action="EventAdd" method="post">
