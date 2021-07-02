@@ -1,6 +1,6 @@
 package com.Model;
 
-public class adminDTO {
+public class AdminDTO {		// 관리자 관련 DTO
 
 	private String id;
 	private String pw;
@@ -8,7 +8,7 @@ public class adminDTO {
 	private String zone;
 	private String police;
 	
-	public adminDTO(String id, String pw, String name, String zone, String police) {
+	public AdminDTO(String id, String pw, String name, String zone, String police) {
 		
 		this.id = id;
 		this.pw = pw;
@@ -17,7 +17,7 @@ public class adminDTO {
 		this.police = police;
 	}
 
-	public adminDTO(String id, String pw) {
+	public AdminDTO(String id, String pw) {
 		this.id = id;
 		this.pw = pw;
 	}

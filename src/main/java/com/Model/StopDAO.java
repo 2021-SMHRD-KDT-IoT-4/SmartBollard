@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class StopDAO {
+public class StopDAO {	// 정지선 위반 관련 DAO
 	
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -16,7 +16,7 @@ public class StopDAO {
 		StopDTO stopInfo = null;
 		int cnt = 0;
 		
-		public void conn() {
+		public void conn() {	// DB 연결
 			
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -32,7 +32,7 @@ public class StopDAO {
 			
 		}
 		
-		public void close() {
+		public void close() {	// DB 연결해제
 			
 				try {
 				if(rs != null)
@@ -47,7 +47,7 @@ public class StopDAO {
 			
 		}
 		
-		public ArrayList<StopDTO> stopShow() {
+		public ArrayList<StopDTO> stopShow() {	// 정지선 위반 조회
 			
 			stopList = new ArrayList<StopDTO>();
 			conn();
@@ -74,7 +74,7 @@ public class StopDAO {
 			} return stopList;
 		}
 		
-		public int stopAdd(StopDTO dto) {
+		public int stopAdd(StopDTO dto) {	// 정지선 위반 추가
 			
 			conn();
 			
@@ -92,7 +92,7 @@ public class StopDAO {
 			} return cnt; 
 		}
 		
-		public int stopDel(int capno) {
+		public int stopDel(int capno) {		// 정지선 위반 삭제
 			
 			conn();
 			

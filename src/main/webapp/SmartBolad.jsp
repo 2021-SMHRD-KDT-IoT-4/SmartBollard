@@ -6,13 +6,13 @@
 -->
 <%@page import="com.Model.StopDTO"%>
 <%@page import="com.Model.StopDAO"%>
-<%@page import="com.Model.emcDTO"%>
-<%@page import="com.Model.emcDAO"%>
-<%@page import="com.Model.eventDTO"%>
-<%@page import="com.Model.eventDAO"%>
+<%@page import="com.Model.EmcDTO"%>
+<%@page import="com.Model.EmcDAO"%>
+<%@page import="com.Model.EventDTO"%>
+<%@page import="com.Model.EventDAO"%>
 <%@page import="com.Model.BoladDTO"%>
 <%@page import="com.Model.BoladDAO"%>
-<%@page import="com.Model.adminDTO"%>
+<%@page import="com.Model.AdminDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.net.URLDecoder"%>
 <html>
@@ -20,71 +20,65 @@
 <head>
 <title>Dimension by HTML5 UP</title>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>																					<!-- 해당 템플렛이 'UTF-8' 인코딩이 되어있다는 코드입니다. -->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 
-<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/main.css" />														<!-- 외부 스타일 방식 적용 (템플렛 특성) -->
 <link rel="stylesheet" href="assets/css/noscript.css" />
 <noscript></noscript>
 
 
 </head>
-<style>
+																											<!-- 내부 스타일 방식 적용 (일부 적용) -->
+<style>																					
 #event {
-	background-color: red;
+	background-color: red;																					/* 통제관리 버튼 적색처리 */
 }
 
 .button {
-	background-color: black;
-}
-
-#header {
-	position: absolute;
+	background-color: black;																				/* 메뉴 전체버튼 흑색처리 */
 }
 
 .content {
-	background-color : rgba( 0, 0, 0, 0.5) ;
+	background-color : rgba( 0, 0, 0, 0.5) ;																/* 타이틀 헤더부분 흑색처리 & 투명도 적용 */
 }
 </style>
 
 <body class="is-preload">
 	<%
-	adminDTO info = (adminDTO) session.getAttribute("login_info");
+	AdminDTO info = (AdminDTO) session.getAttribute("login_info");											// 로그인 정보가 담긴 세션입니다. 
 
-	int i = 0;
-	BoladDAO dao = new BoladDAO();
-	ArrayList<BoladDTO> boladList = dao.boladManage();
+		int i = 0;
+		BoladDAO dao = new BoladDAO();
+		ArrayList<BoladDTO> boladList = dao.boladManage();													// 볼라드 정보가 담긴 List입니다.
 
-	StopDAO stopDao = new StopDAO();
-	ArrayList<StopDTO> stopList = stopDao.stopShow();
+		StopDAO stopDao = new StopDAO();
+		ArrayList<StopDTO> stopList = stopDao.stopShow();													// 정지선위반 정보가 담긴 List입니다.
 
-	eventDAO eventdao = new eventDAO();
-	ArrayList<eventDTO> eventList = eventdao.showEvent();
+		EventDAO eventdao = new EventDAO();
+		ArrayList<EventDTO> eventList = eventdao.showEvent();												// 축제및 일정 정보가 담긴 List입니다.
 
-	emcDAO emcdao = new emcDAO();
-	ArrayList<emcDTO> emcList = emcdao.showEmc();
+		EmcDAO emcdao = new EmcDAO();
+		ArrayList<EmcDTO> emcList = emcdao.showEmc();														// 교통통제 정보가 담긴 List입니다.
 
-	ArrayList<BoladDTO> bolnoList = null;
+		ArrayList<BoladDTO> bolnoList = null;
 
-	String stbolno = null;
-	response.setCharacterEncoding("UTF-8");
-	
-	
-	
+		String stbolno = null;
+		response.setCharacterEncoding("UTF-8");																// 해당 템플릿이 'UTF-8' 인코딩이 되어있어 맞춰준 것입니다.
 	%>
 
 	<!-- Wrapper -->
 	<div id="wrapper">
 
 		<!-- Header -->
-		<header id="header">
+		<header id="header">																				<!-- 타이틀 화면입니다. -->
 			<div class="logo">
 			</div>
 			<div class="content">
 				<div class="inner">
 					<h1>SMART BOLLARD</h1>
-					<p>IoT와 웹을 활용한 스마트 교차로 관리 시스템</p> <!-- 대소문자 확인 필요시 필히 EDGE 브라우져를 사용할것!!  -->
+					<p>IoT와 웹을 활용한 스마트 교차로 관리 시스템</p>
 					<%
 					if (info == null) {
 					%>
@@ -101,12 +95,12 @@
 			<nav>
 				<ul>
 					<%
-					if (info == null) {
+					if (info == null) { 																	// 로그인 전에 나오는 메뉴들입니다.
 					%>
 					<li><a href="#intro" class="button">제품설명</a></li>
 					<li><a href="#admin" class="button">관리자등록</a></li>
 					<%
-					} else {
+					} else { 																				// 로그인 후에 나오는 메뉴들입니다.
 					%>
 					<li><a href="#intro" class="button">제품설명</a></li>
 					<li><a href="#admin" class="button">관리자등록</a></li>
@@ -121,7 +115,7 @@
 
 			</nav>
 			<%
-			if (info == null) {
+			if (info == null) {																				// 로그인 전에 나오는 메뉴입니다.
 			%>
 			<nav>
 				<ul>
@@ -129,7 +123,7 @@
 				</ul>
 			</nav>
 			<%
-			} else {
+			} else {																						// 로그인 후에 나오는 메뉴입니다.
 			%>
 			<nav>
 				<ul>
@@ -145,7 +139,7 @@
 		<div id="main">
 
 			<!-- login -->
-			<article id="login">
+			<article id="login">																			<!-- 로그인 화면입니다. -->
 				<form action="AdminLogin" method="post">
 					<table>
 						<tr>
@@ -166,7 +160,7 @@
 			</article>
 
 			<!-- loginfail -->
-			<article id="loginFail">
+			<article id="loginFail">																		<!-- 로그인 실패시의 화면입니다. -->
 				<form action="SmartBolad.jsp">
 					<td align="left"><input type="submit" value="뒤로가기"></td>
 				</form>
@@ -179,16 +173,14 @@
 
 
 			<!-- Intro -->
-			<article id="intro">
+			<article id="intro">																			<!-- 제품개요 화면입니다. -->
 				<h2 class="major">제품개요</h2>
+				<table>
 				<form action="SmartBolad.jsp">
-					<td align="left"><input type="submit" value="뒤로가기"></td>
+					<tr><td align="left"><input type="submit" value="뒤로가기"></td></tr>
 				</form>
-<<<<<<< HEAD
-				<span class="image main"><img src="images/info.gif" alt="" /></span>
-=======
-				<span class="image main"><img src="images/qqq.gif" alt="" /></span>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
+				</table>
+				<span class="image main"><img src="images/info.gif" alt="실제로 만든 교차로 모형이 연속적으로 나옵니다"></span>
 				<p>이 제품은 볼라드에 IoT를 접목한 스마트 볼라드 시스템으로 주기능은 볼라드의 신호표시 및 적신호시 무단횡단을
 					방지하기위한 시스템으로서 주변 정지선 카메라와 차량/보행자 신호등과의 연계로 크게는 교차로 전체를 제어할수있는 획기적인
 					시스템입니다.</p>
@@ -197,13 +189,15 @@
 			</article>
 
 			<!-- Admin -->
-			<article id="admin">
+			<article id="admin">																			<!-- 관리자등록(회원가입) 화면입니다. -->
 				<h2 class="major">
 					<i class="fas fa-users-cog"></i>관리자등록<i class="fas fa-users-cog"></i>
 				</h2>
+				<table>
 				<form action="SmartBolad.jsp">
-					<td align="left"><input type="submit" value="뒤로가기"></td>
+					<tr><td align="left"><input type="submit" value="뒤로가기"></td></tr>
 				</form>
+				</table>
 				<form action="AdminAdd" method="post">
 
 					<table>
@@ -240,25 +234,27 @@
 			</article>
 
 			<!-- Bolad -->
-			<article id="bolad">
+			<article id="bolad">																			<!-- 볼라드관리 화면입니다.(실시간 볼라드 조회) -->
 				<h2 class="major">
 					<i class="fas fa-chess-pawn"></i>볼라드관리<i class="fas fa-chess-pawn"></i>
 				</h2>
+				<table>
 				<form action="SmartBolad.jsp">
-					<td align="left"><input type="submit" value="뒤로가기"></td>
+					<tr><td align="left"><input type="submit" value="뒤로가기"></td></tr>
 				</form>
+				</table>
 
-				<!-- 이미지 지도를 표시할 div 입니다 -->
+																											<!-- 이미지 지도를 표시할 div 입니다 -->
 
-				<div id="staticMap" style="width: 1280px; height: 370px;"></div>
+				<div id="staticMap" style="width: 1280px; height: 370px;"></div>		
 
 				<script type="text/javascript"
 					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4cd120e494a61065de839a6b3498e5cd"></script>
 				<script>
-			// 이미지 지도에 표시할 마커입니다
-			// 이미지 지도에 표시할 마커를 아래와 같이 배열로 넣어주면 여러개의 마커를 표시할 수 있습니다
+																											// 이미지 지도에 표시할 마커입니다
+																											// 이미지 지도에 표시할 마커를 아래와 같이 배열로 넣어주면 여러개의 마커를 표시할 수 있습니다
 			
-			var markers = [
+			var markers = [																					<!-- 지도에 볼라드의 위치를 마커로 찍어둔 기능입니다.(카카오 API 이용) -->
 			    {
 			        position: new kakao.maps.LatLng(33.450701, 126.570667)
 			    },
@@ -284,33 +280,34 @@
 			    }
 			];
 			
-			var staticMapContainer  = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
+			var staticMapContainer  = document.getElementById('staticMap'),									// 이미지 지도를 표시할 div  
 			    staticMapOption = { 
-			        center: new kakao.maps.LatLng(35.123172, 126.862616), // 이미지 지도의 중심좌표
-			        level: 1, // 이미지 지도의 확대 레벨
-			        marker: markers // 이미지 지도에 표시할 마커 
+			        center: new kakao.maps.LatLng(35.123172, 126.862616), 									// 이미지 지도의 중심좌표
+			        level: 1, 																				// 이미지 지도의 확대 레벨
+			        marker: markers 																		// 이미지 지도에 표시할 마커 
 			    };    
 			
 			
-			// 이미지 지도를 생성합니다
-			var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
+																											
+			var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);					// 이미지 지도를 생성합니다
 			
 				
 		
 			</script>
 
 				<table>
-					<tr align="center">
-						<td>볼라드번호</td>
-						<!-- bolno -->
-						<td>도로명</td>
-						<!-- street -->
-						<td>제조공장</td>
-						<!-- product -->
-						<td>상태표시</td>
-						<!-- bstatus -->
-						<td>삭제하기</td>
-						<!-- Bdelete -->
+					<tr align="center">																		<!-- 볼라드조회 기능입니다. -->
+					
+						<td>볼라드번호</td>																	<!-- bolno(sequence로 자동 삽입) -->
+						
+						<td>도로명</td>																		<!-- street -->
+						
+						<td>제조공장</td>																		<!-- product -->
+						
+						<td>상태표시</td>																		<!-- bstatus -->
+						
+						<td>삭제하기</td>																		<!-- 단일행 삭제 기능 -->
+						
 					
 					</tr>
 					<!-- 반복문으로 반복시킬예정 -->
@@ -332,19 +329,22 @@
 				</table>
 
 
-				<table>
-					<tr>
-						<form action="#badd" colspan="3">
+							<table>
+								<tr>
+								<form action="#badd">
 							<!-- 추가창으로이동 insert문 이용 -->
-							<td align="center"><input type="submit" value="추가하기"></td>
-						</form>
+							<td align="center" colspan="3"><input type="submit" value="추가하기"></td>
+							</form></tr>
+						</table>
 					</tr>
 				</table>
 			</article>
-			<article id="badd">
+			<article id="badd">																				<!-- 볼라드추가 화면입니다. -->
 				<h2>볼라드등록</h2>
 				<form action="#bolad">
-					<td align="left"><input type="submit" value="뒤로가기"></td>
+				<table>
+					<tr><td align="left"><input type="submit" value="뒤로가기"></td></tr>
+				</table>
 				</form>
 				<form action="BoladAdd">
 					<table>
@@ -356,52 +356,42 @@
 							<td>제조공장 :</td>
 							<td><input type="text" name="product"></td>
 						</tr>
-<<<<<<< HEAD
-						<tr>
-							<td align="center" colspan="2"><input type="submit"
-=======
 						<tr align = "center">
-							<td>볼라드상태 :</td>
-							<td><input type="text" name="bstatus"></td>
-						</tr>
-						<tr align = "center">
-							<td>작동여부 :</td>
-							<td><input type="text" name="heartbeat"></td>
-						</tr>
-						<tr align = "center">
-							<td colspan="2"><input type="submit"
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
-								value="등록하기"><input type="reset" value="다시입력"></td>
+							<td><input type="submit" value="등록하기"></td>
+							<td><input type="reset" value="다시입력"></td>
 						</tr>
 					</table>
 				</form>
 			</article>
 			<!-- Stopline -->
 
-			<article id="stopline">
+			<article id="stopline">																			<!-- 정지선위반 관리 화면입니다.(실시간 위반사항 조회) -->
 				<h2 class="major">
 					<i class="fas fa-video"></i>정지선 위반 관리<i class="fas fa-video"></i>
 				</h2>
 				<form action="SmartBolad.jsp">
-					<td align="left"><input type="submit" value="뒤로가기"></td>
+				<table>
+					<tr><td align="left"><input type="submit" value="뒤로가기"></td></tr>
+				</table>
 				</form>
 				<form>
-					<div id="cap"></div>
+					<div id="cap"></div>																	<!-- 정지선위반 조회 화면입니다. -->
 					<table>
 						<tr align="center">
-							<td>위반단속번호</td>
-							<!-- capno -->
-							<td>도로명</td>
-							<!-- street -->
-							<td>적발시간</td>
-							<!-- sysdate로 자동지정 -->
-							<td>차량번호</td>
-							<!-- carno -->
-							<td>적발사진(경로)</td>
-							<!-- capture -->
-							<td>볼라드번호</td>
-							<!-- bolno -->
-							<td>삭제하기</td>
+						
+							<td>위반단속번호</td>																<!-- capno(sequence로 자동 삽입)-->
+							
+							<td>도로명</td>																	<!-- street -->
+							
+							<td>적발시간</td>																	<!-- captime(sysdate로 자동 삽입) -->
+							
+							<td>차량번호</td>																	<!-- carno -->
+							
+							<td>적발사진(경로)</td>																<!-- capture -->
+							
+							<td>볼라드번호</td>																<!-- bolno -->
+							
+							<td>삭제하기</td>																	<!-- 단일행 삭제 기능 -->
 						</tr>
 						<!-- 반복문으로 반복시킬예정 -->
 						<%
@@ -433,9 +423,11 @@
 			</article>
 
 			<article id="sadd">
-				<h2>정지선 위반 추가</h2>
+				<h2>정지선 위반 추가</h2>																		<!-- 정지선 위반 추가 화면입니다. -->
 				<form action="#stopline">
-					<td align="left"><input type="submit" value="뒤로가기"></td>
+				<table>
+					<tr><td align="left"><input type="submit" value="뒤로가기"></td></tr>
+				</table>
 				</form>
 				<form action="StopAdd">
 					<table>
@@ -447,64 +439,57 @@
 							<td>차량번호 :</td>
 							<td><input type="text" name="carno"></td>
 						</tr>
-<<<<<<< HEAD
-						<tr>
-							<td align="right">볼라드번호 :</td>
-=======
-						<tr align = "center">
-							<td>저장경로 :</td>
-							<td><input type="text" name="capture" value="경로"></td>
-						</tr>
 						<tr align = "center">
 							<td>볼라드번호 :</td>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
 							<td><input type="text" name="bolno"></td>
 						</tr>
 						<tr align = "center">
-							<td colspan="6"><input type="submit"
-								value="추가하기"></td>
+							<td colspan="6"><input type="submit" value="추가하기"></td>
 						</tr>
 					</table>
 				</form>
 			</article>
 
-			<script src="./assets/js/jquery.min.js"></script>
+			<script src="./assets/js/jquery.min.js"></script>												<!-- 정지선 위반사진 전송받기 기능입니다. -->
 
 			<script>
 				function capture() {
 					alert("사진 전송중....");
 					var cap = document.getElementById("cap");
-					cap.innerHTML = "<img src = 'images/unnamed.jpg'>";
+					cap.innerHTML = "<img src = 'images/car.jpg'>";
 				}
 				</script>
 
 			<!------ Event ------>
-			<article id="event">
+			<article id="event">																			<!-- 축제및 집회일정 관리화면입니다.(등록된 일정 조회) -->
 				<h2 class="major">
 					<i class="far fa-calendar-alt"></i>축제일정관리<i
 						class="far fa-calendar-alt"></i>
 				</h2>
 				<form action="SmartBolad.jsp">
-					<td align="left"><input type="submit" value="뒤로가기"></td>
+				<table>
+					<tr><td align="left"><input type="submit" value="뒤로가기"></td></tr>
+				</table>
 				</form>
 				<form>
 					<table>
-						<tr align="center">
-							<td>행사명</td>
-							<!-- ename -->
-							<td>기간</td>
-							<!-- day -->
-							<td>주최자</td>
-							<!-- host -->
-							<td>통제시간</td>
-							<!-- etime -->
-							<td>참가인원</td>
-							<!-- people -->
-							<td>시작구간</td>
-							<!-- sstreet -->
-							<td>종료구간</td>
-							<!-- estreet -->
-							<td>삭제하기</td>
+						<tr align="center">																	<!-- 축제및 집회 일정조회 화면입니다. -->
+						
+							<td>행사명</td>																	<!-- ename(sequence로 자동 삽입) -->
+							
+							<td>기간</td>																		<!-- day -->
+							
+							<td>주최자</td>																	<!-- host -->
+							
+							<td>통제시간</td>																	<!-- etime -->
+							
+							<td>참가인원</td>																	<!-- people -->
+							
+							<td>시작구간</td>																	<!-- sstreet -->
+							
+							<td>종료구간</td>																	<!-- estreet -->
+							
+							<td>삭제하기</td>																	<!-- 단일행 삭제기능 -->
 						</tr>
 
 						<%
@@ -519,7 +504,7 @@
 							<td><%=eventList.get(i).getSstreet()%></td>
 							<td><%=eventList.get(i).getEstreet()%></td>
 							<td><a
-								href="DelOneEvent?eno=<%=eventList.get(i).getEno()%>"> 삭제 </a></td>
+								href="EventDel?eno=<%=eventList.get(i).getEno()%>"> 삭제 </a></td>
 
 						</tr>
 						<%
@@ -540,7 +525,7 @@
 				</table>
 			</article>
 
-			<article id="evadd">
+			<article id="evadd">																				<!-- 축제및 집회일정 추가 화면입니다. -->
 				<h2>행사/집회등록</h2>
 				<form action="#event">
 					<td align="left"><input type="submit" value="뒤로가기"></td>
@@ -576,8 +561,8 @@
 							<td><input type="text" name="estreet"></td>
 						</tr>
 						<tr align = "center">
-							<td align="center" colspan="2"><input type="submit"
-								value="등록하기"><input type="reset" value="다시입력"></td>
+							<td align="center"><input type="submit" value="등록하기"></td>
+							<td><input type="reset" value="다시입력"></td>
 						</tr>
 				</table>
 				</form>
@@ -586,32 +571,36 @@
 
 
 			<!-- EMC -->
-			<article id="emc">
+			<article id="emc">																					<!-- 교통통제관리 화면입니다.(실시간 통제상태 조회) -->
 				<h2 class="major">
-					<i class="fas fa-road"></i></i>교통통제관리<i class="fas fa-road"></i></i>
+					<i class="fas fa-road"></i>교통통제관리<i class="fas fa-road"></i>
 				</h2>
 				<form action="SmartBolad.jsp">
-					<td align="left"><input type="submit" value="뒤로가기"></td>
+				<table>
+					<tr><td align="left"><input type="submit" value="뒤로가기"></td></tr>
+				</table>
 				</form>
-				<form action="EventAdd" method="post">
+				<form action="EmcAdd" method="post">															<!-- 교통통제조회 화면입니다. -->
 					<table>
 
 						<tr align="center">
-							<td align="center">통제번호</td>
-							<!-- bolno -->
-							<td align="center">통제내용</td>
-							<!-- info -->
-							<td align="center">담당자</td>
-							<!-- manager -->
-							<td align="center">도로명</td>
-							<!-- street -->
-							<td align="center">통제시간</td>
-							<!-- ttime -->
-							<td align="center">통제상태</td>
-							<!-- lightcolor -->
-							<td align="center">관할구역</td>
-							<!-- zone -->
-							<td align="center">삭제하기</td>
+							<td align="center">통제번호</td>														<!-- emcno(sequence로 자동 삽입) -->
+							
+							<td align="center">통제내용</td>														<!-- info -->																					
+							
+							<td align="center">담당자</td>														<!-- manager -->
+																												
+							<td align="center">도로명</td>														<!-- street -->
+																												
+							<td align="center">통제시간</td>														<!-- ttime -->
+																												
+							<td align="center">통제상태</td>														<!-- lightcolor -->
+																												
+							<td align="center">관할구역</td>														<!-- zone -->
+																												
+							<td align="center">삭제하기</td>														<!-- 단일행 삭제 기능 -->
+																					
+							
 						</tr>
 
 
@@ -641,16 +630,18 @@
 					<form action="#emadd" align="center">
 						<input type="submit" value="추가하기">
 					</form>
-					<form action="SearchStreet" align="center">
-						<input type="submit" value="교통통제하기" name="street">
+					<form action="#emccontroll" align="center">
+						<input type="submit" value="교통통제하기">
 					</form>
 				</form>
 			</article>
 
-			<article id="emadd">
+			<article id="emadd">																				<!-- 교통통제추가 화면입니다. -->
 				<h2>교통통제등록</h2>
 				<form action="#emc">
-					<td align="left"><input type="submit" value="뒤로가기"></td>
+				<table>
+					<tr><td align="left"><input type="submit" value="뒤로가기"></td></tr>
+				</table>
 				</form>
 				<table>
 					<form action="EmcAdd">
@@ -670,17 +661,8 @@
 							<td>통제날짜 :</td>
 							<td><input type="text" name="ttime"></td>
 						</tr>
-<<<<<<< HEAD
-						<tr>
-							<td align="right">관할구역 :</td>
-=======
-						<tr align = "center">
-							<td>신호상태 :</td>
-							<td><input type="text" name="lightcolor"></td>
-						</tr>
 						<tr align = "center">
 							<td>관할구역 :</td>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
 							<td><input type="text" name="zone"></td>
 						</tr>
 						<tr align = "center">
@@ -694,59 +676,32 @@
 			</article>
 
 
-			<article id="emccontroll">
+			<article id="emccontroll">																		<!-- 통제하기 화면입니다.(도로별로 볼라드 검색) -->
 				<h2>교통통제</h2>
 				<form action="#emc">
-					<td align="left"><input type="submit" value="뒤로가기"></td>
+				<table>
+					<tr><td align="left"><input type="submit" value="뒤로가기"></td></tr>
+				</table>
 				</form>
-				<form action="SearchStreet">
+				<form action="SearchBolad">
 				<table>
 					<tr>
-							<td><input type="text" name="street" placeholder="도로명을 입력하세요."></td>
+							<td><input type="text" name="street" placeholder="도로명을 입력하세요."></td>			<!-- 도로별 볼라드 검색기능입니다. -->
 							<td align = "right"><input type="submit" value="검색"></td>
 					</tr>
 				</table>
 				</form>
-<<<<<<< HEAD
-				<form action = "test">
-=======
-				<form  action = "http://192.168.1.8">
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
+				<form action = "http://192.168.1.8">
 					<table>
 						<tr align="center">
-							<td>볼라드통제</td>
-							<!-- bolno -->
+							<td>볼라드번호</td>																<!-- bolno -->
+							
 						</tr>
 						<!-- 통제데이터를 반복문으로 불러오기 -->
 						<%
 						String street = request.getParameter("name");
 
-						if (street == null) {
-						%>
-
-
-						<%
-<<<<<<< HEAD
-						}  else  {
-=======
-						} else if (street.equals("교통통제하기")) {
-						%>
-						<%
-						ArrayList<BoladDTO> bolnoList1 = emcdao.allBoladShow();
-						
-						%>
-
-						<%
-						for (i = 0; i < bolnoList1.size(); i++) {
-						%>
-						<tr>
-							<td align="center"><input type="submit"
-								value="B<%=bolnoList1.get(i).getBolno()%> 통제하기"></td>
-						</tr>
-						<%
-						}
-						} else {
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/SmartBollard.git
+						if (street != null){
 						%>
 						<%
 						ArrayList<BoladDTO> bolnoList1 = emcdao.streetBoladShow(street);
@@ -761,7 +716,7 @@
 								value=<%=bolnoList1.get(i).getBolno()%> name = "bolno"></td>
 						</tr>
 						<%
-						}
+							}
 						}
 						%>
 					</table>
@@ -773,7 +728,7 @@
 		</div>
 
 		<!-- Footer -->
-		<footer id="footer">
+		<footer id="footer">																					<!-- 문의 가능한 정보를 입력한 부분입니다.(실제 개발원 사이트와 우리조의 히스토리를 볼수있습니다.) -->
 			<p class="copyright">해당 제품에 대한 자세한 사항은 010-XXXX-XXXX에 문의해주세요.</p>
 			<a href = "mailto:smhrd@smhrd.or.kr" class="fas fa-envelope"></a>
 			<a href = "https://www.youtube.com/channel/UCubIpLB7cA9tWIUZ26WFKPg" class="fab fa-youtube"></a>

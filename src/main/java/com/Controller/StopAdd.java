@@ -16,6 +16,8 @@ public class StopAdd extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 정지선 위반사항 추가기능
+		
 		String street = request.getParameter("street");
 		String carno = request.getParameter("carno");
 		int bolno = Integer.parseInt(request.getParameter("bolno"));

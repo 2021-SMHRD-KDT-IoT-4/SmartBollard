@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.Model.adminDAO;
-import com.Model.adminDTO;
+import com.Model.AdminDAO;
+import com.Model.AdminDTO;
 
 
 
@@ -21,6 +21,8 @@ public class AdminAdd extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 관리자등록 기능
+		
 		request.setCharacterEncoding("utf-8");
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
@@ -29,8 +31,8 @@ public class AdminAdd extends HttpServlet {
 		String police = request.getParameter("police");
 		
 		
-		adminDAO dao = new adminDAO();
-		adminDTO dto = new adminDTO(id, pw, name, zone, police);
+		AdminDAO dao = new AdminDAO();
+		AdminDTO dto = new AdminDTO(id, pw, name, zone, police);
 		int cnt = dao.join(dto);
 		
 		if(cnt >0) {

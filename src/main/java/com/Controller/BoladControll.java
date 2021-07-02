@@ -18,7 +18,8 @@ public class BoladControll extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	 	
+		// 볼라드 상태조회 기능
+		
 		int heartBeat = Integer.parseInt(request.getParameter("yj"));	
 		
 	

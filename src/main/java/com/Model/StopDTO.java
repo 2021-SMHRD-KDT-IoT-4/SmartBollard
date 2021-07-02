@@ -1,6 +1,6 @@
 package com.Model;
 
-public class StopDTO {
+public class StopDTO {	// 정지선 위반 관련 DTO
 	
 	int capno;
 	String street;

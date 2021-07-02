@@ -15,6 +15,8 @@ public class BoladDelete extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 볼라드 삭제 기능
+		
 		int bolno = Integer.parseInt(request.getParameter("bolno"));
 		
 		 BoladDAO dao = new BoladDAO();

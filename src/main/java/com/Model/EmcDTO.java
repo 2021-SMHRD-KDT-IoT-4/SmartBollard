@@ -1,6 +1,6 @@
 package com.Model;
 
-public class emcDTO {
+public class EmcDTO {	// 교통통제 관련 DTO
 
 	private int emcno;
 	private String info;
@@ -10,7 +10,7 @@ public class emcDTO {
 	private String lightcolor;
 	private String zone;
 
-	public emcDTO(int emcno, String info, String manager, String street, String ttime, String lightcolor, String zone) {
+	public EmcDTO(int emcno, String info, String manager, String street, String ttime, String lightcolor, String zone) {
 		
 		this.emcno = emcno;
 		this.info = info;
@@ -21,7 +21,7 @@ public class emcDTO {
 		this.zone = zone;
 	}
 
-	public emcDTO(String info, String manager, String street, String ttime, String zone) {
+	public EmcDTO(String info, String manager, String street, String ttime, String zone) {
 		this.info = info;
 		this.manager = manager;
 		this.street = street;

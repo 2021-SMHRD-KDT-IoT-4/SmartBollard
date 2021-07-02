@@ -15,6 +15,9 @@ public class Logout extends HttpServlet {
 
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 로그아웃 기능
+		
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		

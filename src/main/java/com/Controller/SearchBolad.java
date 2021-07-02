@@ -12,20 +12,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.Model.BoladDTO;
-import com.Model.emcDAO;
+import com.Model.EmcDAO;
 
-@WebServlet("/SearchStreet")
-public class SearchStreet extends HttpServlet {
+@WebServlet("/SearchBolad")
+public class SearchBolad extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 해당 도로명으로 볼라드 검색기능
 		
 		ArrayList<BoladDTO> stinfo = null;
 		String street = request.getParameter("street");
 		
 		
 		BoladDTO dto = new BoladDTO(street);
-		emcDAO dao = new emcDAO();
+		EmcDAO dao = new EmcDAO();
 		stinfo = dao.streetBoladShow(street);
 		
 		

@@ -9,14 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.Model.adminDAO;
-import com.Model.adminDTO;
+import com.Model.AdminDAO;
+import com.Model.AdminDTO;
 
 
 @WebServlet("/AdminLogin")
 public class AdminLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	// 로그인 기능
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -27,11 +28,11 @@ public class AdminLogin extends HttpServlet {
 		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		adminDTO info = null;
+		AdminDTO info = null;
 		
 		
-		adminDAO dao = new adminDAO();
-		adminDTO dto = new adminDTO(id, pw);
+		AdminDAO dao = new AdminDAO();
+		AdminDTO dto = new AdminDTO(id, pw);
 		
 		info = dao.login(dto);
 		

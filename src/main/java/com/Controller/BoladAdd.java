@@ -16,6 +16,8 @@ public class BoladAdd extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 볼라드추가 기능
+		
 		request.setCharacterEncoding("utf-8");
 		
 		String street = request.getParameter("street");

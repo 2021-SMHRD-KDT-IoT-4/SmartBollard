@@ -7,16 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.Model.eventDAO;
-import com.Model.eventDTO;
+import com.Model.EventDAO;
+import com.Model.EventDTO;
 
 
 @WebServlet("/EventAdd")
 public class EventAdd extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		request.setCharacterEncoding("utf-8");
+	
+	// 축제및 집회 추가기능
+		
+	request.setCharacterEncoding("utf-8");
 	String ename = request.getParameter("ename");
 	String day = request.getParameter("day");
 	String host = request.getParameter("host");
@@ -26,8 +28,8 @@ public class EventAdd extends HttpServlet {
 	String estreet = request.getParameter("estreet");
 	
 	
-	eventDTO dto = new eventDTO(ename, day, host, etime, people, sstreet, estreet);
-	eventDAO eventdao = new eventDAO();
+	EventDTO dto = new EventDTO(ename, day, host, etime, people, sstreet, estreet);
+	EventDAO eventdao = new EventDAO();
 	int cnt = eventdao.eventAdd(dto);
 	
 	if(cnt>0) {

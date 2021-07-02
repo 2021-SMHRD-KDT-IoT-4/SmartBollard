@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class BoladDAO {
+public class BoladDAO {	// 볼라드 관련 DAO
 	
 	Connection conn = null;
 	PreparedStatement psmt = null;
@@ -17,7 +17,7 @@ public class BoladDAO {
 	int cnt = 0;
 	int c = 0;
 	
-	public void conn() {
+	public void conn() { // DB 연결
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -33,7 +33,7 @@ public class BoladDAO {
 		
 	}
 	
-	public void close() {
+	public void close() {	// DB 연결헤제
 		
 			try {
 			if(rs != null)
@@ -48,7 +48,7 @@ public class BoladDAO {
 		
 	}
 	
-	public ArrayList<BoladDTO> boladManage() {
+	public ArrayList<BoladDTO> boladManage() {	// 볼라드 관리
 		
 		boladList = new ArrayList<BoladDTO>();
 		conn();
@@ -74,7 +74,7 @@ public class BoladDAO {
 		
 	}
 	
-	public int boladAdd(BoladDTO dto) {
+	public int boladAdd(BoladDTO dto) {	// 볼라드 추가
 		
 		conn();
 		
@@ -93,7 +93,7 @@ public class BoladDAO {
 		
 	}
 	
-	public int boladDel (int bolno) {
+	public int boladDel (int bolno) {	// 볼라드 삭제
 		
 		conn();
 		
@@ -112,7 +112,7 @@ public class BoladDAO {
 	}
 	
 	
-	public int boladUpdate(int heartBeat) {
+	public int boladUpdate(int heartBeat) {	// 볼라드 상태조회
 		conn();
 		
 		String sql = "update bolad set heartbeat = ?";
@@ -133,7 +133,7 @@ public class BoladDAO {
 	}
 	
 	
-	public int boladBreak(int bolno) {
+	public int boladBreak(int bolno) {	// 볼라드 고장상태 감지시
 		conn();
 		String sql = "update bolad set bstatus = '고장' where bolno = ?";
 		try {
@@ -153,7 +153,7 @@ public class BoladDAO {
 	}
 	
 	
-	public int boladNormal(int bolno) {
+	public int boladNormal(int bolno) {	// 볼라드 정상상태 감지시
 		conn();
 		String sql = "update bolad set bstatus = '정상' where bolno = ?";
 		try {

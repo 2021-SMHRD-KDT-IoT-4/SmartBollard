@@ -9,15 +9,15 @@ import java.util.ArrayList;
 
 
 
-public class eventDAO {
+public class EventDAO {	// 축제및 집회일정 관련 DAO
 
 		Connection conn = null;
 		ResultSet rs =null;
 		PreparedStatement psmt = null;
 		int cnt = 0;
-		eventDTO dto =null;
+		EventDTO dto =null;
 		
-		public void conn() {
+		public void conn() {	// DB 연결
 
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -34,7 +34,7 @@ public class eventDAO {
 
 		}
 		
-		public void close() {
+		public void close() {	// DB 연결헤제
 			try {
 				if (rs != null) {
 					rs.close();
@@ -51,7 +51,7 @@ public class eventDAO {
 		}
 		
 		
-		public int eventAdd(eventDTO dto) {
+		public int eventAdd(EventDTO dto) {	// 축제및 집회 일정 추가
 			conn();
 			String sql = "insert into event values(?,?,?,?,?,?,?,event_sequence.nextval)";
 			try {
@@ -74,8 +74,8 @@ public class eventDAO {
 			return cnt;
 		}
 		
-		public ArrayList<eventDTO> showEvent() {
-			ArrayList<eventDTO> eventList = new ArrayList<eventDTO>();
+		public ArrayList<EventDTO> showEvent() {	// 축제및 집회 일정 조회
+			ArrayList<EventDTO> eventList = new ArrayList<EventDTO>();
 			conn();
 			String sql = "select*from event";
 			try {
@@ -93,7 +93,7 @@ public class eventDAO {
 					String estreet = rs.getString(7);
 					int eno = rs.getInt(8);
 					
-					dto = new eventDTO(ename, day, host, etime, people, sstreet, estreet,eno);
+					dto = new EventDTO(ename, day, host, etime, people, sstreet, estreet,eno);
 					eventList.add(dto);
 				}
 				
@@ -105,7 +105,7 @@ public class eventDAO {
 	
 	}
 
-	public int DelOEvent(String eno) {
+	public int DelOEvent(String eno) {	// 축제및 집회 일정 삭제
 		
 		conn();
 		String sql = "delete from event where eno=?";

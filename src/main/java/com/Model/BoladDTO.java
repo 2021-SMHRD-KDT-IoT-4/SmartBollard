@@ -1,6 +1,6 @@
 package com.Model;
 
-public class BoladDTO {
+public class BoladDTO {	//볼라드 관련 DTO
 	
 	private	int bolno;
 	private String street;

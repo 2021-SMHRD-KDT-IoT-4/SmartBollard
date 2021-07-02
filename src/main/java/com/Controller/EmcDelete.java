@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.Model.emcDAO;
+import com.Model.EmcDAO;
 
 
 @WebServlet("/EmcDelete")
@@ -17,12 +17,13 @@ public class EmcDelete extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 교통통제 삭제기능
 		
 		request.setCharacterEncoding("utf-8");
 		int emcno = Integer.parseInt(request.getParameter("emcno"));
 	
 		
-		emcDAO dao = new emcDAO();
+		EmcDAO dao = new EmcDAO();
 		int cnt = dao.deleteOneEmc(emcno);
 		
 		if(cnt >0 ) {

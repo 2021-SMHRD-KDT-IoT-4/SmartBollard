@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.Model.emcDAO;
-import com.Model.emcDTO;
+import com.Model.EmcDAO;
+import com.Model.EmcDTO;
 
 
 @WebServlet("/EmcAdd")
@@ -17,6 +17,8 @@ public class EmcAdd extends HttpServlet {
 
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 교통통제 추가기능
 		
 		request.setCharacterEncoding("utf-8");
 		
@@ -27,8 +29,8 @@ public class EmcAdd extends HttpServlet {
 		String zone = request.getParameter("zone");
 		
 		
-		emcDTO dto = new emcDTO(info, manager, street, ttime, zone);
-		emcDAO dao = new emcDAO();
+		EmcDTO dto = new EmcDTO(info, manager, street, ttime, zone);
+		EmcDAO dao = new EmcDAO();
 		
 		int cnt = dao.emcAdd(dto);
 		

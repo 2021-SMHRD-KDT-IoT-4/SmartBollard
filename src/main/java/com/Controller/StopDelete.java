@@ -15,6 +15,8 @@ public class StopDelete extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 정지선 위반사항 삭제기능
+		
 		int capno = Integer.parseInt(request.getParameter("capno"));
 		
 		StopDAO dao = new StopDAO();

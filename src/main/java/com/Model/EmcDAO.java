@@ -7,20 +7,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class emcDAO {
+public class EmcDAO {	// 교통통제 관련 DAO
 
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	int cnt = 0;
 	String a = null;
-	emcDTO dto = null;
+	EmcDTO dto = null;
 	BoladDTO info = null;
 	BoladDTO stinfo = null;
 	ArrayList<BoladDTO> bolnoList = null;
 	ArrayList<BoladDTO> streetList = null;
 	
-	public void conn() {
+	public void conn() {	// DB 연결
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
@@ -36,7 +36,7 @@ public class emcDAO {
 		}
 	}
 	
-	public void close() {
+	public void close() {	// DB 연결헤제
 
 		try {
 			if (rs != null) {
@@ -58,7 +58,7 @@ public class emcDAO {
 	}
 	
 	
-	public int emcAdd(emcDTO dto) {
+	public int emcAdd(EmcDTO dto) {	// 교통통제 추가
 		 conn();
 		 
 		 String sql = "insert into emc values(emcno_sequence.nextval,?,?,?,?,null,?)";
@@ -83,8 +83,8 @@ public class emcDAO {
 	
 	
 	
-	public ArrayList<emcDTO> showEmc() {
-		ArrayList<emcDTO> emcList = new ArrayList<emcDTO>();
+	public ArrayList<EmcDTO> showEmc() {	// 교통통제 조회
+		ArrayList<EmcDTO> emcList = new ArrayList<EmcDTO>();
 		conn();
 		String sql = "select*from emc order by emcno";
 		try {
@@ -101,7 +101,7 @@ public class emcDAO {
 				String lightcolor = rs.getString(6);
 				String zone = rs.getString(7);
 				
-				dto = new emcDTO(emcno, info, manager, street, ttime, lightcolor, zone);
+				dto = new EmcDTO(emcno, info, manager, street, ttime, lightcolor, zone);
 				emcList.add(dto);
 			}
 			
@@ -115,7 +115,7 @@ public class emcDAO {
 }
 	
 	
-	public int deleteOneEmc(int emcno) {
+	public int deleteOneEmc(int emcno) {	// 교통통제 삭제
 			
 			conn();
 			
@@ -133,31 +133,8 @@ public class emcDAO {
 			return cnt;
 		}
 		
-	public ArrayList<BoladDTO> allBoladShow() {
-		
-		bolnoList = new ArrayList<BoladDTO>();
-		conn();
-		
-		try {
-			String sql = "select * from bolad";
-			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
-			
-			while(rs.next()) {
-				int bolno = rs.getInt(1);
-				
-				info = new BoladDTO(bolno);
-				bolnoList.add(info);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		} return bolnoList;
-		
-	}
 	
-public ArrayList<BoladDTO> streetBoladShow(String street) {
+		public ArrayList<BoladDTO> streetBoladShow(String street) {	// 도로명으로 볼라드 검색
 		
 		bolnoList = new ArrayList<BoladDTO>();
 		conn();

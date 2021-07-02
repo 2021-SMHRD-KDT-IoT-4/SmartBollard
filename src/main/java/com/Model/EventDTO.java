@@ -1,6 +1,6 @@
 package com.Model;
 
-public class eventDTO {
+public class EventDTO {	// 축제및 집회 일정 관련 DTO
 
 	private String ename;
 	private String day;
@@ -25,7 +25,7 @@ public class eventDTO {
 
 
 
-	public eventDTO(String ename, String day, String host, String etime, int people, String sstreet, String estreet, int eno) {
+	public EventDTO(String ename, String day, String host, String etime, int people, String sstreet, String estreet, int eno) {
 		super();
 		this.ename = ename;
 		this.day = day;
@@ -42,7 +42,7 @@ public class eventDTO {
 
 
 
-	public eventDTO(String ename, String day, String host, String etime, int people, String sstreet, String estreet) {
+	public EventDTO(String ename, String day, String host, String etime, int people, String sstreet, String estreet) {
 		super();
 		this.ename = ename;
 		this.day = day;

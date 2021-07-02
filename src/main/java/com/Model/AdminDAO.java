@@ -6,15 +6,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class adminDAO {
+public class AdminDAO { // 관리자 관련 DAO
 
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	int cnt = 0;
-	adminDTO info = null;
+	AdminDTO info = null;
 
-	public void conn() {
+	public void conn() {	// DB 연결
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
@@ -30,7 +30,7 @@ public class adminDAO {
 		}
 	}
 
-	public void close() {
+	public void close() {	// DB 연결헤제
 
 		try {
 			if (rs != null) {
@@ -52,7 +52,7 @@ public class adminDAO {
 	}
 
 	
-	public int join(adminDTO dto) {
+	public int join(AdminDTO dto) {	// 관리자등록
 		
 		conn();
 		
@@ -82,7 +82,7 @@ public class adminDAO {
 	}
 	
 	
-	public adminDTO login(adminDTO dto) {
+	public AdminDTO login(AdminDTO dto) {	// 로그인
 		
 		conn();
 		
@@ -103,7 +103,7 @@ public class adminDAO {
 				String zone = rs.getString(4);
 				String police = rs.getString(5);
 				
-				info = new adminDTO(id, pw, name, zone, police);
+				info = new AdminDTO(id, pw, name, zone, police);
 		
 			}
 		
