@@ -47,7 +47,7 @@
 
 <body class="is-preload">
 	<%
-	AdminDTO info = (AdminDTO) session.getAttribute("login_info");											// 로그인 정보가 담긴 세션입니다. 
+		AdminDTO info = (AdminDTO) session.getAttribute("login_info");										// 로그인 정보가 담긴 세션입니다. 
 
 		int i = 0;
 		BoladDAO dao = new BoladDAO();
@@ -159,7 +159,7 @@
 				</form>
 			</article>
 
-			<!-- loginfail -->
+			<!-- ㅣoginfail -->
 			<article id="loginFail">																		<!-- 로그인 실패시의 화면입니다. -->
 				<form action="SmartBolad.jsp">
 					<td align="left"><input type="submit" value="뒤로가기"></td>
@@ -387,7 +387,7 @@
 							
 							<td>차량번호</td>																	<!-- carno -->
 							
-							<td>적발사진(경로)</td>																<!-- capture -->
+							<td>적발사진(경로)</td>																<!-- capture(JavaScript사용 함수기능으로 링크를 누르면 사진 표시 기능-->
 							
 							<td>볼라드번호</td>																<!-- bolno -->
 							
@@ -450,7 +450,7 @@
 				</form>
 			</article>
 
-			<script src="./assets/js/jquery.min.js"></script>												<!-- 정지선 위반사진 전송받기 기능입니다. -->
+			<script src="./assets/js/jquery.min.js"></script>												<!-- 정지선 위반사진 표시 기능입니다. -->
 
 			<script>
 				function capture() {
@@ -475,7 +475,9 @@
 					<table>
 						<tr align="center">																	<!-- 축제및 집회 일정조회 화면입니다. -->
 						
-							<td>행사명</td>																	<!-- ename(sequence로 자동 삽입) -->
+							<td>행사번호</td>																	<!-- eno(sequence로 자동 삽입) -->
+
+							<td>행사명</td>																	<!-- ename -->
 							
 							<td>기간</td>																		<!-- day -->
 							
@@ -496,6 +498,7 @@
 						for (i = 0; i < eventList.size(); i++) {
 						%>
 						<tr align="center">
+							<td><%=eventList.get(i).getEno()%></td>
 							<td><%=eventList.get(i).getEname()%></td>
 							<td><%=eventList.get(i).getDay()%></td>
 							<td><%=eventList.get(i).getHost()%></td>

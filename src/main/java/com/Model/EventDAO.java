@@ -84,6 +84,7 @@ public class EventDAO {	// 축제및 집회일정 관련 DAO
 				rs= psmt.executeQuery();
 				
 				while(rs.next()) {
+					int eno = rs.getInt(8);
 					String ename = rs.getString(1);
 					String day = rs.getString(2);
 					String host = rs.getString(3);
@@ -91,9 +92,8 @@ public class EventDAO {	// 축제및 집회일정 관련 DAO
 					int people = rs.getInt(5);
 					String sstreet = rs.getString(6);
 					String estreet = rs.getString(7);
-					int eno = rs.getInt(8);
 					
-					dto = new EventDTO(ename, day, host, etime, people, sstreet, estreet,eno);
+					dto = new EventDTO(eno, ename, day, host, etime, people, sstreet, estreet);
 					eventList.add(dto);
 				}
 				
